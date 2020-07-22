@@ -1,6 +1,4 @@
-*****
-Cad Tickers
-*****
+## Cad Tickers
 
 Set of utilities modules designed to scrap data from the web.
 
