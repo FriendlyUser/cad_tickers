@@ -7,6 +7,7 @@ on:
 jobs:
   publish:
     name: Publish package
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - name: Install
