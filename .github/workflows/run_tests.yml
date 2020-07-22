@@ -6,55 +6,66 @@ jobs:
     name: pytest
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Install
-      uses: abatilo/actions-poetry@v1.5.0
-      with:
-        python_version: 3.6.7
-        poetry_version: 1.0.9
-        # working_directory: ./working_dir # Optional, defaults to '.'
-        args: install
-    - name: Run pytest
-      uses: abatilo/actions-poetry@v1.5.0
-      with:
-        python_version: 3.6.7
-        poetry_version: 1.0.9
-        # working_directory: ./working_dir
-        args: run python -m pytest --cov=src --cov-branch --cov-fail-under=20 tests/
+      - uses: actions/checkout@master
+      - name: Install
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.6.7
+          poetry_version: 1.0.9
+          # working_directory: ./working_dir # Optional, defaults to '.'
+          args: install
+      - name: Run pytest
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.6.7
+          poetry_version: 1.0.9
+          # working_directory: ./working_dir
+          args: run python -m pytest
 
-    - name: Make Coverage
-      uses: abatilo/actions-poetry@v1.5.0
-      with:
-        python_version: 3.6.7
-        poetry_version: 1.0.9
-        # working_directory: ./working_dir
-        args: coverage run -m pytest
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.6.7
+          poetry_version: 1.0.9
 
-    - name: HTML Coverage
-      uses: abatilo/actions-poetry@v1.5.0
-      with:
-        python_version: 3.6.7
-        poetry_version: 1.0.9
-        # working_directory: ./working_dir
-        args: coverage report
-    
-    - name: HTML Coverage
-      uses: abatilo/actions-poetry@v1.5.0
-      with:
-        python_version: 3.6.7
-        poetry_version: 1.0.9
-        # working_directory: ./working_dir
-        args: coverage html
+      - name: Make Coverage
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.6.7
+          poetry_version: 1.0.9
+          # working_directory: ./working_dir
+          args: coverage run -m pytest
 
-    - uses: actions/upload-artifact@v2
-      name: Upload Coverage
-      with:
-        name: html_coverage
-        path: htmlcov
+      - name: HTML Coverage
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.6.7
+          poetry_version: 1.0.9
+          # working_directory: ./working_dir
+          args: coverage report
+      
+      - name: HTML Coverage
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.6.7
+          poetry_version: 1.0.9
+          # working_directory: ./working_dir
+          args: coverage html
 
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@3.5.7
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: htmlcov # The folder the action should deploy.
+      - uses: actions/upload-artifact@v2
+        name: Upload Coverage
+        with:
+          name: html_coverage
+          path: htmlcov
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.5.7
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: htmlcov  # The folder the action should deploy.

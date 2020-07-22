@@ -1,8 +1,18 @@
 [tool.poetry]
-name = "dli_stocks"
+name = "cad_tickers"
 version = "0.1.0"
 description = "Various Stock Utilties Created by me"
-authors = ["dli <davidli012345@gmail.com>"]
+authors = ["David Li <davidli012345@gmail.com>"]
+maintainers = ["David Li <davidli012345@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/FriendlyUser/cad_tickers"
+documentation = "https://github.com/FriendlyUser/cad_tickers"
+keywords = ["Poetry",
+            "Stock Tickers",
+            "Requests",
+            "CSE",
+            "TSX"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
