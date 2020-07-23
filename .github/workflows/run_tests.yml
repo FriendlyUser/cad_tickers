@@ -32,6 +32,7 @@ jobs:
         with:
           python_version: 3.6.7
           poetry_version: 1.0.9
+          args: install
 
       - name: Make Coverage
         uses: abatilo/actions-poetry@v1.5.0
