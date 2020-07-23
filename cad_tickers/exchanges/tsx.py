@@ -38,6 +38,7 @@ def get_mig_report(filename, exchange="TSX") -> str:
   else:
     return None
 
+# Add endpoint to query search parameters for tsx spreadsheets
 if __name__ == "__main__":
   import argparse
   parser = argparse.ArgumentParser()
