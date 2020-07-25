@@ -1,4 +1,4 @@
-from cad_tickers.exchanges.tsx import get_mig_report
+from cad_tickers.exchanges.tsx import get_mig_report, dl_tsx_xlsx
 import os
 def test_dl_tsx():
   path = get_mig_report("All.xlsx")
@@ -15,8 +15,8 @@ def test_dl_all():
   assert(path == "All.xlsx")
   assert(os.path.exists(path))
 
-def pytest_sessionfinish(session, exitstatus):
-  """ whole test run finishes. """
-  os.remove('All.xlsx')
-  os.remove('TSXV.xlsx')
-  os.remove('All.xlsx')
+def test_dl_all_options():
+  # tests to make sure file can be downloaded
+  path = dl_tsx_xlsx("full_time.xlsx", exchanges='TSX', marketcap='0-50')
+  assert(path == "full_time.xlsx")
+  assert(os.path.exists(path))

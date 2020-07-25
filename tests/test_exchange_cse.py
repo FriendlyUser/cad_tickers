@@ -10,7 +10,3 @@ def test_dl_all():
   assert(path == "cse.pdf")
   assert(os.path.exists(path))
 
-def pytest_sessionfinish(session, exitstatus):
-  """ whole test run finishes. """
-  os.remove('cse.xlsx')
-  os.remove('cse.pdf')
