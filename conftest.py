@@ -23,12 +23,16 @@ def pytest_sessionfinish(session, exitstatus):
     """
 
 
+def try_and_delete(filePath):
+    if os.path.exists(filePath):
+        os.remove(filePath)
+
 def pytest_unconfigure(config):
     """
     called before test process is exited.
     """
-    os.remove('All.xlsx')
-    os.remove('TSXV.xlsx')
-    os.remove('All.xlsx')
-    os.remove('cse.xlsx')
-    os.remove('cse.pdf')
+    try_and_delete('All.xlsx')
+    try_and_delete('TSXV.xlsx')
+    try_and_delete('All.xlsx')
+    try_and_delete('cse.xlsx')
+    try_and_delete('cse.pdf')
