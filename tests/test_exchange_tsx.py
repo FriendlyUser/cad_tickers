@@ -1,4 +1,6 @@
-from cad_tickers.exchanges.tsx import get_mig_report, dl_tsx_xlsx
+from cad_tickers.exchanges.tsx import get_mig_report, \
+  dl_tsx_xlsx, grab_cad_symbol_for_ticker
+
 import os
 def test_dl_tsx():
   path = get_mig_report("All.xlsx")
@@ -20,3 +22,10 @@ def test_dl_all_options():
   path = dl_tsx_xlsx("full_time.xlsx", exchanges='TSX', marketcap='0-50')
   assert(path == "full_time.xlsx")
   assert(os.path.exists(path))
+
+
+def test_grab_cad_symbol_for_ticker():
+  # tests to make sure file can be downloaded
+  symbol = grab_cad_symbol_for_ticker('zmd')
+  assert(symbol == 'ZMD.H')
+# Grab ticker data from strong

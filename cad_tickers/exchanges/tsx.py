@@ -1,4 +1,6 @@
 import requests
+from json import loads
+
 def get_mig_report(filename, exchange="TSX") -> str:
   """Gets excel spreadsheet from api.tsx using requests
   Input
@@ -38,11 +40,67 @@ def get_mig_report(filename, exchange="TSX") -> str:
   else:
     return None
 
+def get_company_description(ticker) -> str:
+  """ Gets company description for ticker
+
+  TMX is not very reliable at loading quotes 
+  sometimes pages do not exist
+  """
+  url = f'https://web.tmxmoney.com/company.php?qm_symbol={ticker}'
 # exchanges: TSXV
 # marketcap: 
 # hqregions: canada
 # hqlocations: 
 # sectors:
+
+def grab_symbol_for_ticker(ticker):
+  """Grabs the first symbol from ticker data
+
+  all symbols should lead to valid webpages for data scrapping
+
+  TODO: If anyone wants to validate that, be my guest
+  """
+  ticker_data = lookup_symbol_by_ticker(ticker)
+  return ticker_data[0].get('symbol')
+
+
+def lookup_symbol_by_ticker(ticker)-> dict:
+  """Returns search dictionary for ticker/
+  sometimes the name of the ticker in the xlsx 
+  sheet is off slightly and we need to find the "real ticker"
+
+  Uses standard api to grab tickers
+  TODO: make another function that uses the new graphql api instead
+  in case this one gets depreciated
+
+  See https://app-money.tmx.com/graphql and https://money.tmx.com/en/
+    Ex: {"operationName":"findCompaniesByKeywords","variables":{"keywords":"zmd"},"query":"query findCompaniesByKeywords($keywords: String) {\n  findCompaniesByKeywords(keywords: $keywords) {\n    symbol\n    name\n    exchange\n    __typename\n  }\n}\n"}
+
+  Input: Ticker as string
+
+  Output: Dictionary
+  """
+  callback = 'tmxtickers'
+  # Theses values can be hardcoded
+  payload = {
+    'callback': callback,
+    'limit': 5,
+    'webmasterId': 101020,
+    'q': ticker
+  }
+  quote_lookup_url = 'https://app.quotemedia.com/lookup'
+  r = requests.get(quote_lookup_url, params=payload)
+  quote_data = r.text
+
+  if quote_data is None:
+    print('Data missing, no response available')
+  s_idx = quote_data.find('(')
+  e_idx = quote_data.find(')')
+  # https://app.quotemedia.com/lookup?callback=html&q=zmd&limit=5&webmasterId=101020
+
+  # All symbols returned all valid
+  return loads(quote_data[s_idx + 1:e_idx])
+
 def dl_tsx_xlsx(filename, **kwargs) -> str:
   """Gets excel spreadsheet from api.tsx using requests
   Input
@@ -110,4 +168,5 @@ if __name__ == "__main__":
                     choices=('TSX', 'TSXV', 'None', 'All'),
                     help='TSX, TSXV, All (default: %(default)s)') 
   args = parser.parse_args()
-  get_mig_report(args.file, args.exchange)
+  # get_mig_report(args.file, args.exchange)
+  grab_symbol_for_ticker('zmd')
