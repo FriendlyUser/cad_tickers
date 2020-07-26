@@ -5,3 +5,4 @@ __pycache__
 *.xlsx
 *.pdf
 dist
+docs

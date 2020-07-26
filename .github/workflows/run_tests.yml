@@ -26,7 +26,7 @@ jobs:
     name: coverage
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Install
         uses: abatilo/actions-poetry@v1.5.0
         with:
@@ -34,39 +34,21 @@ jobs:
           poetry_version: 1.0.9
           args: install
 
-      - name: Make Coverage
-        uses: abatilo/actions-poetry@v1.5.0
-        with:
-          python_version: 3.6.7
-          poetry_version: 1.0.9
-          # working_directory: ./working_dir
-          args: run python -m coverage run -m pytest
-
       - name: HTML Coverage
         uses: abatilo/actions-poetry@v1.5.0
         with:
           python_version: 3.6.7
           poetry_version: 1.0.9
           # working_directory: ./working_dir
-          args: run python -m coverage report
-      
-      - name: HTML Coverage
-        uses: abatilo/actions-poetry@v1.5.0
-        with:
-          python_version: 3.6.7
-          poetry_version: 1.0.9
-          # working_directory: ./working_dir
-          args: run python -m coverage html
+          args: run python -m pytest --cov=./ --cov-report=xml
 
-      - uses: actions/upload-artifact@v2
-        name: Upload Coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
         with:
-          name: html_coverage
-          path: htmlcov
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.5.7
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: htmlcov  # The folder the action should deploy.
+          file: ./coverage.xml
+          files: ./coverage1.xml,./coverage2.xml
+          directory: ./coverage/reports/
+          flags: unittests
+          env_vars: OS,PYTHON
+          fail_ci_if_error: true
+          path_to_write_report: ./coverage/codecov_report.gz

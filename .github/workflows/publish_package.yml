@@ -9,7 +9,7 @@ jobs:
     name: Publish package
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Install
         uses: abatilo/actions-poetry@v1.5.0
         with:
