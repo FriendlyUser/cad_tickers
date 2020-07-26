@@ -1,5 +1,5 @@
 from cad_tickers.exchanges.tsx import get_mig_report, \
-  dl_tsx_xlsx, grab_cad_symbol_for_ticker, \
+  dl_tsx_xlsx, grab_symbol_for_ticker, \
   company_description_by_ticker
 
 import os
