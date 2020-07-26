@@ -33,6 +33,9 @@ poetry export -f requirements.txt > requirements.txt.
 
 #### Todo
 
-Add parameters and returns, double sync with readthe docs and github pages
-* [x] add just read the docs
-* [x] add code coverage uploading 
+Add parameters and returns, double sync with readthe docs and github pages.
+
+- [ ] make another function that uses the new graphql api instead of the standard api.
+- [x] Convert all the Input to Parameters and output to Return
+- [x] add just read the docs
+- [x] add code coverage uploading 

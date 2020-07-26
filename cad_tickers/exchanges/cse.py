@@ -12,10 +12,10 @@ import re
 def get_cse_files(filename='cse.xlsx', filetype="xlsx") -> str:
   """Gets excel spreadsheet from api.tsx using requests
 
-  Input
+  Parameters:
     filename: Name of the file to be saved
     exchanges: TSX, TSXV
-  Output:
+  Returns:
     filePath returns path to file
 
   See ://stackoverflow.com/questions/13567507/passing-csrftoken-with-python-requests

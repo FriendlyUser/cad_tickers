@@ -2,7 +2,7 @@
 TSX Functions
 ---------------
 
-Set of functionality
+Set of functions to scrap ticker data from the toronto stock exchange
 """
 
 
@@ -40,12 +40,13 @@ def get_description_for_ticker(ticker): # change the body of the loop to functio
 def get_mig_report(filename='', exchange="TSX", return_df=False) -> str:
   """Gets excel spreadsheet from api.tsx using requests
 
-  Input:
+  Parameters:
     filename: Name of the file to be saved
     exchanges: TSX, TSXV
     return_df: Return a pandas dataframe
-  Output:
-    filePath returns path to file
+
+  Returns:
+    filePath: returns path to file or dataframe
 
   See ://stackoverflow.com/questions/13567507/passing-csrftoken-with-python-requests
 
@@ -82,12 +83,6 @@ def get_mig_report(filename='', exchange="TSX", return_df=False) -> str:
     else:
       return None
 
-# exchanges: TSXV
-# marketcap: 
-# hqregions: canada
-# hqlocations: 
-# sectors:
-# //*[@id="root"]/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]
 def grab_symbol_for_ticker(ticker) -> str:
   """
   Description:
@@ -95,11 +90,11 @@ def grab_symbol_for_ticker(ticker) -> str:
     all symbols should lead to valid webpages for data scrapping
     TODO If anyone wants to validate that, be my guest
 
-  Input: 
-    ticker: string
+  Parameters: 
+    ticker: string representing the stock ticker
 
-  Output: 
-    symbol: string
+  Returns: 
+    symbol: string - searchable string in the quotemedia api or empty string
   """
 
   if ticker is None or ticker is '':
@@ -120,7 +115,13 @@ def grab_symbol_for_ticker(ticker) -> str:
 
 def add_descriptions_to_df_pp(df) -> pd.DataFrame:
   """
-  parallel processing to fetch descriptions
+  Description: fetch descriptions for tickers in parallel
+  noticable speedup
+
+  Input:
+    df: dataframe containing tickers
+  Returns:
+    df: updated dataframe with a descriptions if available
   """
   df['description'] = ''
   tickers = df['Ticker'].tolist()
@@ -132,6 +133,14 @@ def add_descriptions_to_df_pp(df) -> pd.DataFrame:
 
 # https://stackoverflow.com/questions/56987872/parallelize-pandas-column-update
 def add_descriptions_to_df(df) -> pd.DataFrame:
+  """
+  Description: single process solution to fetching descriptions
+
+  Input:
+    df: dataframe containing tickers
+  Returns:
+    df: updated dataframe with a descriptions if available
+  """
   df['description'] = ''
   for index, row in df.iterrows():
     ticker = df.at[index, 'Ticker']
@@ -147,7 +156,13 @@ def add_descriptions_to_df(df) -> pd.DataFrame:
 
 def company_description_by_ticker(ticker)-> str:
   """
-  Grabs searchable ticker from quotemedia using tmx ticker
+  
+  Description: Grabs searchable ticker from quotemedia using tmx ticker
+
+  Input:
+    ticker: string 
+  Returns:
+    df:  updated dataframe with a descriptions if available
   """
   # get lookup symbol
   search_symbol = grab_symbol_for_ticker(ticker)
@@ -176,20 +191,25 @@ def company_description_by_ticker(ticker)-> str:
     return ''
 
 def lookup_symbol_by_ticker(ticker)-> list:
-  """Returns search dictionary for ticker/
-  sometimes the name of the ticker in the xlsx 
-  sheet is off slightly and we need to find the "real ticker"
+  """
+  
+  Description: Returns search array dictionary for tickers
+  
+  .. note::
 
-  Uses standard api to grab tickers
-  TODO: make another function that uses the new graphql api instead
-  in case this one gets depreciated
-  Example searchpoint is https://app.quotemedia.com/lookup?callback=html&q=zmd&limit=5&webmasterId=101020
+    sometimes the name of the ticker in the xlsx 
+    sheet is off slightly and we need to find the "real ticker".
+    Uses standard api (not graphql) to grab tickers
 
-  See https://app-money.tmx.com/graphql and https://money.tmx.com/en/
+    Example searchpoint is https://app.quotemedia.com/lookup?callback=tmxtickers&q=zmd&limit=5&webmasterId=101020
 
-  Input: Ticker as string
+  See `Tmx Graphql <https://app-money.tmx.com/graphql>`_  and the new `tmx site <https://money.tmx.com/en/>`_
 
-  Output: Dictionary
+  Input:
+    ticker: tmx ticker
+
+  Output:
+    quote_data: list of ticker metadata
   """
   if ticker is None:
     return []
@@ -206,7 +226,7 @@ def lookup_symbol_by_ticker(ticker)-> list:
   quote_data = r.text
 
   if quote_data is None:
-    print('Data missing, no response available')
+     raise Exception('No data returned, check if api is depreciated or contact author for help.')
   s_idx = quote_data.find('(')
   e_idx = quote_data.rfind(')')
 
@@ -224,11 +244,15 @@ def lookup_symbol_by_ticker(ticker)-> list:
 
 def dl_tsx_xlsx(filename = None, **kwargs) -> str:
   """
-  Gets excel spreadsheet from api.tsx using requests
+  Description: Gets excel spreadsheet from the tsx api using programatically
 
-  Replicates api calls in TSX discover tool
+  .. note::
 
-  Input:
+    Replicates api calls in TSX discover tool with all parameters.
+    See `migreport search <https://api.tmxmoney.com/en/migreport/search>`_
+    Note that not all parameters are documented and/or limited validation
+
+  Parameters:
     filename: Name of the file to be saved
 
   Kwargs:
@@ -236,11 +260,12 @@ def dl_tsx_xlsx(filename = None, **kwargs) -> str:
     marketcap (string): values from 0 to specified value
     sectors (string): cpc, clean-technology, closed-end-funds, technology
 
-  Output:
-    filePath: returns path to file or pandas dataframe
+  Returns:
+    data: returns path to file or pandas dataframe
 
-  See ://stackoverflow.com/questions/13567507/passing-csrftoken-with-python-requests
+  See `passing csrftoken <https://stackoverflow.com/questions/13567507/passing-csrftoken-with-python-requests>`_
   """
+
   tsx_url = 'https://api.tmxmoney.com/en/migreport/search'
   client = requests.session()
   # Retrieve the CSRF token first
@@ -299,11 +324,7 @@ if __name__ == "__main__":
                     help='TSX, TSXV, All (default: %(default)s)') 
   args = parser.parse_args()
   df = dl_tsx_xlsx(sectors='technology')
-  # df = add_descriptions_to_df(df)
   df = add_descriptions_to_df_pp(df)
-  # print(df)
-  len(df)
+  print(df)
   end_time = datetime.now()
   print(end_time - start_time)
-  # get_mig_report(args.file, args.exchange)
-  # company_description_by_ticker('zmd')
