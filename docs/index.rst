@@ -6,8 +6,11 @@
 Welcome to cad_tickers's documentation!
 =======================================
 
+.. image:: https://codecov.io/gh/FriendlyUser/cad_tickers/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/FriendlyUser/cad_tickers
+
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Contents:
 
 .. automodule:: cad_tickers.exchanges.cse
@@ -22,6 +25,8 @@ Welcome to cad_tickers's documentation!
 Examples
 ---------------
 
+*Grab Descriptions for all tsx tickers*
+
 .. code-block:: python
 
    from cad_tickers.exchanges.tsx import dl_tsx_xlsx, add_descriptions_to_df_pp
@@ -30,9 +35,8 @@ Examples
    df = dl_tsx_xlsx()
    # df = add_descriptions_to_df(df)
    df = add_descriptions_to_df_pp(df)
-   # print(df)
-   len(df)
    end_time = datetime.now()
+   df.to_csv('tsx_all_descriptions.csv')
    print(end_time - start_time)
 
 Indices and tables
