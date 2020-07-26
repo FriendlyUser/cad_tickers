@@ -1,6 +1,9 @@
-[![PyPI version](https://badge.fury.io/py/cad-tickers.svg)](https://badge.fury.io/py/cad-tickers) [![Downloads](https://pepy.tech/badge/cad-tickers)](https://pepy.tech/project/cad-tickers)
-
+[![PyPI version](https://badge.fury.io/py/cad-tickers.svg)](https://badge.fury.io/py/cad-tickers) [![Downloads](https://pepy.tech/badge/cad-tickers)](https://pepy.tech/project/cad-tickers) [![Documentation Status](https://readthedocs.org/projects/cad-tickers/badge/?version=latest)](https://cad-tickers.readthedocs.io/en/latest/?badge=latest)
+ 
 ## Cad Tickers
+
+
+*Note* Anything below `0.2.0` should be considered testing, code, the apis are subject to change until `0.2.0`.
 
 Set of utilities modules designed to scrap data from the web.
 
@@ -22,5 +25,6 @@ pytest
 
 #### Todo
 
-* add just read the docs
+Add parameters and returns, double sync with readthe docs and github pages
+* [x] add just read the docs
 * [x] add code coverage uploading 

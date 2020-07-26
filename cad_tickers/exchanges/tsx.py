@@ -1,3 +1,11 @@
+"""
+TSX Functions
+---------------
+
+Set of functionality
+"""
+
+
 import requests
 import pandas as pd
 import multiprocessing as mp
@@ -18,6 +26,9 @@ sys.setrecursionlimit(10**6)
 
 
 def get_description_for_ticker(ticker): # change the body of the loop to function
+  """
+    set of functionality
+  """
   # grab ticker return desc
   # do on google colab
   # https://stackoverflow.com/questions/56987872/parallelize-pandas-column-update
@@ -28,7 +39,8 @@ def get_description_for_ticker(ticker): # change the body of the loop to functio
 
 def get_mig_report(filename='', exchange="TSX", return_df=False) -> str:
   """Gets excel spreadsheet from api.tsx using requests
-  Input
+
+  Input:
     filename: Name of the file to be saved
     exchanges: TSX, TSXV
     return_df: Return a pandas dataframe
@@ -36,6 +48,7 @@ def get_mig_report(filename='', exchange="TSX", return_df=False) -> str:
     filePath returns path to file
 
   See ://stackoverflow.com/questions/13567507/passing-csrftoken-with-python-requests
+
   """
   tsx_url = 'https://api.tmxmoney.com/en/migreport/search'
   client = requests.session()
@@ -76,12 +89,19 @@ def get_mig_report(filename='', exchange="TSX", return_df=False) -> str:
 # sectors:
 # //*[@id="root"]/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]
 def grab_symbol_for_ticker(ticker) -> str:
-  """Grabs the first symbol from ticker data
-
-  all symbols should lead to valid webpages for data scrapping
-
-  TODO: If anyone wants to validate that, be my guest
   """
+  Description:
+    Grabs the first symbol from ticker data
+    all symbols should lead to valid webpages for data scrapping
+    TODO If anyone wants to validate that, be my guest
+
+  Input: 
+    ticker: string
+
+  Output: 
+    symbol: string
+  """
+
   if ticker is None or ticker is '':
     return ''
 
@@ -99,6 +119,9 @@ def grab_symbol_for_ticker(ticker) -> str:
   return ticker_data[0].get('symbol')
 
 def add_descriptions_to_df_pp(df) -> pd.DataFrame:
+  """
+  parallel processing to fetch descriptions
+  """
   df['description'] = ''
   tickers = df['Ticker'].tolist()
   with mp.Pool() as p:
@@ -120,10 +143,12 @@ def add_descriptions_to_df(df) -> pd.DataFrame:
       pass
     description = company_description_by_ticker(symbol)
     df.at[index,'description'] = description
-  df.to_csv('tsx_descriptions.csv')
   return df
 
 def company_description_by_ticker(ticker)-> str:
+  """
+  Grabs searchable ticker from quotemedia using tmx ticker
+  """
   # get lookup symbol
   search_symbol = grab_symbol_for_ticker(ticker)
   if search_symbol is '':
@@ -161,7 +186,6 @@ def lookup_symbol_by_ticker(ticker)-> list:
   Example searchpoint is https://app.quotemedia.com/lookup?callback=html&q=zmd&limit=5&webmasterId=101020
 
   See https://app-money.tmx.com/graphql and https://money.tmx.com/en/
-    Ex: {"operationName":"findCompaniesByKeywords","variables":{"keywords":"zmd"},"query":"query findCompaniesByKeywords($keywords: String) {\n  findCompaniesByKeywords(keywords: $keywords) {\n    symbol\n    name\n    exchange\n    __typename\n  }\n}\n"}
 
   Input: Ticker as string
 
@@ -199,17 +223,19 @@ def lookup_symbol_by_ticker(ticker)-> list:
     exit(1)
 
 def dl_tsx_xlsx(filename = None, **kwargs) -> str:
-  """Gets excel spreadsheet from api.tsx using requests
-  
+  """
+  Gets excel spreadsheet from api.tsx using requests
+
   Replicates api calls in TSX discover tool
 
-  Input
+  Input:
     filename: Name of the file to be saved
-    options: 
-      exchanges: TSX, TSXV
-      marketcap: values from 0 to specified value
-      sectors: cpc, clean-technology, closed-end-funds, technology
-      # Other options depending on what is selected
+
+  Kwargs:
+    exchanges (string): TSX, TSXV
+    marketcap (string): values from 0 to specified value
+    sectors (string): cpc, clean-technology, closed-end-funds, technology
+
   Output:
     filePath: returns path to file or pandas dataframe
 

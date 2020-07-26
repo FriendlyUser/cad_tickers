@@ -1,7 +1,17 @@
+"""
+
+Canadian Securities Exchange
+----------------------------
+
+Functions to download tickers from the cse
+
+"""
+
 import requests
 import re
 def get_cse_files(filename='cse.xlsx', filetype="xlsx") -> str:
   """Gets excel spreadsheet from api.tsx using requests
+
   Input
     filename: Name of the file to be saved
     exchanges: TSX, TSXV
@@ -9,6 +19,7 @@ def get_cse_files(filename='cse.xlsx', filetype="xlsx") -> str:
     filePath returns path to file
 
   See ://stackoverflow.com/questions/13567507/passing-csrftoken-with-python-requests
+
   """
   # TODO force it to be pdf or xlsx
   # https://www.thecse.com/export-listings/xlsx?f={}
