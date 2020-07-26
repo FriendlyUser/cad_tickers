@@ -23,6 +23,14 @@ Support will be provided to the best of my ability.
 pytest
 ```
 
+### How to deploy
+
+
+```
+# Needed for readthedocs documentation
+poetry export -f requirements.txt > requirements.txt.
+```
+
 #### Todo
 
 Add parameters and returns, double sync with readthe docs and github pages
