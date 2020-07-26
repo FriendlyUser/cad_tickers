@@ -27,10 +27,11 @@ def test_dl_all_options():
 
 def test_grab_cad_symbol_for_ticker():
   # tests to make sure file can be downloaded
-  symbol = grab_cad_symbol_for_ticker('zmd')
+  symbol = grab_symbol_for_ticker('zmd')
   assert(symbol == 'ZMD.H')
 
 def test_description_fetch():
   description = company_description_by_ticker('zmd')
   zoom_description = '''ZoomMed Inc is a Canada-based company that, together with its subsidiaries, is engaged in the development and marketing of computer applications designed for healthcare professionals. It builds and operates the e-Pic Communication Platform, a clinical interoperable information exchange network between physicians and the various other stakeholders of the healthcare sector, such as pharmacists, specialists, pharmaceutical corporations, laboratories, specialized clinics private insurers, employers, and others.'''
+  assert(description == zoom_description)
 # Grab ticker data from strong
