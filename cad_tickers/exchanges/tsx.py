@@ -1,5 +1,6 @@
 import requests
 from json import loads
+from bs4 import BeautifulSoup
 
 def get_mig_report(filename, exchange="TSX") -> str:
   """Gets excel spreadsheet from api.tsx using requests
@@ -52,7 +53,7 @@ def get_company_description(ticker) -> str:
 # hqregions: canada
 # hqlocations: 
 # sectors:
-
+# //*[@id="root"]/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]
 def grab_symbol_for_ticker(ticker):
   """Grabs the first symbol from ticker data
 
@@ -63,6 +64,23 @@ def grab_symbol_for_ticker(ticker):
   ticker_data = lookup_symbol_by_ticker(ticker)
   return ticker_data[0].get('symbol')
 
+
+def company_description_by_ticker(ticker):
+  # get lookup symbol
+  search_symbol = grab_symbol_for_ticker(ticker)
+  params = {'qm_symbol': search_symbol}
+  # // //*[@id="pane-news"]/div/div/div[1]/div/div[1]/div[2]/section[1]/p
+
+  search_url = f'https://web.tmxmoney.com/company.php'
+  r = requests.get(search_url, params=params)
+  html_content = r.text
+  # Parse the html content
+  soup = BeautifulSoup(html_content, "lxml")
+  # selector copied from chrome https://money.tmx.com/en/quote/ZMD.H
+  description_selector = '#pane-news > div > div > div.col-md-9 > div > div:nth-child(1) > div.tmx-panel-body.pt-0 > section:nth-child(1) > p'
+  description = soup.select(description_selector)[0]
+  contents = description.contents[0]
+  return contents
 
 def lookup_symbol_by_ticker(ticker)-> dict:
   """Returns search dictionary for ticker/
@@ -82,14 +100,14 @@ def lookup_symbol_by_ticker(ticker)-> dict:
   """
   callback = 'tmxtickers'
   # Theses values can be hardcoded
-  payload = {
+  params = {
     'callback': callback,
     'limit': 5,
     'webmasterId': 101020,
     'q': ticker
   }
   quote_lookup_url = 'https://app.quotemedia.com/lookup'
-  r = requests.get(quote_lookup_url, params=payload)
+  r = requests.get(quote_lookup_url, params=params)
   quote_data = r.text
 
   if quote_data is None:
@@ -103,6 +121,9 @@ def lookup_symbol_by_ticker(ticker)-> dict:
 
 def dl_tsx_xlsx(filename, **kwargs) -> str:
   """Gets excel spreadsheet from api.tsx using requests
+  
+  Replicates api calls in TSX discover tool
+
   Input
     filename: Name of the file to be saved
     options: 
@@ -169,4 +190,4 @@ if __name__ == "__main__":
                     help='TSX, TSXV, All (default: %(default)s)') 
   args = parser.parse_args()
   # get_mig_report(args.file, args.exchange)
-  grab_symbol_for_ticker('zmd')
+  company_description_by_ticker('zmd')
