@@ -22,7 +22,8 @@ Welcome to cad_tickers's documentation!
 Examples
 ---------------
 
-.. code:: python
+.. code-block:: python
+
    from cad_tickers.exchanges.tsx import dl_tsx_xlsx, add_descriptions_to_df_pp
    from datetime import datetime
    start_time = datetime.now()
