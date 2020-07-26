@@ -1,3 +1,5 @@
+[![PyPI version](https://badge.fury.io/py/cad-tickers.svg)](https://badge.fury.io/py/cad-tickers) [![Downloads](https://pepy.tech/badge/cad-tickers)](https://pepy.tech/project/cad-tickers)
+
 ## Cad Tickers
 
 Set of utilities modules designed to scrap data from the web.
