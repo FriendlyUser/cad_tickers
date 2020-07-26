@@ -23,5 +23,4 @@ pytest
 #### Todo
 
 * add just read the docs
-* add code coverage uploading 
-# https://github.com/codecov/codecov-action#example-workflowyml-with-codecov-action
+* [x] add code coverage uploading 
