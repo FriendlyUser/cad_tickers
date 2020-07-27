@@ -6,11 +6,14 @@
 Welcome to cad_tickers's documentation!
 =======================================
 
+.. image:: https://badge.fury.io/py/cad-tickers.svg
+   :target: https://badge.fury.io/py/cad-tickers
+
 .. image:: https://codecov.io/gh/FriendlyUser/cad_tickers/branch/master/graph/badge.svg
   :target: https://codecov.io/gh/FriendlyUser/cad_tickers
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
 .. automodule:: cad_tickers.exchanges.cse

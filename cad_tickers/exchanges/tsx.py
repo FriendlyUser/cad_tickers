@@ -38,7 +38,10 @@ def get_description_for_ticker(ticker): # change the body of the loop to functio
   return company_description_by_ticker(symbol)
 
 def get_mig_report(filename='', exchange="TSX", return_df=False) -> str:
-  """Gets excel spreadsheet from api.tsx using requests
+  """
+  Description:
+    Gets excel spreadsheet from tsx api programatically.
+    See for more flexibility :func:`dl_tsx_xlsx <cad_tickers.exchanges.tsx.dl_tsx_xlsx>`
 
   Parameters:
     filename: Name of the file to be saved
@@ -64,9 +67,7 @@ def get_mig_report(filename='', exchange="TSX", return_df=False) -> str:
   login_data = dict(report_type='excel', csrfmiddlewaretoken=csrftoken)
   if exchange in ["TSX", "TSXV"]:
     login_data["exchanges"] = exchange
-  # To get all exchanges, leave blank
-  # login_data = dict(report_type='excel', csrfmiddlewaretoken=client.cookies['csrftoken'])
-  # Options are TSX, TSXV and nothing for all
+
   r = client.post("https://api.tmxmoney.com/en/migreport/search", data=login_data, headers=dict(Referer=tsx_url))
   resp_data = r.content
   if return_df is True:
@@ -87,8 +88,7 @@ def grab_symbol_for_ticker(ticker) -> str:
   """
   Description:
     Grabs the first symbol from ticker data
-    all symbols should lead to valid webpages for data scrapping
-    TODO If anyone wants to validate that, be my guest
+    all symbols should lead to valid webpages for data scrapping.
 
   Parameters: 
     ticker: string representing the stock ticker
@@ -256,9 +256,9 @@ def dl_tsx_xlsx(filename = None, **kwargs) -> str:
     filename: Name of the file to be saved
 
   Kwargs:
-    exchanges (string): TSX, TSXV
-    marketcap (string): values from 0 to specified value
-    sectors (string): cpc, clean-technology, closed-end-funds, technology
+    * exchanges (string): TSX, TSXV
+    * marketcap (string): values from 0 to specified value
+    * sectors (string): cpc, clean-technology, closed-end-funds, technology
 
   Returns:
     data: returns path to file or pandas dataframe
@@ -288,9 +288,6 @@ def dl_tsx_xlsx(filename = None, **kwargs) -> str:
     else:
       search_data[k] = v
 
-  # To get all exchanges, leave blank
-  # login_data = dict(report_type='excel', csrfmiddlewaretoken=client.cookies['csrftoken'])
-  # Options are TSX, TSXV and nothing for all
   r = client.post(tsx_url, data=search_data, headers=dict(Referer=tsx_url))
   resp_headers = r.headers
   if "text/html" in resp_headers["Content-Type"]:
