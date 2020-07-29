@@ -41,6 +41,14 @@ def get_cse_files(filename='cse.xlsx', filetype="xlsx") -> str:
   else:
     return None
 
+def fetch_listings():
+  #https://stackoverflow.com/questions/45448994/wait-page-to-load-before-getting-data-with-requests-get-in-python-3
+  cse_url = f'https://thecse.com/en/listings'
+  r = requests.get(cse_url, timeout=(15, 15))
+  html_content = r.text
+  with open('testfile.txt', 'w', encoding="utf-8") as f:
+    f.write(html_content)
+
 if __name__ == "__main__":
   import argparse
   parser = argparse.ArgumentParser()
@@ -56,4 +64,5 @@ if __name__ == "__main__":
                     choices=('xlsx','pdf'),
                     help='xlsx or pdf (default: %(default)s)') 
   args = parser.parse_args()
-  get_cse_files(args.file, args.type)
+  # get_cse_files(args.file, args.type)
+  fetch_listings()

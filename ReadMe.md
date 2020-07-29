@@ -35,6 +35,9 @@ poetry export -f requirements.txt > requirements.txt.
 
 Add parameters and returns, double sync with readthe docs and github pages.
 
+- [ ] Go through list in https://thecse.com/en/listings and make pandas dataframe?
+Iterate until last css is no longer present
+
 - [ ] make another function that uses the new graphql api instead of the standard api.
 - [x] Convert all the Input to Parameters and output to Return
 - [x] add just read the docs

@@ -2,7 +2,9 @@
 TSX Functions
 ---------------
 
-Set of functions to scrap ticker data from the toronto stock exchange
+Set of functions to scrap ticker data from the toronto stock exchange.
+
+Will definitely split into smaller files once the graphql api becomes the main api.
 """
 
 
