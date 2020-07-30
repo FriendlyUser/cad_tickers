@@ -9,12 +9,13 @@ Functions to download tickers from the cse
 
 import requests
 import re
-def get_cse_files(filename='cse.xlsx', filetype="xlsx") -> str:
+import pandas as pd
+def get_cse_files(filename='cse.xlsx': str, filetype="xlsx": str) -> str:
   """Gets excel spreadsheet from api.tsx using requests
 
   Parameters:
     filename: Name of the file to be saved
-    exchanges: TSX, TSXV
+    filetype: Save as pdf or xlsx
   Returns:
     filePath returns path to file
 
@@ -41,13 +42,36 @@ def get_cse_files(filename='cse.xlsx', filetype="xlsx") -> str:
   else:
     return None
 
-def fetch_listings():
-  #https://stackoverflow.com/questions/45448994/wait-page-to-load-before-getting-data-with-requests-get-in-python-3
-  cse_url = f'https://thecse.com/en/listings'
-  r = requests.get(cse_url, timeout=(15, 15))
-  html_content = r.text
-  with open('testfile.txt', 'w', encoding="utf-8") as f:
-    f.write(html_content)
+def clean_cse_data(raw_df: pd.DataFrame)->pd.DataFrame:
+  # drop all nans
+  df = raw_df
+  df = df.dropna(axis=0, how='all')
+  # drop empty column
+  df = df.drop(df.columns[6], axis=1)
+  # grab logically column names from first row
+  column_labels = df.iloc[1, :].values.tolist()
+  df.columns = column_labels
+  # dropping title row and titles row
+  df = df.drop([df.index[0], df.index[1]])
+  df = df.reset_index(drop=True)
+  return df
+
+def get_cse_tickers_df()-> pd.DataFrame:
+  URL = f'https://www.thecse.com/export-listings/xlsx?f=' + r'{}'
+  r = requests.get(URL)
+  responseHeaders = r.headers
+  if "text/html" in responseHeaders["Content-Type"]:
+    return None
+  elif any(re.findall(r'application/vnd.ms-excel|application/pdf|xlsx',
+      responseHeaders["Content-Type"],
+      re.IGNORECASE)
+    ):
+    respData = r.content
+    df = pd.read_excel(respData)
+    clean_df = clean_cse_data(df)
+    return clean_df
+  else:
+    return None
 
 if __name__ == "__main__":
   import argparse
@@ -65,4 +89,5 @@ if __name__ == "__main__":
                     help='xlsx or pdf (default: %(default)s)') 
   args = parser.parse_args()
   # get_cse_files(args.file, args.type)
-  fetch_listings()
+  df = get_cse_tickers_df()
+  print(df)

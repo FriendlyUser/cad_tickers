@@ -27,7 +27,7 @@ import sys
 sys.setrecursionlimit(10**6) 
 
 
-def get_description_for_ticker(ticker): # change the body of the loop to function
+def get_description_for_ticker(ticker: str): # change the body of the loop to function
   """
     set of functionality
   """
@@ -39,7 +39,7 @@ def get_description_for_ticker(ticker): # change the body of the loop to functio
     return ''
   return company_description_by_ticker(symbol)
 
-def get_mig_report(filename='', exchange="TSX", return_df=False) -> str:
+def get_mig_report(filename=''L str, exchange="TSX": str, return_df=False: bool) -> str:
   """
   Description:
     Gets excel spreadsheet from tsx api programatically.
@@ -86,7 +86,7 @@ def get_mig_report(filename='', exchange="TSX", return_df=False) -> str:
     else:
       return None
 
-def grab_symbol_for_ticker(ticker) -> str:
+def grab_symbol_for_ticker(ticker: str) -> str:
   """
   Description:
     Grabs the first symbol from ticker data
@@ -115,7 +115,7 @@ def grab_symbol_for_ticker(ticker) -> str:
       return ''
   return ticker_data[0].get('symbol')
 
-def add_descriptions_to_df_pp(df) -> pd.DataFrame:
+def add_descriptions_to_df_pp(df: pd.DataFrame) -> pd.DataFrame:
   """
   Description: fetch descriptions for tickers in parallel
   noticable speedup
@@ -130,7 +130,6 @@ def add_descriptions_to_df_pp(df) -> pd.DataFrame:
   with mp.Pool() as p:
     descriptions = p.map(get_description_for_ticker, tickers)
   df['description'] = descriptions
-  df.to_csv('tsx_descriptions.csv')
   return df
 
 # https://stackoverflow.com/questions/56987872/parallelize-pandas-column-update
