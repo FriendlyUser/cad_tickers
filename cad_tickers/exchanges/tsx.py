@@ -39,7 +39,7 @@ def get_description_for_ticker(ticker: str): # change the body of the loop to fu
     return ''
   return company_description_by_ticker(symbol)
 
-def get_mig_report(filename=''L str, exchange="TSX": str, return_df=False: bool) -> str:
+def get_mig_report(filename: str='', exchange: str="TSX", return_df: bool =False) -> str:
   """
   Description:
     Gets excel spreadsheet from tsx api programatically.
@@ -298,8 +298,8 @@ def dl_tsx_xlsx(filename = None, **kwargs) -> str:
     if filename is None:
       return pd.read_excel(resp_data)
     else:
-      with open(filename, 'wb') as s:
-        s.write(resp_data)
+      with open(filename, 'wb') as f_:
+        f_.write(resp_data)
       return filename
   else:
     return None
