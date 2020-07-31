@@ -10,7 +10,7 @@ Welcome to cad_tickers's documentation!
    :target: https://badge.fury.io/py/cad-tickers
 
 .. image:: https://codecov.io/gh/FriendlyUser/cad_tickers/branch/master/graph/badge.svg
-  :target: https://codecov.io/gh/FriendlyUser/cad_tickers
+   :target: https://codecov.io/gh/FriendlyUser/cad_tickers
 
 .. toctree::
    :maxdepth: 4
@@ -24,9 +24,17 @@ Welcome to cad_tickers's documentation!
    :members:
    :undoc-members:
 
+.. automodule:: cad_tickers.util.utils
+   :members:
+   :undoc-members:
+ 
+.. automodule:: cad_tickers.util
+   :members:
+   :undoc-members:
+
 
 Examples
----------------
+=================
 
 *Grab Descriptions for all tsx tickers*
 
