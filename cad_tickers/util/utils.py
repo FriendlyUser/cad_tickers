@@ -15,7 +15,6 @@ def transform_name_to_slug(raw_ticker):
   return transformed
 
 def parse_description_tags(description_tags: List[bs4.element.Tag])-> str:
-  print(description_tags)
   if len(description_tags) > 0:
     description_tag = description_tags[0]
     # grab contents from desscription tag
@@ -27,15 +26,18 @@ def parse_description_tags(description_tags: List[bs4.element.Tag])-> str:
   else: 
     return '' 
 
-def make_cse_path(raw_ticker, raw_industry):
+def make_cse_path(raw_ticker, raw_industry)-> str:
   """
     1933 Industries Inc.
   """
+  if pd.isna(raw_industry):
+    return ''
   # verify raw_industry is in industry
   cse_industries = ['Industry', 'Mining', 'Diversified Industries',
-       'Life Sciences', 'Oil and Gas', 'Technology', 'CleanTech']
+      'Life Sciences', 'Oil and Gas', 'Technology', 'CleanTech']
   # do later
   base_cse_url = 'https://thecse.com/en/listings'
   industry = raw_industry.lower().replace(' ', '-')
   ticker = transform_name_to_slug(raw_ticker)
-  return f'{base_cse_url}/{industry}/{ticker}'
+  url = f'{base_cse_url}/{industry}/{ticker}'
+  return url

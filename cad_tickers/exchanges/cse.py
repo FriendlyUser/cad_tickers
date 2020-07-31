@@ -10,8 +10,9 @@ Functions to download tickers from the cse
 import requests
 import re
 import pandas as pd
+from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup
-from cad_tickers.util import parse_description_tags
+from cad_tickers.util import parse_description_tags, make_cse_path
 
 def get_cse_files(filename: str ='cse.xlsx', filetype: str ="xlsx") -> str:
   """Gets excel spreadsheet from api.tsx using requests
@@ -46,6 +47,13 @@ def get_cse_files(filename: str ='cse.xlsx', filetype: str ="xlsx") -> str:
     return None
 
 def clean_cse_data(raw_df: pd.DataFrame)->pd.DataFrame:
+  """Removes bad data from cse dataframe.
+
+  Parameters:
+    raw_df: data from cse, read in from xlsx sheet so it is messy.
+  Returns:
+    df: clean df with no empty rows, proper column titles and removed needed rows.
+  """
   # drop all nans
   df = raw_df
   df = df.dropna(axis=0, how='all')
@@ -54,12 +62,17 @@ def clean_cse_data(raw_df: pd.DataFrame)->pd.DataFrame:
   # grab logically column names from first row
   column_labels = df.iloc[1, :].values.tolist()
   df.columns = column_labels
-  # dropping title row and titles row
+  # dropping title row and column titles row 
   df = df.drop([df.index[0], df.index[1]])
   df = df.reset_index(drop=True)
   return df
 
 def get_cse_tickers_df()-> pd.DataFrame:
+  """Grab cse dataframe from exported xlsx sheet
+
+    Returns:
+      clean_df: cleaned dataframe with urls to download more data on ticker.
+  """
   URL = f'https://www.thecse.com/export-listings/xlsx?f=' + r'{}'
   r = requests.get(URL)
   responseHeaders = r.headers
@@ -72,26 +85,48 @@ def get_cse_tickers_df()-> pd.DataFrame:
     respData = r.content
     df = pd.read_excel(respData)
     clean_df = clean_cse_data(df)
+    # add urls
+    clean_df['urls'] = clean_df.apply(lambda x: make_cse_path(x['Company'], x['Industry']), axis=1)
     return clean_df
   else:
     return None
 
-def scrap_url_for_listing(url):
+def get_description_for_url(url: str): str:
+  """
+    Parameters:
+      url - link to ticker can be empty string
+    Returns:
+      description - details of what the ticker does, can be empty string
+  """
+  if url is '':
+    return ''
   r = requests.get(url)
   html_content = r.text
   soup = BeautifulSoup(html_content, "lxml")
   description_selector = '#block-system-main div.company-description > p'
   description_tags = soup.select(description_selector)
   return parse_description_tags(description_tags)
-  # with open('index.html', 'w', errors='ignore') as f_:
-  #   f_.write(html_content)
-  # print(html_content)
-  # Parse the html content
-  # soup = BeautifulSoup(html_content, "lxml")
 
+def add_descriptions_to_df(df, max_workers=16):
+  """
+    Parameters:
+      df - dataframe with urls to stock listings
+      max_workers - maximum number of thread workers to have
+    Returns:
+      df: updated dataframe with descriptions in a column
+
+  """
+  urls = df['urls'].tolist()
+  with ThreadPoolExecutor(max_workers=max_workers) as tpe:
+    iterables = tpe.map(get_description_for_url, urls)
+    descriptions = list(iterables)
+  df['description'] = descriptions
+  return df
 
 if __name__ == "__main__":
+  from datetime import datetime
   import argparse
+  start_time = datetime.now()
   parser = argparse.ArgumentParser()
   parser.add_argument("-f", 
                         "--file", 
@@ -105,7 +140,8 @@ if __name__ == "__main__":
                     choices=('xlsx','pdf'),
                     help='xlsx or pdf (default: %(default)s)') 
   args = parser.parse_args()
+  cse_df = get_cse_tickers_df()
+  df = add_descriptions_to_df(cse_df)
+  end_time = datetime.now()
   # get_cse_files(args.file, args.type)
-  description = scrap_url_for_listing('https://thecse.com/en/listings/mining/12-exploration-inc')
-  print(description)
   # print(df)

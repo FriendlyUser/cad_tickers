@@ -11,9 +11,9 @@ Will definitely split into smaller files once the graphql api becomes the main a
 import requests
 import pandas as pd
 import multiprocessing as mp
+from concurrent.futures import ThreadPoolExecutor
 from json import loads
 from bs4 import BeautifulSoup
-from datetime import datetime
 
 # importing the sys module 
 import sys 
@@ -115,10 +115,29 @@ def grab_symbol_for_ticker(ticker: str) -> str:
       return ''
   return ticker_data[0].get('symbol')
 
-def add_descriptions_to_df_pp(df: pd.DataFrame) -> pd.DataFrame:
+
+def add_descriptions_to_df_pp(df: pd.DataFrame, max_workers: int = 16) -> pd.DataFrame:
   """
   Description: fetch descriptions for tickers in parallel
-  noticable speedup
+  noticable speedup uses thread pool which should be faster
+
+  Input:
+    df: dataframe containing tickers
+  Returns:
+    df: updated dataframe with a descriptions if available
+  """
+  df['description'] = ''
+  tickers = df['Ticker'].tolist()
+  with ThreadPoolExecutor(max_workers=max_workers) as tpe:
+    iterables = tpe.map(get_description_for_ticker, tickers)
+    descriptions = list(iterables)
+  df['description'] = descriptions
+  return df
+
+def add_descriptions_to_df_pp_legacy(df: pd.DataFrame) -> pd.DataFrame:
+  """
+  Description: fetch descriptions for tickers in parallel
+  noticable speedup, keeping this to verify speed increase
 
   Input:
     df: dataframe containing tickers
@@ -306,6 +325,7 @@ def dl_tsx_xlsx(filename = None, **kwargs) -> str:
 
 # Add endpoint to query search parameters for tsx spreadsheets
 if __name__ == "__main__":
+  from datetime import datetime
   start_time = datetime.now()
   import argparse
   parser = argparse.ArgumentParser()
