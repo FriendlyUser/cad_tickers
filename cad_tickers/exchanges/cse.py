@@ -46,7 +46,7 @@ def get_cse_files(filename: str ='cse.xlsx', filetype: str ="xlsx") -> str:
   else:
     return None
 
-def clean_cse_data(raw_df: pd.DataFrame)->pd.DataFrame:
+def clean_cse_data(raw_df: pd.DataFrame)-> pd.DataFrame:
   """Removes bad data from cse dataframe.
 
   Parameters:
@@ -91,7 +91,7 @@ def get_cse_tickers_df()-> pd.DataFrame:
   else:
     return None
 
-def get_description_for_url(url: str): str:
+def get_description_for_url(url: str)-> str:
   """
     Parameters:
       url - link to ticker can be empty string
@@ -107,7 +107,7 @@ def get_description_for_url(url: str): str:
   description_tags = soup.select(description_selector)
   return parse_description_tags(description_tags)
 
-def add_descriptions_to_df(df, max_workers=16):
+def add_descriptions_to_df(df: pd.DataFrame, max_workers: int =16) -> pd.DataFrame:
   """
     Parameters:
       df - dataframe with urls to stock listings

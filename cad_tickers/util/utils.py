@@ -6,11 +6,11 @@ Converts xlsx to pandas
 import pandas as pd
 import bs4
 from typing import List
-def convert(file_path):
+def convert(file_path: str) -> pd.DataFrame:
   df = pd.read_excel(file_path)
   return df
 
-def transform_name_to_slug(raw_ticker):
+def transform_name_to_slug(raw_ticker: str):
   transformed = raw_ticker.lower().replace(".","").replace(' ', '-')
   return transformed
 
@@ -26,7 +26,7 @@ def parse_description_tags(description_tags: List[bs4.element.Tag])-> str:
   else: 
     return '' 
 
-def make_cse_path(raw_ticker, raw_industry)-> str:
+def make_cse_path(raw_ticker: str, raw_industry: str)-> str:
   """
     1933 Industries Inc.
   """

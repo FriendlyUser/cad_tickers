@@ -27,7 +27,7 @@ import sys
 sys.setrecursionlimit(10**6) 
 
 
-def get_description_for_ticker(ticker: str): # change the body of the loop to function
+def get_description_for_ticker(ticker: str)-> str: # change the body of the loop to function
   """
     set of functionality
   """
@@ -210,7 +210,7 @@ def company_description_by_ticker(ticker)-> str:
   else: 
     return ''
 
-def lookup_symbol_by_ticker(ticker)-> list:
+def lookup_symbol_by_ticker(ticker: str)-> list:
   """
   
   Description: Returns search array dictionary for tickers
@@ -262,7 +262,7 @@ def lookup_symbol_by_ticker(ticker)-> list:
     print(e)
     exit(1)
 
-def dl_tsx_xlsx(filename = None, **kwargs) -> str:
+def dl_tsx_xlsx(filename: str = '', **kwargs) -> str:
   """
   Description: Gets excel spreadsheet from the tsx api using programatically
 
@@ -314,7 +314,7 @@ def dl_tsx_xlsx(filename = None, **kwargs) -> str:
     return None
   elif resp_headers["Content-Type"] == "application/ms-excel":
     resp_data = r.content
-    if filename is None:
+    if filename is '':
       return pd.read_excel(resp_data)
     else:
       with open(filename, 'wb') as f_:
