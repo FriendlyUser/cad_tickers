@@ -15,6 +15,10 @@ Welcome to cad_tickers's documentation!
 .. toctree::
    :maxdepth: 4
    :caption: Contents:
+   
+   cad_tickers.exchanges.cse
+   cad_tickers.exchanges.tsx
+   cad_tickers.util.utils
 
 .. automodule:: cad_tickers.exchanges.cse
    :members:
@@ -27,11 +31,6 @@ Welcome to cad_tickers's documentation!
 .. automodule:: cad_tickers.util.utils
    :members:
    :undoc-members:
- 
-.. automodule:: cad_tickers.util
-   :members:
-   :undoc-members:
-
 
 Examples
 =================
