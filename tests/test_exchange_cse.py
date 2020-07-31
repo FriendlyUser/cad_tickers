@@ -18,4 +18,4 @@ def test_cse_listing_url():
 def test_clean_cse_csv():
   df = get_cse_tickers_df()
   num_rows = df.isnull().T.any().T.sum()
-  assert(num_rows < 2)
+  assert(num_rows > 2)
