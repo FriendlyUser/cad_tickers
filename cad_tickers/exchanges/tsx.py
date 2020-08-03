@@ -281,7 +281,24 @@ def dl_tsx_xlsx(filename: str = '', **kwargs) -> str:
     * sectors (string): cpc, clean-technology, closed-end-funds, technology
 
   Returns:
-    data: returns path to file or pandas dataframe
+    data - returns path to file or pandas dataframe
+
+    pd.DataFrame 
+    
+    ===========   =====================================================================
+    Ex.           Exchange ticker in TSXV, TSX 
+    Name          Full name of ticker 
+    Ticker        Symbol usually 4 characters or less
+    QMV($)        Quoted Market Value, I assume this is based on the "currency".
+    HQ Region     Headquarters region usually a country (need to double check)
+    HQ Location   Usually a province or state
+    Sector        Main sector, technology
+    Sub Sector    Sub Sector
+    ===========   =====================================================================
+    Ex.,Name,Ticker,QMV($),HQ Region,HQ Location,Sector,Sub Sector
+
+  .. note
+     if this package gets popular enough, I will add more documentation
 
   See `passing csrftoken <https://stackoverflow.com/questions/13567507/passing-csrftoken-with-python-requests>`_
   """

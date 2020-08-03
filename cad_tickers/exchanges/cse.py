@@ -20,6 +20,7 @@ def get_cse_files(filename: str ='cse.xlsx', filetype: str ="xlsx") -> str:
   Parameters:
     filename: Name of the file to be saved
     filetype: Save as pdf or xlsx
+
   Returns:
     filePath returns path to file
 
@@ -50,9 +51,34 @@ def clean_cse_data(raw_df: pd.DataFrame)-> pd.DataFrame:
   """Removes bad data from cse dataframe.
 
   Parameters:
-    raw_df: data from cse, read in from xlsx sheet so it is messy.
+    raw_df
+      Dataframe with mostly unnamed columns from pandas df import
+
+      =============  ====================================================================
+      CSE Listings   Label for Company data
+      Unnamed: 1     Listing symbol from the cse exchange needs a mapper to yahoo finance
+      Unnamed: 2     Enum of industry including Mining
+      Unnamed: 3     Enum such as CSE Composite
+      Unnamed: 4     Enum such as CSE Composite 
+      Unnamed: 5     Usually CAD
+      Unnamed: 6     empty (pandas import error, dropped)
+      Unnamed: 7     Date when trading started
+      =============  ====================================================================
+
   Returns:
-    df: clean df with no empty rows, proper column titles and removed needed rows.
+    clean_df
+      Dataframe with bad data removed
+
+      ==========  ====================================================================
+      Company     Full name of the company  
+      Symbol      Listing symbol from the cse exchange needs a mapper to yahoo finance
+      Industry    Enum of industry including Mining
+      Identifier  Broad category (US Cannabis)
+      Indices     Enum such as CSE Composite
+      Currency    Usually CAD
+      Trading     Date when trading started
+      urls        url to listing on cse website
+      ==========  ====================================================================
   """
   # drop all nans
   df = raw_df
@@ -71,7 +97,19 @@ def get_cse_tickers_df()-> pd.DataFrame:
   """Grab cse dataframe from exported xlsx sheet
 
     Returns:
-      clean_df: cleaned dataframe with urls to download more data on ticker.
+      clean_df
+        Dataframe with with randomly selected values. Data columns are as follows:
+
+        ==========  ====================================================================
+        Company     Full name of the company  
+        Symbol      Listing symbol from the cse exchange needs a mapper to yahoo finance
+        Industry    Enum of industry including Mining
+        Identifier  Broad category (US Cannabis)
+        Indices     Enum such as CSE Composite
+        Currency    Usually CAD
+        Trading     Date when trading started
+        urls        url to listing on cse website
+        ==========  ====================================================================
   """
   URL = f'https://www.thecse.com/export-listings/xlsx?f=' + r'{}'
   r = requests.get(URL)
@@ -110,10 +148,38 @@ def get_description_for_url(url: str)-> str:
 def add_descriptions_to_df(df: pd.DataFrame, max_workers: int =16) -> pd.DataFrame:
   """
     Parameters:
-      df - dataframe with urls to stock listings
-      max_workers - maximum number of thread workers to have
+      clean_df
+        Dataframe with with randomly selected values. Data columns are as follows:
+
+        ==========  ====================================================================
+        Company     Full name of the company  
+        Symbol      Listing symbol from the cse exchange needs a mapper to yahoo finance
+        Industry    Enum of industry including Mining
+        Identifier  Broad category (US Cannabis)
+        Indices     Enum such as CSE Composite
+        Currency    Usually CAD
+        Trading     Date when trading started
+        urls        url to listing on cse website
+        ==========  ====================================================================
+
+      max_workers
+        maximum number of thread workers to have
+
     Returns:
-      df: updated dataframe with descriptions in a column
+      df 
+        Dataframe descriptions in every column if valid
+
+        ===========  ====================================================================
+        Company      Full name of the company  
+        Symbol       Listing symbol from the cse exchange needs a mapper to yahoo finance
+        Industry     Enum of industry including Mining
+        Identifier   Broad category (US Cannabis)
+        Indices      Enum such as CSE Composite
+        Currency     Usually CAD
+        Trading      Date when trading started
+        urls         url to listing on cse website
+        description  cse description scrapped from website
+        ===========  ====================================================================
 
   """
   urls = df['urls'].tolist()
@@ -139,9 +205,10 @@ if __name__ == "__main__":
                     nargs='?',
                     choices=('xlsx','pdf'),
                     help='xlsx or pdf (default: %(default)s)') 
-  args = parser.parse_args()
-  cse_df = get_cse_tickers_df()
-  df = add_descriptions_to_df(cse_df)
-  end_time = datetime.now()
+  get_cse_files()
+  # args = parser.parse_args()
+  # cse_df = get_cse_tickers_df()
+  # df = add_descriptions_to_df(cse_df)
+  # end_time = datetime.now()
   # get_cse_files(args.file, args.type)
   # print(df)
