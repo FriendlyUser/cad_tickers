@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "cad_tickers"
-version = "0.2.2"
+version = "0.2.5"
 description = "Various Stock Utilties Created by me"
 authors = ["David Li <davidli012345@gmail.com>"]
 maintainers = ["David Li <davidli012345@gmail.com>"]
 license = "MIT"
 readme = "ReadMe.md"
 repository = "https://github.com/FriendlyUser/cad_tickers"
-documentation = "https://github.com/FriendlyUser/cad_tickers"
+documentation = "https://readthedocs.org/projects/cad-tickers/"
 keywords = ["Poetry",
             "Stock Tickers",
             "Requests",
