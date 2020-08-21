@@ -2,7 +2,18 @@ import requests
 import pandas as pd
 from datetime import datetime
 
-def get_halts_resumption():
+def get_halts_resumption()-> pd.DataFrame:
+  """Gets the latest 25 halts from the iiroc
+
+  Returns:
+    halt_df
+      Dataframe with bad data removed
+
+      ==========  ====================================================================  
+      Halts       Details of halts
+      Listing     Extracted ticker from halt
+      ==========  ====================================================================
+  """
   now = datetime.now()
   year = now.year
   # get year
