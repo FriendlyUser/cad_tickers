@@ -14,7 +14,9 @@ def test_stock_news_works():
 
 def test_stock_news_data_valid():
   news_items = scrap_news_for_ticker('IP.CN')
+  print(news_items)
   for news_item in news_items:
+    print(news_item)
     assert (bool(news_item.get('source')))
     assert (bool(news_item.get('link_href')))
     assert (bool(news_item.get('link_text')))
