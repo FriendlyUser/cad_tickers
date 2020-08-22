@@ -14,7 +14,6 @@ def test_stock_news_works():
 
 def test_stock_news_data_valid():
   news_items = scrap_news_for_ticker('IP.CN')
-  print(news_items)
   for news_item in news_items:
     source = news_item.get('source')
     link_href = news_item.get('link_href')
