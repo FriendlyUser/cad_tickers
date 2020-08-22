@@ -25,6 +25,6 @@ def test_source():
 def test_link_text():
   news_content = bs4.BeautifulSoup(sample_ip_news_item, "lxml")
   link_href, link_text = find_news_link_and_text(news_content)
-  expected_text = "VANCOUVER, BC, July 30, 2020 /CNW/ - ImagineAR (CSE: IP) (OTCQB: IPNFF) an Augmented Reality Company that enables sports teams, brands and businesses to instantly create their own mobile phone AR campaigns, is pleased to announce that Mike Anderson has joined the Company as an Advisor to the CEO for the purposes of launching ImagineAR platform sales in the UK and Europe.  Mr. Anderson is the former managing director of the The Sun and News of the World publications, and founder of the mobile app UK development company -The Chelsea Apps factory.  ImagineAR believes Mr. Anderson will significantly accelerate the Company's presence and sales throughout the UK and Europe."
+  expected_text = "ImagineAR and The Pittsburgh Gateways Corporation Sign MOU To Integrate Augmented Reality Into the Energy Innovation Center"
   assert (link_href == '/news/r-e-p-e-t-130000181.html')
   assert (link_text == expected_text)
