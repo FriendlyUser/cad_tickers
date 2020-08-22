@@ -11,7 +11,7 @@ import requests
 import bs4
 from typing import List, Union, Tuple
 
-def scrap_new_for_ticker(ticker: str)-> List[dict]:
+def scrap_news_for_ticker(ticker: str)-> List[dict]:
   yahoo_base_url = 'https://finance.yahoo.com'
   news_items = get_ynews_for_ticker(ticker, yahoo_base_url)
   news_data = []
@@ -31,8 +31,7 @@ def scrap_new_for_ticker(ticker: str)-> List[dict]:
       link_href,
       link_text
     })
-  print(news_data)
-  return []
+  return news_data
 
 def get_ynews_for_ticker(ticker: str, yahoo_base_url='https://finance.yahoo.com')-> List[bs4.element.Tag]:
   """ Returns initial news items fetched from yahoo when loading quote page.
@@ -94,5 +93,5 @@ def find_news_source(news_content: bs4.element.Tag)-> Union[None, str]:
 
 
 if __name__ == '__main__':
-  scrap_new_for_ticker("NTAR.CN")
+  scrap_news_for_ticker("IP.CN")
   
