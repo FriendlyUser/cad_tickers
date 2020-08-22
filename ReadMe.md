@@ -2,14 +2,6 @@
  
 ## Cad Tickers
 
-
-*Note* Anything below `0.2.0` should be considered testing, code, the apis are subject to change until `0.2.0`.
-
-Set of utilities modules designed to scrap data from the web.
-
-Will write more documentation later, for now refer to test cases.
-
-
 For the tsx searching, it was kinda tedious to test each of the possible values, as a result, only `exchanges` and `marketcap` values are validated.
 
 Given the new redesign of the web.tmxmoney site, don't expect the existing api to work
@@ -42,3 +34,4 @@ Iterate until last css is no longer present
 - [x] Convert all the Input to Parameters and output to Return
 - [x] add just read the docs
 - [x] add code coverage uploading 
+- [x] news and iiroc fetching
