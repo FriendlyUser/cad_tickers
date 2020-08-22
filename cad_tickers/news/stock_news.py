@@ -27,9 +27,9 @@ def scrap_news_for_ticker(ticker: str)-> List[dict]:
     source = find_news_source(news_content)
     link_href, link_text = find_news_link_and_text(news_content)
     news_data.append({
-      source,
-      link_href,
-      link_text
+      "source": source,
+      "link_href": link_href,
+      "link_href": link_text
     })
   return news_data
 
