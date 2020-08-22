@@ -1,17 +1,19 @@
-"""
-Downloads stock ticker news from yahoo 
-
-https://ca.finance.yahoo.com/quote/IP.CN/
- 
-Aim to extract date, group title description
-
-get all news from cnw with a function
-"""
 import requests
 import bs4
 from typing import List, Union, Tuple
 
 def scrap_news_for_ticker(ticker: str)-> List[dict]:
+  """ Extracts webpage data from a ticker
+
+    Parameters:
+      ticker - yahoo finance ticker
+    Returns:
+      news_data - list of dicts extracted from webpage
+        * source - str
+        * link_href - link from post (can be relative or absolute)
+        * link_text - description for link
+
+  """
   yahoo_base_url = 'https://finance.yahoo.com'
   news_items = get_ynews_for_ticker(ticker, yahoo_base_url)
   news_data = []
@@ -90,7 +92,6 @@ def find_news_source(news_content: bs4.element.Tag)-> Union[None, str]:
   # print(content_spans)
   # source, date = [content_span.text for content_span in content_spans]
   return source
-
 
 if __name__ == '__main__':
   scrap_news_for_ticker("IP.CN")

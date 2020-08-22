@@ -3,12 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to cad_tickers's documentation!
-=======================================
+.. contents:: :local:
 
-Indices and tables
-==================
+.. include:: index.rst
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

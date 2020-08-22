@@ -2,11 +2,10 @@ from cad_tickers.news.iiroc_halts import get_halts_resumption
 from cad_tickers.news.stock_news import scrap_news_for_ticker, find_news_source, find_news_link_and_text
 import os
 import bs4
-# TODO determine if I want to test the inner logic, have raw html
+
 def test_get_halts_resumption():
   halts_df = get_halts_resumption()
   assert(len(halts_df) > 20)
-
 
 def test_stock_news_works():
   news_data = scrap_news_for_ticker('IP.CN')
@@ -18,7 +17,6 @@ def test_stock_news_data_valid():
     source = news_item.get('source')
     link_href = news_item.get('link_href')
     link_text = news_item.get('link_text')
-    print(source, link_href, link_text)
     assert (bool(source))
     assert (bool(link_href))
     assert (bool(link_text))

@@ -1,3 +1,10 @@
+"""
+Exchanges
+----------
+
+Downloading and cleaning data from the cse and tsx exchanges
+"""
+
 from cad_tickers.exchanges.cse import *
 from cad_tickers.exchanges.tsx import *
 

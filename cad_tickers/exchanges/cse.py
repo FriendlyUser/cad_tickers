@@ -1,12 +1,3 @@
-"""
-
-Canadian Securities Exchange
-----------------------------
-
-Functions to download tickers from the cse
-
-"""
-
 import requests
 import re
 import pandas as pd

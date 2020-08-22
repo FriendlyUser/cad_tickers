@@ -1,11 +1,3 @@
-"""
-
-Stock Utilities
-----------------------------
-
-Contains various utility classes
-"""
-
 import pandas as pd
 import bs4
 from typing import List
@@ -30,7 +22,7 @@ def parse_description_tags(description_tags: List[bs4.element.Tag])-> str:
   """
     Parameters:
       description_tags: html tags from webpage, usually p tag containing description
-     Returns:
+    Returns:
       description: description for ticker
   """
   if len(description_tags) > 0:
@@ -50,7 +42,7 @@ def make_cse_path(raw_ticker: str, raw_industry: str)-> str:
     Parameters:
       raw_ticker: cse ticker from xlsx sheet
       raw_industry: verbatim industry from ticker, not slugified
-     Returns:
+    Returns:
       description: url for cse files for download
   """
   if pd.isna(raw_industry):
