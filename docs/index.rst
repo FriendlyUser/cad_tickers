@@ -14,7 +14,8 @@ Welcome to cad_tickers's documentation!
 
 
 .. toctree::
-    :maxdepth: 2
+   :maxdepth: 3
+   :caption: Contents:
 
 .. autosummary::
      :toctree:
