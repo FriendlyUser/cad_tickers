@@ -12,21 +12,63 @@ Welcome to cad_tickers's documentation!
 .. image:: https://codecov.io/gh/FriendlyUser/cad_tickers/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/FriendlyUser/cad_tickers
 
+
 .. toctree::
-   :maxdepth: 4
-   :caption: Contents:
-   
-   cad_tickers.exchanges.cse
-   cad_tickers.exchanges.tsx
-   cad_tickers.util.utils
+    :maxdepth: 2
+
+.. autosummary::
+     :toctree:
+
+      cad_tickers
+      cad_tickers.exchanges
+      cad_tickers.util
+      cad_tickers.news
+
+Canadian Securities Exchange
+=============================
+
+Functions to download tickers from the cse
 
 .. automodule:: cad_tickers.exchanges.cse
    :members:
    :undoc-members:
 
+
+
+Toronto Stock Exchange
+========================
+
+Set of functions to scrap ticker data from the toronto stock exchange.
+
+Will definitely split into smaller files once the graphql api becomes the main api.
+
 .. automodule:: cad_tickers.exchanges.tsx
    :members:
    :undoc-members:
+
+
+Stock News
+=======================
+
+Extract news from stocks on yahoo
+
+.. automodule:: cad_tickers.news.stock_news
+   :members:
+   :undoc-members:
+
+IIROC Halts
+=========================
+
+Find out what latest stocks have been halted from iiroc (only canada)
+
+.. automodule:: cad_tickers.news.iiroc_halts
+   :members:
+   :undoc-members:
+
+Stock Utilities
+===============
+
+Contains various utility classes
 
 .. automodule:: cad_tickers.util.utils
    :members:

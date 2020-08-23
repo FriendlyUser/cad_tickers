@@ -1,13 +1,3 @@
-"""
-TSX Functions
----------------
-
-Set of functions to scrap ticker data from the toronto stock exchange.
-
-Will definitely split into smaller files once the graphql api becomes the main api.
-"""
-
-
 import requests
 import pandas as pd
 import multiprocessing as mp
@@ -295,7 +285,6 @@ def dl_tsx_xlsx(filename: str = '', **kwargs) -> str:
     Sector        Main sector, technology
     Sub Sector    Sub Sector
     ===========   =====================================================================
-    Ex.,Name,Ticker,QMV($),HQ Region,HQ Location,Sector,Sub Sector
 
   .. note
      if this package gets popular enough, I will add more documentation

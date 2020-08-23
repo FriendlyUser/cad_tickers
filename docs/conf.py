@@ -31,8 +31,13 @@ release = 'v0.1.3'
 # ones.
 extensions = [
   'sphinx.ext.autodoc',
-  'sphinx.ext.coverage'
+  'sphinx.ext.coverage',
+  'sphinx.ext.autosummary'
 ]
+# See https://stackoverflow.com/questions/34557716/automatically-create-a-toctree-for-autodoc-classes-in-sphinx
+
+autodoc_default_flags = ['members']
+autosummary_generate = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
