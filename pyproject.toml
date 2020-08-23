@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cad_tickers"
-version = "0.2.7"
+version = "0.2.8"
 description = "Various Stock Utilties Created by me"
 authors = ["David Li <davidli012345@gmail.com>"]
 maintainers = ["David Li <davidli012345@gmail.com>"]

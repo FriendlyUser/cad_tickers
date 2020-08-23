@@ -15,27 +15,31 @@ def scrap_news_for_ticker(ticker: str)-> List[dict]:
         * ticker - reference to original ticker
 
   """
-  yahoo_base_url = 'https://finance.yahoo.com'
-  news_items = get_ynews_for_ticker(ticker, yahoo_base_url)
-  news_data = []
-  for news_item in news_items:
-    # remove comments
-    for comment in news_item(text=lambda text: isinstance(text, bs4.Comment)):
-      comment.extract()
-    # grab description header, stuff next too image
-    news_content = news_item.find("div", {"class": "Ov(h) Pend(44px) Pstart(25px)"})
-    if news_content is None:
-      # try again with different class 
-      news_content = news_item.find('div', {'class': 'Ov(h)'})
-    source = find_news_source(news_content)
-    link_href, link_text = find_news_link_and_text(news_content)
-    news_data.append({
-      "source": source,
-      "link_href": link_href,
-      "link_text": link_text,
-      "ticker": ticker
-    })
-  return news_data
+  try:
+    yahoo_base_url = 'https://finance.yahoo.com'
+    news_items = get_ynews_for_ticker(ticker, yahoo_base_url)
+    news_data = []
+    for news_item in news_items:
+      # remove comments
+      for comment in news_item(text=lambda text: isinstance(text, bs4.Comment)):
+        comment.extract()
+      # grab description header, stuff next too image
+      news_content = news_item.find("div", {"class": "Ov(h) Pend(44px) Pstart(25px)"})
+      if news_content is None:
+        # try again with different class 
+        news_content = news_item.find('div', {'class': 'Ov(h)'})
+      source = find_news_source(news_content)
+      link_href, link_text = find_news_link_and_text(news_content)
+      news_data.append({
+        "source": source,
+        "link_href": link_href,
+        "link_text": link_text,
+        "ticker": ticker
+      })
+    return news_data
+  except Exception as e:
+    print(e)
+    return []
 
 def get_ynews_for_ticker(ticker: str, yahoo_base_url='https://finance.yahoo.com')-> List[bs4.element.Tag]:
   """ Returns initial news items fetched from yahoo when loading quote page.
