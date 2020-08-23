@@ -17,14 +17,6 @@ Welcome to cad_tickers's documentation!
    :maxdepth: 3
    :caption: Contents:
 
-.. autosummary::
-     :toctree:
-
-      cad_tickers
-      cad_tickers.exchanges
-      cad_tickers.util
-      cad_tickers.news
-
 Canadian Securities Exchange
 =============================
 
