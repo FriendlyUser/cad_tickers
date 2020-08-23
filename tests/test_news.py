@@ -17,9 +17,11 @@ def test_stock_news_data_valid():
     source = news_item.get('source')
     link_href = news_item.get('link_href')
     link_text = news_item.get('link_text')
+    ticker = news_item.get('ticker')
     assert (bool(source))
     assert (bool(link_href))
     assert (bool(link_text))
+    assert (bool(ticker))
 
 sample_ip_news_item = """
 <div class="Ov(h) Pend(44px) Pstart(25px)" data-reactid="10"><div class="C(#959595) Fz(11px) D(ib) Mb(6px)" data-reactid="11">CNW Group</div><h3 class="Mb(5px)" data-reactid="12"><a class="Fw(b) Fz(18px) Lh(23px) LineClamp(2,46px) Fz(17px)--sm1024 Lh(19px)--sm1024 LineClamp(2,38px)--sm1024 mega-item-header-link Td(n) C(#0078ff):h C(#000) LineClamp(2,46px) LineClamp(2,38px)--sm1024 not-isInStreamVideoEnabled" data-reactid="13" href="/news/r-e-p-e-t-130000181.html"><u class="StretchedBox" 

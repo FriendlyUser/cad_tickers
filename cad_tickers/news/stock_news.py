@@ -12,6 +12,7 @@ def scrap_news_for_ticker(ticker: str)-> List[dict]:
         * source - str
         * link_href - link from post (can be relative or absolute)
         * link_text - description for link
+        * ticker - reference to original ticker
 
   """
   yahoo_base_url = 'https://finance.yahoo.com'
@@ -31,7 +32,8 @@ def scrap_news_for_ticker(ticker: str)-> List[dict]:
     news_data.append({
       "source": source,
       "link_href": link_href,
-      "link_text": link_text
+      "link_text": link_text,
+      "ticker": ticker
     })
   return news_data
 
