@@ -1,9 +1,42 @@
 import requests
 import bs4
+import pandas as pd
 from typing import List, Union, Tuple
+from concurrent.futures import ThreadPoolExecutor
+from cad_tickers.util import get_tickers, is_valid_news_item, download_csvs
+""" commented out until I fix the issue
+def scrap_news_for_ticker_pp()-> List[dict]:
+  download_csvs()
+  tickers = get_tickers()
+  # list tickers to csv
+  with open('tickers.txt', 'w', errors='ignore') as file_:
+    file_.write(str(tickers))
+  with ThreadPoolExecutor(max_workers=1) as tpe:
+    try:
+      iterables = tpe.map(scrap_news_for_ticker, tickers)
+    except Exception as e:
+      print(e)
+
+  raw_news = list(iterables)
+  flatten = lambda l: [item for sublist in l for item in sublist]
+  flat_news = flatten(raw_news)
+  flat_df = pd.DataFrame(flat_news)
+  flat_df.to_csv('flat_news.csv')
+  valid_news = [i for i in flat_news if is_valid_news_item(i)]
+  # remove empty news articles
+  news_df = pd.DataFrame(valid_news)
+  news_df.to_csv('full_news.csv')
+  tickers_with_news_scrap = news_df['ticker'].unique().tolist()
+  tickers_without_news = list(set(tickers) - set(tickers_with_news_scrap))
+  print(tickers_without_news)
+  with open('tickers_no_news.txt', 'w', errors='ignore') as file_:
+    file_.write(str(tickers_without_news))
+ """
 
 def scrap_news_for_ticker(ticker: str)-> List[dict]:
   """ Extracts webpage data from a ticker
+
+    TODO add a delay
 
     Parameters:
       ticker - yahoo finance ticker
@@ -17,7 +50,7 @@ def scrap_news_for_ticker(ticker: str)-> List[dict]:
   """
   try:
     yahoo_base_url = 'https://finance.yahoo.com'
-    news_items = get_ynews_for_ticker(ticker, yahoo_base_url)
+    news_items, html_content = get_ynews_for_ticker(ticker, yahoo_base_url)
     news_data = []
     for news_item in news_items:
       # remove comments
@@ -58,7 +91,7 @@ def get_ynews_for_ticker(ticker: str, yahoo_base_url='https://finance.yahoo.com'
   html_content = r.text
   soup = bs4.BeautifulSoup(html_content, "lxml")
   news_items = soup.find_all("li", {"class": "js-stream-content Pos(r)"})  # This will return a list of all line items in the markup.
-  return news_items
+  return news_items, html_content
 
 def find_news_link_and_text(news_content: bs4.element.Tag)-> Tuple[str, str]:
   """Finds news link from news_content. 
