@@ -3,7 +3,6 @@ import bs4
 import pandas as pd
 from typing import List, Union, Tuple
 from concurrent.futures import ThreadPoolExecutor
-from cad_tickers.util import is_valid_news_item
 
 
 def scrap_news_for_ticker(ticker: str) -> List[dict]:

@@ -75,38 +75,29 @@ def make_cse_path(raw_ticker: str, raw_industry: str) -> str:
     return url
 
 
-def is_valid_news_item(news_item: dict) -> str:
-    """
-    Parameter:
-      news_item - dictionary for news
-    Returns:
-      boolean
-    """
-    if (
-        news_item.get("source") == None
-        and news_item.get("link_href") == ""
-        and news_item.get("link_text") == ""
-    ):
-        return False
-    return True
-
+def read_df_from_file(file_path: str)-> pd.DataFrame():
+  try:
+      df = pd.read_excel(file_path)
+  except Exception:
+      df = pd.read_csv(file_path)
+  return df
 
 def tickers_to_ytickers(tsx_path: str, cse_path: str) -> List[str]:
     """
     Parameters:
-      tsx_path - path to tsx file
-      cse_path - path to cse file
+      tsx_path - path to clean tsx file
+      cse_path - path to clean cse file
     Returns:
       ytickers - list of tickers
     """
     # grab tsx data
-    tsx_df = pd.read_csv(tsx_path)
+    tsx_df = read_df_from_file(tsx_path)
     tsx_df = tsx_df[["Ex.", "Ticker"]]
     ytickers_series = tsx_df.apply(tsx_ticker_to_yahoo, axis=1)
     ytickers_series = ytickers_series.drop_duplicates(keep="last")
     tsx_tickers = ytickers_series.tolist()
 
-    cse_df = pd.read_csv(cse_path)
+    cse_df = read_df_from_file(cse_path)
     cse_df = cse_df[["Symbol"]]
     ytickers_series = cse_df.apply(cse_ticker_to_yahoo, axis=1)
     ytickers_series = ytickers_series.drop_duplicates(keep="last")
