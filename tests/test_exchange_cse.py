@@ -19,3 +19,8 @@ def test_clean_cse_csv():
   df = get_cse_tickers_df()
   num_rows = df.isnull().T.any().T.sum()
   assert(num_rows > 2)
+
+
+def test_dl_cse_none():
+  path = get_cse_files("cse.pdf", "html")
+  assert(path == None)
