@@ -21,7 +21,7 @@ def test_tickers():
     ytickers = tickers_to_ytickers(
         "tests/sample_data/tsx.csv", "tests/sample_data/cse.csv"
     )
-    assert len(ytickers) > 100
+    assert len(ytickers) == 7
 
 
 def test_cse_to_ticker():
@@ -31,6 +31,6 @@ def test_cse_to_ticker():
 
 
 def test_tsx_to_ticker():
-    ser = pd.Series(["BB", "TSX"], index=["Ex.", "Ticker"])
+    ser = pd.Series(["TSX", "BB"], index=["Ex.", "Ticker"])
     cn_ticker = tsx_ticker_to_yahoo(ser)
     assert cn_ticker == "BB.TO"
