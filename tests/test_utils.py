@@ -18,7 +18,6 @@ def test_parse_description_tags():
 
 # Needs specific format for csvs
 def test_tickers():
-    pass
     ytickers = tickers_to_ytickers(
         "tests/sample_data/tsx.csv", "tests/sample_data/cse.csv"
     )
