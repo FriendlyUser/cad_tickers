@@ -20,18 +20,18 @@ def test_parse_description_tags():
 def test_tickers():
     pass
     ytickers = tickers_to_ytickers(
-        "tests/sample_data/cse.csv", "tests/sample_data/tsx.csv"
+        "tests/sample_data/tsx.csv", "tests/sample_data/cse.csv"
     )
     assert len(ytickers) > 100
 
 
 def test_cse_to_ticker():
-    ser = pd.Series(["IP"], index="Symbol")
+    ser = pd.Series(["IP"], index=["Symbol"])
     cn_ticker = cse_ticker_to_yahoo(ser)
     assert cn_ticker == "IP.CN"
 
 
 def test_tsx_to_ticker():
-    ser = pd.Series(["BB", "TSX"], index=["Ticker", "Ex."])
+    ser = pd.Series(["BB", "TSX"], index=["Ex.", "Ticker"])
     cn_ticker = tsx_ticker_to_yahoo(ser)
     assert cn_ticker == "BB.TO"
