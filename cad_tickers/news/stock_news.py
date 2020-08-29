@@ -3,35 +3,7 @@ import bs4
 import pandas as pd
 from typing import List, Union, Tuple
 from concurrent.futures import ThreadPoolExecutor
-from cad_tickers.util import get_tickers, is_valid_news_item, download_csvs
-""" commented out until I fix the issue
-def scrap_news_for_ticker_pp()-> List[dict]:
-  download_csvs()
-  tickers = get_tickers()
-  # list tickers to csv
-  with open('tickers.txt', 'w', errors='ignore') as file_:
-    file_.write(str(tickers))
-  with ThreadPoolExecutor(max_workers=1) as tpe:
-    try:
-      iterables = tpe.map(scrap_news_for_ticker, tickers)
-    except Exception as e:
-      print(e)
-
-  raw_news = list(iterables)
-  flatten = lambda l: [item for sublist in l for item in sublist]
-  flat_news = flatten(raw_news)
-  flat_df = pd.DataFrame(flat_news)
-  flat_df.to_csv('flat_news.csv')
-  valid_news = [i for i in flat_news if is_valid_news_item(i)]
-  # remove empty news articles
-  news_df = pd.DataFrame(valid_news)
-  news_df.to_csv('full_news.csv')
-  tickers_with_news_scrap = news_df['ticker'].unique().tolist()
-  tickers_without_news = list(set(tickers) - set(tickers_with_news_scrap))
-  print(tickers_without_news)
-  with open('tickers_no_news.txt', 'w', errors='ignore') as file_:
-    file_.write(str(tickers_without_news))
- """
+from cad_tickers.util import is_valid_news_item
 
 def scrap_news_for_ticker(ticker: str)-> List[dict]:
   """ Extracts webpage data from a ticker
@@ -127,9 +99,6 @@ def find_news_source(news_content: bs4.element.Tag)-> Union[None, str]:
   # wrapper div around content - such as - CNW Group 2 days ago
   wrapper_div = news_content.find("div", {"class": "C(#959595) Fz(11px) D(ib) Mb(6px)"})
   source = wrapper_div.text
-  # content_spans = wrapper_div.find_all("span")
-  # print(content_spans)
-  # source, date = [content_span.text for content_span in content_spans]
   return source
 
 if __name__ == '__main__':
