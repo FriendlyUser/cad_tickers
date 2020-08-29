@@ -5,7 +5,6 @@ __pycache__
 *.xlsx
 *.pdf
 dist
-cse.csv
 pythonenv3.8
 coverage.xml
 htmlcov

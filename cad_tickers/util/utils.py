@@ -5,17 +5,6 @@ import os
 from typing import List
 
 
-def convert(file_path: str) -> pd.DataFrame:
-    """
-    Parameters:
-      file_path - path to excel sheet
-    Returns:
-      df - excel sheet dataframe
-    """
-    df = pd.read_excel(file_path)
-    return df
-
-
 def transform_name_to_slug(raw_ticker: str) -> str:
     """
     Parameters:
@@ -75,12 +64,19 @@ def make_cse_path(raw_ticker: str, raw_industry: str) -> str:
     return url
 
 
-def read_df_from_file(file_path: str)-> pd.DataFrame():
-  try:
-      df = pd.read_excel(file_path)
-  except Exception:
-      df = pd.read_csv(file_path)
-  return df
+def read_df_from_file(file_path: str) -> pd.DataFrame():
+    """
+    Parameters:
+      file_path - path to data
+    Returns:
+      df - excel sheet dataframe
+    """
+    try:
+        df = pd.read_excel(file_path)
+    except Exception:
+        df = pd.read_csv(file_path)
+    return df
+
 
 def tickers_to_ytickers(tsx_path: str, cse_path: str) -> List[str]:
     """
