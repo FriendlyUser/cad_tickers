@@ -1,9 +1,14 @@
 import requests
 import bs4
+import pandas as pd
 from typing import List, Union, Tuple
+from concurrent.futures import ThreadPoolExecutor
+from cad_tickers.util import is_valid_news_item
 
 def scrap_news_for_ticker(ticker: str)-> List[dict]:
   """ Extracts webpage data from a ticker
+
+    TODO add a delay
 
     Parameters:
       ticker - yahoo finance ticker
@@ -15,27 +20,31 @@ def scrap_news_for_ticker(ticker: str)-> List[dict]:
         * ticker - reference to original ticker
 
   """
-  yahoo_base_url = 'https://finance.yahoo.com'
-  news_items = get_ynews_for_ticker(ticker, yahoo_base_url)
-  news_data = []
-  for news_item in news_items:
-    # remove comments
-    for comment in news_item(text=lambda text: isinstance(text, bs4.Comment)):
-      comment.extract()
-    # grab description header, stuff next too image
-    news_content = news_item.find("div", {"class": "Ov(h) Pend(44px) Pstart(25px)"})
-    if news_content is None:
-      # try again with different class 
-      news_content = news_item.find('div', {'class': 'Ov(h)'})
-    source = find_news_source(news_content)
-    link_href, link_text = find_news_link_and_text(news_content)
-    news_data.append({
-      "source": source,
-      "link_href": link_href,
-      "link_text": link_text,
-      "ticker": ticker
-    })
-  return news_data
+  try:
+    yahoo_base_url = 'https://finance.yahoo.com'
+    news_items, html_content = get_ynews_for_ticker(ticker, yahoo_base_url)
+    news_data = []
+    for news_item in news_items:
+      # remove comments
+      for comment in news_item(text=lambda text: isinstance(text, bs4.Comment)):
+        comment.extract()
+      # grab description header, stuff next too image
+      news_content = news_item.find("div", {"class": "Ov(h) Pend(44px) Pstart(25px)"})
+      if news_content is None:
+        # try again with different class 
+        news_content = news_item.find('div', {'class': 'Ov(h)'})
+      source = find_news_source(news_content)
+      link_href, link_text = find_news_link_and_text(news_content)
+      news_data.append({
+        "source": source,
+        "link_href": link_href,
+        "link_text": link_text,
+        "ticker": ticker
+      })
+    return news_data
+  except Exception as e:
+    print(e)
+    return []
 
 def get_ynews_for_ticker(ticker: str, yahoo_base_url='https://finance.yahoo.com')-> List[bs4.element.Tag]:
   """ Returns initial news items fetched from yahoo when loading quote page.
@@ -54,7 +63,7 @@ def get_ynews_for_ticker(ticker: str, yahoo_base_url='https://finance.yahoo.com'
   html_content = r.text
   soup = bs4.BeautifulSoup(html_content, "lxml")
   news_items = soup.find_all("li", {"class": "js-stream-content Pos(r)"})  # This will return a list of all line items in the markup.
-  return news_items
+  return news_items, html_content
 
 def find_news_link_and_text(news_content: bs4.element.Tag)-> Tuple[str, str]:
   """Finds news link from news_content. 
@@ -90,9 +99,6 @@ def find_news_source(news_content: bs4.element.Tag)-> Union[None, str]:
   # wrapper div around content - such as - CNW Group 2 days ago
   wrapper_div = news_content.find("div", {"class": "C(#959595) Fz(11px) D(ib) Mb(6px)"})
   source = wrapper_div.text
-  # content_spans = wrapper_div.find_all("span")
-  # print(content_spans)
-  # source, date = [content_span.text for content_span in content_spans]
   return source
 
 if __name__ == '__main__':
