@@ -27,7 +27,7 @@ def get_description_for_ticker(
     # do on google colab
     # https://stackoverflow.com/questions/56987872/parallelize-pandas-column-update
     symbol = grab_symbol_for_ticker(ticker)
-    if symbol is None:
+    if symbol == None:
         return ""
     return company_description_by_ticker(symbol)
 
@@ -71,7 +71,7 @@ def get_mig_report(
         headers=dict(Referer=tsx_url),
     )
     resp_data = r.content
-    if return_df is True:
+    if return_df == True:
         return pd.read_excel(resp_data)
     else:
         resp_headers = r.headers
@@ -99,7 +99,7 @@ def grab_symbol_for_ticker(ticker: str) -> str:
       symbol: string - searchable string in the quotemedia api or empty string
     """
 
-    if ticker is None or ticker is "":
+    if ticker == None or ticker == "":
         return ""
 
     ticker_data = lookup_symbol_by_ticker(ticker)
@@ -134,25 +134,6 @@ def add_descriptions_to_df_pp(df: pd.DataFrame, max_workers: int = 16) -> pd.Dat
     df["description"] = descriptions
     return df
 
-
-def add_descriptions_to_df_pp_legacy(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Description: fetch descriptions for tickers in parallel
-    noticable speedup, keeping this to verify speed increase
-
-    Input:
-      df: dataframe containing tickers
-    Returns:
-      df: updated dataframe with a descriptions if available
-    """
-    df["description"] = ""
-    tickers = df["Ticker"].tolist()
-    with mp.Pool() as p:
-        descriptions = p.map(get_description_for_ticker, tickers)
-    df["description"] = descriptions
-    return df
-
-
 # https://stackoverflow.com/questions/56987872/parallelize-pandas-column-update
 def add_descriptions_to_df(df) -> pd.DataFrame:
     """
@@ -170,7 +151,7 @@ def add_descriptions_to_df(df) -> pd.DataFrame:
         # do on google colab
         # https://stackoverflow.com/questions/56987872/parallelize-pandas-column-update
         symbol = grab_symbol_for_ticker(ticker)
-        if symbol is None:
+        if symbol == None:
             pass
         description = company_description_by_ticker(symbol)
         df.at[index, "description"] = description
@@ -189,7 +170,7 @@ def company_description_by_ticker(ticker) -> str:
     """
     # get lookup symbol
     search_symbol = grab_symbol_for_ticker(ticker)
-    if search_symbol is "":
+    if search_symbol == "":
         return ""
     params = {"qm_symbol": search_symbol}
     # // //*[@id="pane-news"]/div/div/div[1]/div/div[1]/div[2]/section[1]/p
@@ -235,7 +216,7 @@ def lookup_symbol_by_ticker(ticker: str) -> list:
     Output:
       quote_data: list of ticker metadata
     """
-    if ticker is None:
+    if ticker == None:
         return []
     callback = "tmxtickers"
     # Theses values can be hardcoded
@@ -244,7 +225,7 @@ def lookup_symbol_by_ticker(ticker: str) -> list:
     r = requests.get(quote_lookup_url, params=params)
     quote_data = r.text
 
-    if quote_data is None:
+    if quote_data == None:
         raise Exception(
             "No data returned, check if api is depreciated or contact author for help."
         )
@@ -338,7 +319,7 @@ def dl_tsx_xlsx(filename: str = "", **kwargs) -> str:
         return None
     elif resp_headers["Content-Type"] == "application/ms-excel":
         resp_data = r.content
-        if filename is "":
+        if filename == "":
             return pd.read_excel(resp_data)
         else:
             with open(filename, "wb") as f_:

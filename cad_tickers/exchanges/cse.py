@@ -139,7 +139,7 @@ def get_description_for_url(url: str) -> str:
     Returns:
       description - details of what the ticker does, can be empty string
     """
-    if url is "":
+    if url == "":
         return ""
     r = requests.get(url)
     html_content = r.text
