@@ -42,6 +42,6 @@ def test_get_description_for_ip():
     description = get_description_for_url(
         "https://thecse.com/en/listings/diversified-industries/imaginear-inc"
     )
-    print(typeof(description))
+    print(type(description))
     ref_description_2020 = "<strong>ImagineAR Inc.</strong>"
     assert str(description) == str(ref_description_2020)
