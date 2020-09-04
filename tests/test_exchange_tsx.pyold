@@ -1,4 +1,4 @@
-from cad_tickers.exchanges.tsx import (
+from cad_tickers.exchanges.tsx_legacy import (
     get_mig_report,
     dl_tsx_xlsx,
     grab_symbol_for_ticker,
