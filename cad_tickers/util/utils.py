@@ -128,3 +128,15 @@ def tsx_ticker_to_yahoo(row: pd.Series) -> str:
     switcher = {"TSXV": "V", "TSX": "TO"}
     yahoo_ex = switcher.get(exchange, "TSXV")
     return f"{ticker}.{yahoo_ex}"
+
+
+def getFilename_fromCd(cd):
+    """
+    Get filename from content-disposition
+    """
+    if not cd:
+        return None
+    fname = re.findall("filename=(.+)", cd)
+    if len(fname) == 0:
+        return None
+    return fname[0]
