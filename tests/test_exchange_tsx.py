@@ -28,7 +28,7 @@ def test_get_tsx_tickers_diff_ex():
 
 def test_get_ticker_data_art():
     data = get_ticker_data("art")
-    assert type(data) == "dict"
+    assert data.get("symbol") == "art"
 
 
 def test_get_all_tickers_data():
@@ -36,4 +36,4 @@ def test_get_all_tickers_data():
     assert isinstance(data, pd.DataFrame)
     assert len(data) > 2000
     found = data[data["symbol"].str.contains("BB")]
-    assert len(found) == 1
+    assert len(found) >= 1
