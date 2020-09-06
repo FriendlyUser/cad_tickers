@@ -7,9 +7,8 @@ def get_ticker_data(symbol=str) -> str:
     payload["variables"]["symbol"] = symbol
     url = "https://app-money.tmx.com/graphql"
     r = requests.post(url, json=payload)
-    print(r.status_code)
-    print(r.text)
     allData = r.json()
+    # Check for errors
     data = allData["data"]["getQuoteBySymbol"]
     return data
 
@@ -18,7 +17,4 @@ if __name__ == "__main__":
     import pandas as pd
 
     data = get_ticker_data("art")
-    print(data)
     series = pd.Series(data)
-
-    print(series)
