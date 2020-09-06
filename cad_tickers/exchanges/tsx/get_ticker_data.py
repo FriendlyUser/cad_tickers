@@ -25,7 +25,10 @@ def get_ticker_data(symbol=str) -> Union[dict, None]:
     )
     try:
         allData = r.json()
-    except json.decoder.JSONDecodeError:
+    except json.decoder.JSONDecodeError as error:
+        print(error)
+        print(f"Failed to decode data for {symbol}")
+        print(r)
         return None
     # Check for errors
     try:
