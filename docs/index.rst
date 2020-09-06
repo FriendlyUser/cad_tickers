@@ -35,7 +35,14 @@ Set of functions to scrap ticker data from the toronto stock exchange.
 
 Will definitely split into smaller files once the graphql api becomes the main api.
 
-.. automodule:: cad_tickers.exchanges.tsx
+.. automodule:: cad_tickers.exchanges.tsx.get_ticker_data
+   :members:
+   :undoc-members:
+
+.. automodule:: cad_tickers.exchanges.tsx.gql_data
+   :members:
+
+.. automodule:: cad_tickers.exchanges.tsx.get_tickers
    :members:
    :undoc-members:
 
