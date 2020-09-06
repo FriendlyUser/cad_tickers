@@ -1,4 +1,8 @@
 import requests
+import pandas as pd
+from datetime import datetime
+from cad_tickers.exchanges.tsx.get_ticker_data import get_ticker_data
+from concurrent.futures import ThreadPoolExecutor
 
 # since tsx lacks documentation
 # unlikely that I can figure out what the other endpoints do
@@ -34,6 +38,20 @@ def get_tsx_tickers(exchange="tsx") -> dict:
     return symbol_list
 
 
+def get_all_tickers_data(max_workers: int = 16):
+    tickers = get_all_tsx_tickers()
+    ticker_data = []
+    with ThreadPoolExecutor(max_workers=max_workers) as tpe:
+        iterables = tpe.map(get_ticker_data, tickers)
+        ticker_data = list(iterables)
+
+    ticker_df = pd.DataFrame(ticker_data)
+    return ticker_df
+
+
 if __name__ == "__main__":
-    data = get_tsx_tickers(exchange="tsxv")
+    startTime = datetime.now()
+    data = get_all_tickers_data()
+    data.to_csv("tsx_data.csv")
     print(data)
+    print(datetime.now() - startTime)

@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 from cad_tickers.util.utils import (
     read_df_from_file,
     tickers_to_ytickers,
@@ -8,7 +9,8 @@ from cad_tickers.util.utils import (
 
 
 def test_read_df_from_file():
-    excel_df = read_df_from_file("All.xlsx")
+    csv_file = os.path.join("tests", "sample_data", "references.csv")
+    excel_df = read_df_from_file(csv_file)
     assert isinstance(excel_df, pd.DataFrame)
 
 
