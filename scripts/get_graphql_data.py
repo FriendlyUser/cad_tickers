@@ -1,11 +1,17 @@
 import requests
+
+
+def get_tsx_tickers():
+    pass
+
+
 # Not going to download massive amounts of files
 # instead get all the stocks tickers throught the tsx api
 # 2366 stocks total, sounds about right
 # then use graphql to hit each element with yield
 # or multiprocessing same as before
 # and output a massive csv
-
+# use get getStockListSymbolsWithQuote
 payload2 = {
     "operationName": "findCompaniesByKeywords",
     "variables": {"keywords": "a"},
