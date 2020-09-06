@@ -64,7 +64,7 @@ def make_cse_path(raw_ticker: str, raw_industry: str) -> str:
     return url
 
 
-def read_df_from_file(file_path: str) -> pd.DataFrame():
+def read_df_from_file(file_path: str) -> pd.DataFrame:
     """
     Parameters:
       file_path - path to data
@@ -128,15 +128,3 @@ def tsx_ticker_to_yahoo(row: pd.Series) -> str:
     switcher = {"TSXV": "V", "TSX": "TO"}
     yahoo_ex = switcher.get(exchange, "TSXV")
     return f"{ticker}.{yahoo_ex}"
-
-
-def getFilename_fromCd(cd):
-    """
-    Get filename from content-disposition
-    """
-    if not cd:
-        return None
-    fname = re.findall("filename=(.+)", cd)
-    if len(fname) == 0:
-        return None
-    return fname[0]

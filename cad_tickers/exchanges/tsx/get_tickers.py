@@ -10,15 +10,22 @@ tsx_json_url = "https://www.tsx.com/json/company-directory/search"
 
 
 def get_all_tsx_tickers() -> list:
+    """
+    Returns:
+        all_tsx - list of tickers for toronto stock exchange
+    """
     tsx_tickers = get_tsx_tickers()
     tsxv_tickers = get_tsx_tickers("tsxv")
     all_tsx = [*tsx_tickers, *tsxv_tickers]
     return all_tsx
 
 
-def get_tsx_tickers(exchange="tsx") -> dict:
+def get_tsx_tickers(exchange="tsx") -> list:
     """
-    Function to get tsx tickers using the given json endpoint
+    Parameters:
+        exchange - tsx or tsxv
+    Returns:
+        symbol_list - list of symbols for exchange
     """
     if exchange not in ["tsxv", "tsx"]:
         raise Exception(f"Expect {exchange} as tsxv or tsx.")
@@ -39,6 +46,12 @@ def get_tsx_tickers(exchange="tsx") -> dict:
 
 
 def get_all_tickers_data(max_workers: int = 16):
+    """
+    Parameters:
+        max_workers - number of workers for ThreadPoolExecutor
+    Returns:
+        ticker_df - pd.DataFrame with columns of :ref:`Quote By Symbol <quote_by_symbol_query>`
+    """
     tickers = get_all_tsx_tickers()
     ticker_data = []
     with ThreadPoolExecutor(max_workers=max_workers) as tpe:
