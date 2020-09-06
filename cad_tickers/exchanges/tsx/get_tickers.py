@@ -58,6 +58,10 @@ def get_all_tickers_data(max_workers: int = 16):
         iterables = tpe.map(get_ticker_data, tickers)
         ticker_data = list(iterables)
 
+    # using list comprehension
+    # to remove None values in list
+    ticker_data = [i for i in ticker_data if i]
+
     ticker_df = pd.DataFrame(ticker_data)
     return ticker_df
 

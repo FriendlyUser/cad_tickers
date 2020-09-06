@@ -1,8 +1,10 @@
 import requests
+import json
 from cad_tickers.exchanges.tsx.gql_data import GQL
+from typing import Union
 
 
-def get_ticker_data(symbol=str) -> dict:
+def get_ticker_data(symbol=str) -> Union[dict, None]:
     """
     Parameters:
         symbol - ticker symbol from tsx, no prefix
@@ -21,7 +23,10 @@ def get_ticker_data(symbol=str) -> dict:
             "locale": "en",
         },
     )
-    allData = r.json()
+    try:
+        allData = r.json()
+    except json.decoder.JSONDecodeError:
+        return None
     # Check for errors
     try:
         data = allData["data"]["getQuoteBySymbol"]
