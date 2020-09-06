@@ -64,7 +64,7 @@ def make_cse_path(raw_ticker: str, raw_industry: str) -> str:
     return url
 
 
-def read_df_from_file(file_path: str) -> pd.DataFrame():
+def read_df_from_file(file_path: str) -> pd.DataFrame:
     """
     Parameters:
       file_path - path to data

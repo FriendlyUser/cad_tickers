@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cad_tickers"
-version = "0.2.9"
+version = "1.0.0"
 description = "Various Stock Utilties Created by me"
 authors = ["David Li <davidli012345@gmail.com>"]
 maintainers = ["David Li <davidli012345@gmail.com>"]
@@ -13,6 +13,11 @@ keywords = ["Poetry",
             "Requests",
             "CSE",
             "TSX"]
+
+include = [
+  "cad_tickers/data_files",
+  "cad_tickers/data_files/references.csv"
+]
 
 [tool.poetry.dependencies]
 python = "^3.6.1"

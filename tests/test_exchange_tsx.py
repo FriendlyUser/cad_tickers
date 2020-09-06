@@ -1,69 +1,39 @@
 from cad_tickers.exchanges.tsx import (
-    get_mig_report,
-    dl_tsx_xlsx,
-    grab_symbol_for_ticker,
-    company_description_by_ticker,
-    lookup_symbol_by_ticker,
-    add_descriptions_to_df_pp,
+    get_all_tsx_tickers,
+    get_tsx_tickers,
+    get_ticker_data,
+    get_all_tickers_data,
 )
-from cad_tickers.util.utils import read_df_from_file
 import os
+import pandas as pd
 
 
-def test_dl_tsx():
-    path = get_mig_report("All.xlsx")
-    assert path == "All.xlsx"
-    assert os.path.exists(path)
+def test_get_tsx_tickers_tsx():
+    tsx_tickers = get_tsx_tickers("tsx")
+    assert len(tsx_tickers) > 500
 
 
-def test_dl_tsxv():
-    path = get_mig_report("TSXV.xlsx", "TSXV")
-    assert path == "TSXV.xlsx"
-    assert os.path.exists(path)
+def test_get_tsx_tickers_tsxv():
+    tsxv_tickers = get_tsx_tickers("tsxv")
+    assert len(tsxv_tickers) > 500
 
 
-def test_dl_all():
-    path = get_mig_report("All.xlsx", None)
-    assert path == "All.xlsx"
-    assert os.path.exists(path)
-
-
-def test_dl_all_options():
-    # tests to make sure file can be downloaded
-    path = dl_tsx_xlsx("full_time.xlsx", exchanges="TSX", marketcap="0-50")
-    assert path == "full_time.xlsx"
-    assert os.path.exists(path)
-
-
-def test_grab_cad_symbol_for_ticker():
-    # tests to make sure file can be downloaded
-    symbol = grab_symbol_for_ticker("zmd")
-    assert symbol == "ZMD.H"
-
-
-def test_description_fetch():
-    description = company_description_by_ticker("zmd")
-    zoom_description = """ZoomMed Inc is a Canada-based company that, together with its subsidiaries, is engaged in the development and marketing of computer applications designed for healthcare professionals. It builds and operates the e-Pic Communication Platform, a clinical interoperable information exchange network between physicians and the various other stakeholders of the healthcare sector, such as pharmacists, specialists, pharmaceutical corporations, laboratories, specialized clinics private insurers, employers, and others."""
-    assert description == zoom_description
-
-
-# Grab ticker data from strong
-
-
-def test_lookup_symbol_by_ticker():
-    data = lookup_symbol_by_ticker("BB")
-    assert len(data) > 0
-
-
-def test_get_description_for_ticker():
-    description = grab_symbol_for_ticker("BB")
-    assert description != ""
-
-
-def test_add_descriptions_to_df_pp():
-    tsx_min_df = read_df_from_file("tests/sample_data/tsx.csv")
-    updated_df = add_descriptions_to_df_pp(tsx_min_df)
-    if "description" in updated_df.columns:
-        assert True
-    else:
+def test_get_tsx_tickers_diff_ex():
+    try:
+        get_tsx_tickers("cse")
         assert False
+    except Exception as e:
+        assert True
+
+
+def test_get_ticker_data_art():
+    data = get_ticker_data("art")
+    assert data.get("symbol") == "ART"
+
+
+def test_get_all_tickers_data():
+    data = get_all_tickers_data()
+    assert isinstance(data, pd.DataFrame)
+    assert len(data) > 2000
+    found = data[data["symbol"].str.contains("BB")]
+    assert len(found) >= 1
