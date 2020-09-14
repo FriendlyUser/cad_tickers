@@ -1,3 +1,5 @@
+# Script to examine if there is a single xlsx file
+# containing all stock tickers
 import requests
 import re
 import os
@@ -25,7 +27,7 @@ for x in range(1, 5000):
     r = requests.get(url, allow_redirects=True)
     filename = getFilename_fromCd(r.headers.get("content-disposition"))
     if kill_range > 30:
-        print(kill_range, x)
+            (kill_range, x)
         print("probably no more files")
         exit(1)
     if filename != None:
