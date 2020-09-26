@@ -16,7 +16,7 @@ def test_get_sedar_docs_json():
     filings = get_cse_sedar_docs(cmc_json)
     cse_filings = CSESedarFilings(filings.get("categories"), filings.get("list"))
     assert isinstance(cse_filings, CSESedarFilings)
-    assert len(cse_filings.list) > 0
+    assert len(cse_filings.list_items) > 0
 
 
 def test_get_sedar_docs_json():
@@ -32,7 +32,7 @@ def test_get_sedar_docs_json():
     filings = get_cse_sedar_docs(cse_ticker)
     cse_filings = CSESedarFilings(filings.get("categories"), filings.get("list"))
     assert isinstance(cse_filings, CSESedarFilings)
-    assert len(cse_filings.list) > 0
+    assert len(cse_filings.list_items) > 0
 
 
 def test_get_cse_ticker():
