@@ -22,6 +22,6 @@ class CSETicker(object):
 
 
 class CSESedarFilings(object):
-    def __init__(self, categories: dict, list: List[dict]):
+    def __init__(self, categories: dict, list_items: List[dict]):
         self.categories = categories
-        self.list = list
+        self.list_items = list_items
