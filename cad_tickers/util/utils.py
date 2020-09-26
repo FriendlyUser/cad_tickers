@@ -117,8 +117,9 @@ def cse_ticker_to_yahoo(row: pd.Series) -> str:
 def tsx_ticker_to_yahoo(row: pd.Series) -> str:
     """
     Parameters:
-      ticker - ticker from pandas dataframe from cad_tickers
-      exchange - what exchange the ticker is for
+      row - pd.Series
+        * Ticker - ticker from pandas dataframe from cad_tickers
+        * Ex. - what exchange the ticker is for
     Returns:
       yticker - yahoo finance ticker for tsx
     """
@@ -128,3 +129,13 @@ def tsx_ticker_to_yahoo(row: pd.Series) -> str:
     switcher = {"TSXV": "V", "TSX": "TO"}
     yahoo_ex = switcher.get(exchange, "TSXV")
     return f"{ticker}.{yahoo_ex}"
+
+
+def cse_ticker_to_webmoney(cse_ticker: str):
+    """
+    Parameters:
+      cse_ticker - cse ticker name
+    Returns:
+      webmoney_ticker - ticker that can be looked up in webmoney
+    """
+    return f"{cse_ticker}:CNX"

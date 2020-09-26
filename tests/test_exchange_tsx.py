@@ -3,9 +3,11 @@ from cad_tickers.exchanges.tsx import (
     get_tsx_tickers,
     get_ticker_data,
     get_all_tickers_data,
+    get_all_cse_tickers,
 )
 import os
 import pandas as pd
+from io import StringIO
 
 
 def test_get_tsx_tickers_tsx():
@@ -37,3 +39,32 @@ def test_get_all_tickers_data():
     assert len(data) > 2000
     found = data[data["symbol"].str.contains("BB")]
     assert len(found) >= 1
+
+
+def test_webmoney_cse_tickers():
+    raw_values = StringIO(
+        """Company,Symbol,Industry,Identifier,Indices,Currency,Trading,urls
+1933 Industries Inc.,TGIF,Diversified Industries,US Cannabis,CSE Composite,CAD,16-Jun-17,https://thecse.com/en/listings/diversified-industries/1933-industries-inc
+Abattis Bioceuticals Corp.,ATT,Life Sciences,Cannabis,,CAD,01-Sep-15,https://thecse.com/en/listings/life-sciences/abattis-bioceuticals-corp
+"Acreage Holdings, Inc.",ACRG.U,Life Sciences,US Cannabis,,USD,15-Nov-18,"https://thecse.com/en/listings/life-sciences/acreage-holdings,-inc"
+Adastra Labs Holdings Ltd.,XTRX,Life Sciences,Cannabis,CSE Composite,CAD,06-Jan-20,https://thecse.com/en/listings/life-sciences/adastra-labs-holdings-ltd
+    """
+    )
+    expected_list = ["TGIF:CNX", "ATT:CNX", "ACRG.U:CNX", "XTRX:CNX"]
+    cse_df = pd.read_csv(raw_values)
+    tickers = get_all_cse_tickers(cse_df)
+    assert tickers == expected_list
+
+
+def test_webmoney_cse_tickers_fail():
+    raw_values = StringIO(
+        """Company,Ticker,Industry,Identifier,Indices,Currency,Trading,urls
+1933 Industries Inc.,TGIF,Diversified Industries,US Cannabis,CSE Composite,CAD,16-Jun-17,https://thecse.com/en/listings/diversified-industries/1933-industries-inc
+Abattis Bioceuticals Corp.,ATT,Life Sciences,Cannabis,,CAD,01-Sep-15,https://thecse.com/en/listings/life-sciences/abattis-bioceuticals-corp
+"Acreage Holdings, Inc.",ACRG.U,Life Sciences,US Cannabis,,USD,15-Nov-18,"https://thecse.com/en/listings/life-sciences/acreage-holdings,-inc"
+Adastra Labs Holdings Ltd.,XTRX,Life Sciences,Cannabis,CSE Composite,CAD,06-Jan-20,https://thecse.com/en/listings/life-sciences/adastra-labs-holdings-ltd
+    """
+    )
+    cse_df = pd.read_csv(raw_values)
+    tickers = get_all_cse_tickers(cse_df)
+    assert len(tickers) == 0

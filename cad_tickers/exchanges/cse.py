@@ -212,7 +212,8 @@ if __name__ == "__main__":
         choices=("xlsx", "pdf"),
         help="xlsx or pdf (default: %(default)s)",
     )
-    get_cse_files()
+    cse_df = get_cse_tickers_df()
+    cse_df.to_csv('cse.csv')
     # args = parser.parse_args()
     # cse_df = get_cse_tickers_df()
     # df = add_descriptions_to_df(cse_df)

@@ -8,3 +8,5 @@ dist
 pythonenv3.8
 coverage.xml
 htmlcov
+cse.csv
+tsx_data.csv
