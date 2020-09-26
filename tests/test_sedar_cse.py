@@ -19,7 +19,7 @@ def test_get_sedar_docs_json():
     assert len(cse_filings.list_items) > 0
 
 
-def test_get_sedar_docs_json():
+def test_get_sedar_docs_json_class():
     cmc_path = os.path.join("tests", "sample_data", "CMC.json")
     cmc_json = {}
     try:
