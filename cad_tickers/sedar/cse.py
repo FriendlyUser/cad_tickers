@@ -20,7 +20,9 @@ def get_cse_ticker_data(ticker, get_dict: bool = True) -> Union[CSETicker, dict]
     return CSETicker(**data)
 
 
-def get_cse_sedar_docs(cse_data: Union[dict, CSETicker]) -> Union[dict, CSESedarFilings]:
+def get_cse_sedar_docs(
+    cse_data: Union[dict, CSETicker]
+) -> Union[dict, CSESedarFilings]:
     """
     Parameters:
       cse_data - information for a ticker when it is loaded on the thecse website
@@ -36,8 +38,7 @@ def get_cse_sedar_docs(cse_data: Union[dict, CSETicker]) -> Union[dict, CSESedar
         sedar_filings_url = metatdata.get("sedar_filings")
         r = requests.get(sedar_filings_url)
         sedar_filings = r.json()
-        filings = CSESedarFilings(**sedar_filings)
-        return filings
+        return sedar_filings
     else:
         raise Exception("data misformatted must be dict or cse ticker")
 
