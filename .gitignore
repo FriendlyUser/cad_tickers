@@ -1,4 +1,4 @@
-.vscode
+.vscode/**
 .pytest_cache
 __pycache__
 .coverage
@@ -10,3 +10,4 @@ coverage.xml
 htmlcov
 cse.csv
 tsx_data.csv
+!.vscode/launch.json
