@@ -4,6 +4,12 @@ from typing import Union
 
 
 def get_cse_sedar_docs(cse_data: Union[dict, CSETicker]) -> CSESedarFilings:
+    """
+    Parameters:
+      cse_data - information for a ticker when it is loaded on the thecse website
+    Returns:
+      filings - class or dict with properties :class:`cad_tickers.exchanges.classes.CSESedarFilings`
+    """
     if isinstance(cse_data, CSETicker) or isinstance(cse_data, dict):
         if isinstance(cse_data, CSETicker):
             metatdata = cse_data.metatdata
@@ -16,7 +22,7 @@ def get_cse_sedar_docs(cse_data: Union[dict, CSETicker]) -> CSESedarFilings:
         filings = CSESedarFilings(**sedar_filings)
         return filings
     else:
-        raise Exception("data misformatted")
+        raise Exception("data misformatted must be dict or cse ticker")
 
 
 if __name__ == "__main__":
