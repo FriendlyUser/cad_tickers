@@ -1,7 +1,7 @@
 import json
 import os
 from cad_tickers.exchanges.classes import CSETicker, CSESedarFilings
-from cad_tickers.sedar.cse import get_cse_sedar_docs
+from cad_tickers.sedar.cse import get_cse_sedar_docs, get_cse_ticker_data
 
 
 def test_get_sedar_docs_json():
@@ -16,6 +16,7 @@ def test_get_sedar_docs_json():
     filings = get_cse_sedar_docs(cmc_json)
     cse_filings = CSESedarFilings(**filings)
     assert isinstance(cse_filings, CSESedarFilings)
+    assert len(cse_filings.list) > 0
 
 
 def test_get_sedar_docs_json():
@@ -31,3 +32,17 @@ def test_get_sedar_docs_json():
     filings = get_cse_sedar_docs(cse_ticker)
     cse_filings = CSESedarFilings(**filings)
     assert isinstance(cse_filings, CSESedarFilings)
+    assert len(cse_filings.list) > 0
+
+
+def test_get_cse_ticker():
+    cmc_dict = get_cse_ticker_data("CMC")
+    assert isinstance(cmc_dict, dict)
+    metatdata = cmc_dict.get("metatdata")
+    assert isinstance(metatdata, dict)
+
+
+def test_get_cse_ticker_class():
+    cmc_obj = get_cse_ticker_data("CMC", False)
+    assert isinstance(cmc_obj, CSETicker)
+    assert isinstance(cmc_obj.metatdata, dict)

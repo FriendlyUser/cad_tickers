@@ -1,6 +1,23 @@
 import requests
 from cad_tickers.exchanges.classes import CSESedarFilings, CSETicker
 from typing import Union
+from cad_tickers.util import make_cse_path
+
+
+def get_cse_ticker_data(ticker, get_dict: bool = True) -> Union[CSETicker, dict]:
+    """
+    Parameters:
+        ticker - stock ticker for the cse without exchange (ex, CMC)
+        get_dict - flag to get dict
+    Returns:
+        cse_ticker - dict or python class containing ticker data
+    """
+    ticker_url = f"https://webapi.thecse.com/traded/listed/securities/{ticker}.json"
+    r = requests.get(ticker_url)
+    data = r.json()
+    if get_dict == True:
+        return data
+    return CSETicker(**data)
 
 
 def get_cse_sedar_docs(cse_data: Union[dict, CSETicker]) -> CSESedarFilings:
