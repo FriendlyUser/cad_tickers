@@ -14,7 +14,6 @@ def get_cse_ticker_data(ticker, get_dict: bool = True) -> Union[CSETicker, dict]
     """
     ticker_url = f"https://webapi.thecse.com/trading/listed/securities/{ticker}.json"
     r = requests.get(ticker_url)
-    print(r)
     data = r.json()
 
     if get_dict == True:
