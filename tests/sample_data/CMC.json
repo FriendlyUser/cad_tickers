@@ -1,0 +1,468 @@
+{
+  "updated_at": {
+    "date": "2020-09-25",
+    "time": "16:31:25"
+  },
+  "metatdata": {
+    "listing_market": "CSE",
+    "symbol": "CMC",
+    "listing_date": "2011-08-03",
+    "trading_date": "2015-09-02",
+    "status": "Active",
+    "security_name": "Cielo Waste Solutions Corp.",
+    "security_type": "Equity",
+    "sector": "Technology",
+    "sector_tags": [],
+    "currency": "CAD",
+    "outstanding_shares": 249259762,
+    "reserved_shares": 179015051,
+    "total_equity_shares_as_if_converted": "",
+    "market_maker": {
+      "dealer name": "W.D. Latimer Co. Limited",
+      "type": "full"
+    },
+    "index": "CSE Composite",
+    "recent_change": {},
+    "sedar_filings": "https://webapi.thecse.com/trading/listed/sedar_filings/00031789.json"
+  },
+  "quote": {
+    "Time": "15:59:46.000",
+    "Bid Size": 79000,
+    "Bid Price": 0.06,
+    "Ask Price": 0.065,
+    "Ask Size": 392000
+  },
+  "depth_by_order": {
+    "date": "2020-09-25",
+    "time": "15:59:46.000",
+    "levels": [
+      {
+        "Bid Dealer": "CIBC World Markets Inc.",
+        "Bid Size": 20000,
+        "Bid Price": 0.06,
+        "Ask Price": 0.065,
+        "Ask Size": 35000,
+        "Ask Dealer": "Anonymous"
+      },
+      {
+        "Bid Dealer": "Questrade Inc.",
+        "Bid Size": 10000,
+        "Bid Price": 0.06,
+        "Ask Price": 0.065,
+        "Ask Size": 20000,
+        "Ask Dealer": "Anonymous"
+      },
+      {
+        "Bid Dealer": "TD Securities Inc.",
+        "Bid Size": 20000,
+        "Bid Price": 0.06,
+        "Ask Price": 0.065,
+        "Ask Size": 50000,
+        "Ask Dealer": "Anonymous"
+      },
+      {
+        "Bid Dealer": "TD Securities Inc.",
+        "Bid Size": 15000,
+        "Bid Price": 0.06,
+        "Ask Price": 0.065,
+        "Ask Size": 9000,
+        "Ask Dealer": "RBC Capital Markets"
+      },
+      {
+        "Bid Dealer": "Credential Qtrade Securities Inc.",
+        "Bid Size": 6000,
+        "Bid Price": 0.06,
+        "Ask Price": 0.065,
+        "Ask Size": 100000,
+        "Ask Dealer": "Scotia Capital Inc."
+      },
+      {
+        "Bid Dealer": "Questrade Inc.",
+        "Bid Size": 8000,
+        "Bid Price": 0.06,
+        "Ask Price": 0.065,
+        "Ask Size": 30000,
+        "Ask Dealer": "Anonymous"
+      },
+      {
+        "Bid Dealer": "Desjardins Securities Inc.",
+        "Bid Size": 12000,
+        "Bid Price": 0.055,
+        "Ask Price": 0.065,
+        "Ask Size": 13000,
+        "Ask Dealer": "TD Securities Inc."
+      },
+      {
+        "Bid Dealer": "Mackie Research Capital Corporation",
+        "Bid Size": 25000,
+        "Bid Price": 0.055,
+        "Ask Price": 0.065,
+        "Ask Size": 25000,
+        "Ask Dealer": "Scotia Capital Inc."
+      },
+      {
+        "Bid Dealer": "Scotia Capital Inc.",
+        "Bid Size": 25000,
+        "Bid Price": 0.055,
+        "Ask Price": 0.065,
+        "Ask Size": 50000,
+        "Ask Dealer": "TD Securities Inc."
+      },
+      {
+        "Bid Dealer": "RBC Capital Markets",
+        "Bid Size": 10000,
+        "Bid Price": 0.055,
+        "Ask Price": 0.065,
+        "Ask Size": 50000,
+        "Ask Dealer": "TD Securities Inc."
+      }
+    ]
+  },
+  "depth_by_price": {
+    "date": "2020-09-25",
+    "time": "15:59:46.000",
+    "levels": [
+      {
+        "Bid Count": 6,
+        "Bid Size": 79000,
+        "Bid Price": 0.06,
+        "Ask Price": 0.065,
+        "Ask Size": 392000,
+        "Ask Count": 11
+      },
+      {
+        "Bid Count": 10,
+        "Bid Size": 366000,
+        "Bid Price": 0.055,
+        "Ask Price": 0.07,
+        "Ask Size": 689000,
+        "Ask Count": 4
+      },
+      {
+        "Bid Count": 14,
+        "Bid Size": 625000,
+        "Bid Price": 0.05,
+        "Ask Price": 0.075,
+        "Ask Size": 53000,
+        "Ask Count": 1
+      },
+      {
+        "Bid Count": 2,
+        "Bid Size": 137000,
+        "Bid Price": 0.045,
+        "Ask Price": 0.08,
+        "Ask Size": 42000,
+        "Ask Count": 2
+      },
+      {
+        "Bid Count": 12,
+        "Bid Size": 646000,
+        "Bid Price": 0.04,
+        "Ask Price": 0.085,
+        "Ask Size": 422000,
+        "Ask Count": 6
+      }
+    ]
+  },
+  "ticker": {
+    "Time": "15:50:45.136",
+    "Previous Closing Price": 0.06,
+    "Trade Count": 38,
+    "Trading Volume": 707834,
+    "Trading Value": 43121,
+    "Trading Value (CAD)": 43121,
+    "Opening Price": 0.06,
+    "Last Price": 0.065,
+    "Net Change": 0.005,
+    "Net Change Percentage": 8.33,
+    "Last Tick": 0.005,
+    "Days Low Price": 0.06,
+    "Days High Price": 0.065,
+    "Days VWAP": 0.061,
+    "52 Week High": 0.115,
+    "52 Week Low": 0.005,
+    "Composite Index Contribution": {
+      "points": 0.3741,
+      "change": 0.0288,
+      "% of the index": 0.08
+    },
+    "CSE25 Index Contribution": {}
+  },
+  "trades": [
+    {
+      "date": "2020-09-25",
+      "time": "15:50:45.129",
+      "timestamp": 1601063445,
+      "price": 0.065,
+      "tick": 0.005,
+      "change": 0.005,
+      "volume": 1000,
+      "buy_dealer": "TD Securities Inc.",
+      "sell_dealer": "TD Securities Inc."
+    },
+    {
+      "date": "2020-09-25",
+      "time": "15:38:37.265",
+      "timestamp": 1601062717,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 10000,
+      "buy_dealer": "CIBC World Markets Inc.",
+      "sell_dealer": "BMO Nesbitt Burns Inc."
+    },
+    {
+      "date": "2020-09-25",
+      "time": "15:38:37.265",
+      "timestamp": 1601062717,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 1000,
+      "buy_dealer": "CIBC World Markets Inc.",
+      "sell_dealer": "BMO Nesbitt Burns Inc."
+    },
+    {
+      "date": "2020-09-25",
+      "time": "15:18:24.680",
+      "timestamp": 1601061504,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 99000,
+      "buy_dealer": "CIBC World Markets Inc.",
+      "sell_dealer": "BMO Nesbitt Burns Inc."
+    },
+    {
+      "date": "2020-09-25",
+      "time": "15:18:24.680",
+      "timestamp": 1601061504,
+      "price": 0.06,
+      "tick": -0.005,
+      "change": null,
+      "volume": 6000,
+      "buy_dealer": "Mackie Research Capital Corporation",
+      "sell_dealer": "BMO Nesbitt Burns Inc."
+    },
+    {
+      "date": "2020-09-25",
+      "time": "14:43:01.461",
+      "timestamp": 1601059381,
+      "price": 0.065,
+      "tick": null,
+      "change": 0.005,
+      "volume": 1000,
+      "buy_dealer": "RBC Capital Markets",
+      "sell_dealer": "RBC Capital Markets"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "13:43:17.964",
+      "timestamp": 1601055797,
+      "price": 0.065,
+      "tick": null,
+      "change": 0.005,
+      "volume": 12000,
+      "buy_dealer": "TD Securities Inc.",
+      "sell_dealer": "TD Securities Inc."
+    },
+    {
+      "date": "2020-09-25",
+      "time": "11:17:35.736",
+      "timestamp": 1601047055,
+      "price": 0.065,
+      "tick": null,
+      "change": 0.005,
+      "volume": 23000,
+      "buy_dealer": "RBC Capital Markets",
+      "sell_dealer": "RBC Capital Markets"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "11:12:07.705",
+      "timestamp": 1601046727,
+      "price": 0.065,
+      "tick": null,
+      "change": 0.005,
+      "volume": 67000,
+      "buy_dealer": "RBC Capital Markets",
+      "sell_dealer": "RBC Capital Markets"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "11:12:07.705",
+      "timestamp": 1601046727,
+      "price": 0.065,
+      "tick": 0.005,
+      "change": 0.005,
+      "volume": 25000,
+      "buy_dealer": "RBC Capital Markets",
+      "sell_dealer": "RBC Capital Markets"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:40:44.080",
+      "timestamp": 1601041244,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 4000,
+      "buy_dealer": "Mackie Research Capital Corporation",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:36:14.505",
+      "timestamp": 1601040974,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 28000,
+      "buy_dealer": "Questrade Inc.",
+      "sell_dealer": "TD Securities Inc."
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:31:49.553",
+      "timestamp": 1601040709,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 2000,
+      "buy_dealer": "Questrade Inc.",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.011",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 80000,
+      "buy_dealer": "Acumen Capital Finance Partners Limited",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.011",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 16000,
+      "buy_dealer": "Questrade Inc.",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.011",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 3000,
+      "buy_dealer": "Questrade Inc.",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.011",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 80000,
+      "buy_dealer": "Acumen Capital Finance Partners Limited",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.011",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 60000,
+      "buy_dealer": "Mackie Research Capital Corporation",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.011",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 2000,
+      "buy_dealer": "BMO Nesbitt Burns Inc.",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.011",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 50000,
+      "buy_dealer": "Canaccord Capital Corporation",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.011",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 30000,
+      "buy_dealer": "Anonymous",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.010",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 18000,
+      "buy_dealer": "Questrade Inc.",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.010",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 25000,
+      "buy_dealer": "National Bank Financial Inc.",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.010",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 50000,
+      "buy_dealer": "Canaccord Capital Corporation",
+      "sell_dealer": "Anonymous"
+    },
+    {
+      "date": "2020-09-25",
+      "time": "09:30:00.010",
+      "timestamp": 1601040600,
+      "price": 0.06,
+      "tick": null,
+      "change": null,
+      "volume": 1000,
+      "buy_dealer": "Scotia Capital Inc.",
+      "sell_dealer": "Anonymous"
+    }
+  ]
+}
