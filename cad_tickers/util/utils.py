@@ -46,7 +46,7 @@ def make_cse_path(raw_ticker: str, raw_industry: str) -> str:
     """
     if pd.isna(raw_industry):
         return ""
-    # verify raw_industry is in industry
+    # verify raw_industry is in industry do later
     cse_industries = [
         "Industry",
         "Mining",
@@ -56,7 +56,7 @@ def make_cse_path(raw_ticker: str, raw_industry: str) -> str:
         "Technology",
         "CleanTech",
     ]
-    # do later
+
     base_cse_url = "https://thecse.com/en/listings"
     industry = raw_industry.lower().replace(" ", "-")
     ticker = transform_name_to_slug(raw_ticker)

@@ -17,6 +17,16 @@ Welcome to cad_tickers's documentation!
    :maxdepth: 3
    :caption: Contents:
 
+
+Exchanges Classes
+==================
+These classes are primary data objects for the json returned from the exchanges.
+
+.. automodule:: cad_tickers.exchanges.classes
+   :members:
+   :undoc-members:
+
+
 Canadian Securities Exchange
 =============================
 
@@ -25,7 +35,6 @@ Functions to download tickers from the cse
 .. automodule:: cad_tickers.exchanges.cse
    :members:
    :undoc-members:
-
 
 
 Toronto Stock Exchange
@@ -62,6 +71,19 @@ IIROC Halts
 Find out what latest stocks have been halted from iiroc (only canada)
 
 .. automodule:: cad_tickers.news.iiroc_halts
+   :members:
+   :undoc-members:
+
+Sedar Documents
+=======================
+
+Utilities for downloading documents from sedar. Directly downloading files from sedar is difficult,
+so I am piggybacking the various exchanges, for the cse you can get links directly and download files.
+
+As for the tsx and tsxv, it is a link that redirects to another website. This is fine as I do 
+not intend to scrap data and only read the pdfs.
+
+.. automodule:: cad_tickers.sedar.cse
    :members:
    :undoc-members:
 

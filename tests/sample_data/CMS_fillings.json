@@ -1,0 +1,455 @@
+{
+  "categories": {
+    "Other": 18,
+    "Notice of Meeting": 2,
+    "Proxy Circular": 1,
+    "News Releases": 19,
+    "Management's Discussion \u0026 Analysis": 2,
+    "Financial Statements": 2,
+    "Material Change Report": 3,
+    "Early Warning Report": 2
+  },
+  "list": [
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009250834082224.pdf",
+      "document_description": "Form of proxy - English",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-25",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009250833547848.pdf",
+      "document_description": "Notice of meeting - English",
+      "document_category": "Notice of Meeting",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-25",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009250833405193.pdf",
+      "document_description": "Other",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-25",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009250833255031.pdf",
+      "document_description": "Management information circular - English",
+      "document_category": "Proxy Circular",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-25",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009250833114729.pdf",
+      "document_description": "Cover letter",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-25",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009211951152760.pdf",
+      "document_description": "Report of exempt distribution excluding Schedule 1 of 45-106F1",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Exempt Market Offerings and Disclosure",
+      "public_date": "2020-09-21",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009211949111023.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-21",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009211732552123.pdf",
+      "document_description": "52-109FV1 - Certification of annual filings - CFO (E)",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-21",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009211732293210.pdf",
+      "document_description": "52-109FV1 - Certification of annual filings - CEO (E)",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-21",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009211729018975.pdf",
+      "document_description": "MD\u0026A - English",
+      "document_category": "Management's Discussion \u0026 Analysis",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-21",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009211727067882.pdf",
+      "document_description": "ON Form 13-502F1 (Class 1 and 3B Reporting Issuers - Participation Fee)",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-21",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009211726403511.pdf",
+      "document_description": "AB Form 13-501F1 (Class 1 and 3B Reporting Issuers - Participation Fee)",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-21",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009211725421176.pdf",
+      "document_description": "Audited annual financial statements - English",
+      "document_category": "Financial Statements",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-21",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009161948335243.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-16",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009110601388129.pdf",
+      "document_description": "Notice of the meeting and record date - English",
+      "document_category": "Notice of Meeting",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-11",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2009091918385205.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-09-09",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2008251549323079.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-08-25",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2008041911308840.pdf",
+      "document_description": "Report of exempt distribution excluding Schedule 1 of 45-106F1",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Exempt Market Offerings and Disclosure",
+      "public_date": "2020-08-04",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2007301926289337.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-07-30",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2007241608515727.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-07-24",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2006301713329492.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-06-30",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2006121633147479.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-06-12",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2006011243050952.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-06-01",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2005261101467744.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-05-26",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2005261059374628.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-05-26",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2005221654401126.pdf",
+      "document_description": "Report of exempt distribution excluding Schedule 1 of 45-106F1",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Exempt Market Offerings and Disclosure",
+      "public_date": "2020-05-22",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2005111813162271.pdf",
+      "document_description": "Report of exempt distribution excluding Schedule 1 of 45-106F1",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Exempt Market Offerings and Disclosure",
+      "public_date": "2020-05-11",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2005111811145615.pdf",
+      "document_description": "Material change report - English",
+      "document_category": "Material Change Report",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-05-11",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2005051950054177.pdf",
+      "document_description": "Cover letter",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-05-05",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2004280532164211.pdf",
+      "document_description": "Material change report - English",
+      "document_category": "Material Change Report",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-04-28",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2004271853398754.pdf",
+      "document_description": "Report of exempt distribution excluding Schedule 1 of 45-106F1",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Exempt Market Offerings and Disclosure",
+      "public_date": "2020-04-27",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2004271504485865.pdf",
+      "document_description": "Report of exempt distribution excluding Schedule 1 of 45-106F1",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Exempt Market Offerings and Disclosure",
+      "public_date": "2020-04-27",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2004201904028026.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-04-20",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2004061943451150.pdf",
+      "document_description": "Material change report - English",
+      "document_category": "Material Change Report",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-04-06",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003311240091844.pdf",
+      "document_description": "Early warning report",
+      "document_category": "Early Warning Report",
+      "document_language": "English",
+      "filing_description": "Third Party Filings",
+      "public_date": "2020-03-31",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003311238309191.pdf",
+      "document_description": "Early warning report",
+      "document_category": "Early Warning Report",
+      "document_language": "English",
+      "filing_description": "Third Party Filings",
+      "public_date": "2020-03-31",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003301929514540.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-03-30",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003241618152693.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-03-24",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003201520530962.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-03-20",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003171551231120.pdf",
+      "document_description": "52-109FV2 - Certification of interim filings - CFO (E)",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-03-17",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003171550401584.pdf",
+      "document_description": "52-109FV2 - Certification of interim filings - CEO (E)",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-03-17",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003171546293335.pdf",
+      "document_description": "MD\u0026A - English",
+      "document_category": "Management's Discussion \u0026 Analysis",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-03-17",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003171544145764.pdf",
+      "document_description": "Interim financial statements/report - English",
+      "document_category": "Financial Statements",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-03-17",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2003030640009651.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-03-03",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2002202000499922.pdf",
+      "document_description": "Report of exempt distribution excluding Schedule 1 of 45-106F1",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Exempt Market Offerings and Disclosure",
+      "public_date": "2020-02-20",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2002071554291786.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-02-07",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2001101205490661.pdf",
+      "document_description": "Report of exempt distribution excluding Schedule 1 of 45-106F1",
+      "document_category": "Other",
+      "document_language": "English",
+      "filing_description": "Exempt Market Offerings and Disclosure",
+      "public_date": "2020-01-10",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2001090859210103.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-01-09",
+      "status": "available"
+    },
+    {
+      "url": "https://webfiles.thecse.com/sedar_filings/00031789/2001070518561611.pdf",
+      "document_description": "News release - English",
+      "document_category": "News Releases",
+      "document_language": "English",
+      "filing_description": "Continuous Disclosure",
+      "public_date": "2020-01-07",
+      "status": "available"
+    }
+  ]
+}
