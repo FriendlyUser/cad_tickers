@@ -130,3 +130,36 @@ class GQL:
         "variables": {"locale": "en"},
         "query": quote_by_symbol_query,
     }
+
+    get_company_filings_query = """query getCompanyFilings(
+      $symbol: String!
+      $fromDate: String
+      $toDate: String
+      $limit: Int
+    ) {
+      filings: getCompanyFilings(
+        symbol: $symbol
+        fromDate: $fromDate
+        toDate: $toDate
+        limit: $limit
+      ) {
+        size
+        filingDate
+        description
+        name
+        urlToPdf
+        __typename
+      }
+    }"""
+
+    # Replace the fromDate and toDate variables, or default them to
+    # the current month
+    get_company_filings_payload = {
+        "operationName": "getCompanyFilings",
+        "variables": {
+            "symbol": "ART",
+            "fromDate": "2020-09-01",
+            "toDate": "2020-09-30",
+        },
+        "query": get_company_filings_query,
+    }
