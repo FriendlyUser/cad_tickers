@@ -3,7 +3,6 @@ import pandas as pd
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 from cad_tickers.exchanges.tsx.get_ticker_data import get_ticker_data
-from cad_tickers.util import cse_ticker_to_webmoney
 
 # since tsx lacks documentation
 # unlikely that I can figure out what the other endpoints do
@@ -19,23 +18,6 @@ def get_all_tsx_tickers() -> list:
     tsxv_tickers = get_tsx_tickers("tsxv")
     all_tsx = [*tsx_tickers, *tsxv_tickers]
     return all_tsx
-
-
-def get_all_cse_tickers(cse_df: pd.DataFrame) -> list:
-    """
-    Parameters:
-        cse_df - cleaned cse dataframe
-    Returns:
-        webmoney_tickers - list of webmoney cse tickers
-    """
-    try:
-        tickers = cse_df["Symbol"].values.tolist()
-        webmoney_tickers = [cse_ticker_to_webmoney(ticker) for ticker in tickers]
-        return webmoney_tickers
-    except Exception as e:
-        print("FAILED TO GRAB TICKER FROM CSE_DF")
-        print(e)
-        return []
 
 
 def get_tsx_tickers(exchange="tsx") -> list:

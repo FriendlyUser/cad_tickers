@@ -3,7 +3,28 @@ import re
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup
-from cad_tickers.util import parse_description_tags, make_cse_path
+from cad_tickers.util import (
+    parse_description_tags,
+    make_cse_path,
+    cse_ticker_to_webmoney,
+)
+
+
+def get_all_cse_tickers(cse_df: pd.DataFrame) -> list:
+    """
+    Parameters:
+        cse_df - cleaned cse dataframe
+    Returns:
+        webmoney_tickers - list of webmoney cse tickers
+    """
+    try:
+        tickers = cse_df["Symbol"].values.tolist()
+        webmoney_tickers = [cse_ticker_to_webmoney(ticker) for ticker in tickers]
+        return webmoney_tickers
+    except Exception as e:
+        print("FAILED TO GRAB TICKER FROM CSE_DF")
+        print(e)
+        return []
 
 
 def get_cse_files(filename: str = "cse.xlsx", filetype: str = "xlsx") -> str:
@@ -213,7 +234,7 @@ if __name__ == "__main__":
         help="xlsx or pdf (default: %(default)s)",
     )
     cse_df = get_cse_tickers_df()
-    cse_df.to_csv('cse.csv')
+    cse_df.to_csv("cse.csv")
     # args = parser.parse_args()
     # cse_df = get_cse_tickers_df()
     # df = add_descriptions_to_df(cse_df)
