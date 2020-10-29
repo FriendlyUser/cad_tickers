@@ -53,4 +53,3 @@ if __name__ == "__main__":
     import os
 
     cmc = get_ticker_filings("ART")
-    print(cmc)

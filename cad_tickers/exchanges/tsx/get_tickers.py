@@ -25,6 +25,8 @@ def get_all_cse_tickers(cse_df: pd.DataFrame) -> list:
     """
     Parameters:
         cse_df - cleaned cse dataframe
+    Returns:
+        webmoney_tickers - list of webmoney cse tickers
     """
     try:
         tickers = cse_df["Symbol"].values.tolist()
