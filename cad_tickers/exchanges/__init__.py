@@ -20,4 +20,4 @@ from cad_tickers.exchanges.tsx import (
 )
 from cad_tickers.exchanges.classes import CSETicker, CSESedarFilings
 
-from cad_tickers.exchanges.all_tickers import get_full_tickers
+from cad_tickers.exchanges.all_tickers import mk_full_tickers
