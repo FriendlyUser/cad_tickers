@@ -32,14 +32,7 @@ def get_ticker_filings(
             "locale": "en",
         },
     )
-    try:
-        allData = r.json()
-    except json.decoder.JSONDecodeError as error:
-        print(error)
-        print(f"Failed to decode docs for {symbol}")
-        print(r)
-        return None
-    # Check for errors
+    allData = r.json()
     try:
         data = allData["data"]
         return data
