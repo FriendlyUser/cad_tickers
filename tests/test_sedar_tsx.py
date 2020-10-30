@@ -9,5 +9,5 @@ def test_get_tsx_docs():
 
 def test_fake_doc():
     data = get_ticker_filings("DART")
-    print(data)
-    assert data == None
+    error = data["UserInputError"]
+    assert error == None
