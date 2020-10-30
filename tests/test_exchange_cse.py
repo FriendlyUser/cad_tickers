@@ -2,6 +2,7 @@ from cad_tickers.exchanges.cse import (
     get_cse_files,
     get_cse_tickers_df,
     get_description_for_url,
+    add_descriptions_to_df,
 )
 from cad_tickers.util import make_cse_path
 import os
@@ -31,6 +32,12 @@ def test_clean_cse_csv():
     df = get_cse_tickers_df()
     num_rows = df.isnull().T.any().T.sum()
     assert num_rows > 2
+
+
+def test_add_descriptions():
+    df = get_cse_tickers_df()
+    df = add_descriptions_to_df(df.head())
+    assert len(df) == 5
 
 
 def test_dl_cse_none():

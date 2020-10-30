@@ -1,5 +1,4 @@
 import requests
-import json
 from datetime import datetime
 from cad_tickers.exchanges.tsx.gql_data import GQL
 from typing import Union
