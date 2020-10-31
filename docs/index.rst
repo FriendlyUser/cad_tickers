@@ -27,6 +27,11 @@ These classes are primary data objects for the json returned from the exchanges.
    :undoc-members:
 
 
+.. automodule:: cad_tickers.exchanges.all_tickers
+   :members:
+   :undoc-members:
+
+
 Canadian Securities Exchange
 =============================
 

@@ -2,6 +2,7 @@
 omit =
     /github/home/.cache/pypoetry/virtualenvs/*
     pythonenv3.8/lib/**
+    *tests*
 
 [report]
 

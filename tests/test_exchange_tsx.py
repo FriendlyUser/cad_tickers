@@ -3,8 +3,8 @@ from cad_tickers.exchanges.tsx import (
     get_tsx_tickers,
     get_ticker_data,
     get_all_tickers_data,
-    get_all_cse_tickers,
 )
+from cad_tickers.exchanges.cse import get_all_cse_tickers
 import os
 import pandas as pd
 from io import StringIO
@@ -13,6 +13,11 @@ from io import StringIO
 def test_get_tsx_tickers_tsx():
     tsx_tickers = get_tsx_tickers("tsx")
     assert len(tsx_tickers) > 500
+
+
+def test_get_all_tsx_tickers():
+    tsx_tickers = get_all_tsx_tickers()
+    assert len(tsx_tickers) > 1000
 
 
 def test_get_tsx_tickers_tsxv():
@@ -32,6 +37,12 @@ def test_get_ticker_data_art():
     data = get_ticker_data("art")
     assert data.get("symbol") == "ART"
 
+
+def test_get_ticker_data_NA():
+    try:
+        data = get_ticker_data("NA")
+    except Exception as e:
+        assert True
 
 def test_get_all_tickers_data():
     data = get_all_tickers_data()
