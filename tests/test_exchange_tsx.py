@@ -38,11 +38,18 @@ def test_get_ticker_data_art():
     assert data.get("symbol") == "ART"
 
 
+def test_get_ticker_data_cmc():
+    data = get_ticker_data("CMC:CNX")
+    assert data.get("symbol") == "CMC:CNX"
+    print(data)
+
+
 def test_get_ticker_data_NA():
     try:
         data = get_ticker_data("NA")
     except Exception as e:
         assert True
+
 
 def test_get_all_tickers_data():
     data = get_all_tickers_data()
