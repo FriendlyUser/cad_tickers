@@ -92,6 +92,10 @@ not intend to scrap data and only read the pdfs.
    :members:
    :undoc-members:
 
+.. automodule:: cad_tickers.sedar.tsx
+   :members:
+   :undoc-members:
+
 Stock Utilities
 ===============
 
