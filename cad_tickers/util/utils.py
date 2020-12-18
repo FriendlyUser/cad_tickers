@@ -139,3 +139,9 @@ def cse_ticker_to_webmoney(cse_ticker: str):
       webmoney_ticker - ticker that can be looked up in webmoney
     """
     return f"{cse_ticker}:CNX"
+
+
+# make request with query params
+
+
+# 
