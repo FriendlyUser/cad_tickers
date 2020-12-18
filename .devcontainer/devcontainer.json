@@ -1,0 +1,31 @@
+
+	"name": "Python 3",
+	"context": "..",
+	"dockerFile": "Dockerfile",
+
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.pythonPath": "/usr/local/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": false,
+		"python.linting.flake8Enabled": true,
+		"python.linting.flake8Path": "/usr/local/bin/flake8",
+		"cmake.configureOnOpen": true,
+		"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+		"C_Cpp.clang_format_path": "/usr/bin/clang-format",
+		"C_Cpp.clang_format_style": "google",
+		"cmake.configureSettings": {
+			"PYTHON_EXECUTABLE": "/usr/local/bin/python"
+		},
+		"cmake.buildDirectory": "/workspaces/entpy/build",
+		"cmake.sourceDirectory": "/workspaces/entpy/cpp"
+	},
+
+	"extensions": [
+		"ms-python.vscode-pylance",
+		"ms-vscode.cpptools",
+		"ms-vscode.cmake-tools"
+	],
+
+	"remoteUser": "vscode"
+}
