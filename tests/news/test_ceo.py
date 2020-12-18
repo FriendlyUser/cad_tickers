@@ -1,5 +1,6 @@
 from cad_tickers.news.ceo import SearchParams
 from cad_tickers.news.ceo.utils import news_link_from_spiel, params_to_dict, update_params
+from dataclasses import replace
 def test_create_sp():
     default_sp = SearchParams(until=1608318681)
     y = params_to_dict(default_sp)
@@ -8,8 +9,8 @@ def test_create_sp():
 
 def test_create_sp_update():
     default_sp = SearchParams(until=1608318681)
+    y = replace(default_sp, {'channel': '@cad_tickers'})
     y = params_to_dict(default_sp)
-    y = update_params(y, {'channel': '@cad_tickers'})
     x = {'channel': '@cad_tickers', 'load_more': 'top', 'original_scroll_height': 0, 'until': 1608318681, 'filters[terms]': 'APHA', 'filters[top]': 100}
     assert y == x
 

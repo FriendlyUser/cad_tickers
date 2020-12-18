@@ -12,10 +12,6 @@ def params_to_dict(sp: Type[SearchParams]) -> dict:
     data["filters[top]"] = data.pop("filter_top")
     return data
 
-def update_params(sp: Type[SearchParams], new_dict: dict) -> dict:
-    new_sp = replace(sp, **new_dict)
-    return params_to_dict(new_sp)
-
 def news_link_from_spiel(spiel: dict)-> Union[str, None]:
     spiel = spiel.get('spiel')
     try:

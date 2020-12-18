@@ -25,4 +25,4 @@ The spiel contain the @newswire just find anything with a @ symbol, should be ba
 # 
 
 from cad_tickers.news.ceo.spiel_class import SearchParams
-from cad_tickers.news.ceo.utils import params_to_dict, ceo_url, update_params, news_link_from_spiel
+from cad_tickers.news.ceo.utils import params_to_dict, ceo_url, news_link_from_spiel
