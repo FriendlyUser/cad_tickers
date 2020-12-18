@@ -28,7 +28,7 @@ jobs:
           poetry-version: ${{ matrix.poetry-version }}
   
       - name: Dataclasses for python 3.6
-        if: ${{ matrix.poetry-version == 3.6.7 }} 
+        if: ${{ matrix.poetry-version == "3.6.7" }} 
         run: poetry  add dataclasses --dev --optional
 
       - name: Coverage Report
