@@ -10,6 +10,8 @@ def get_spiels(params: dict):
 
 if __name__ == "__main__":
 
-    default_sp = SearchParams()
+    default_sp = SearchParams(until=1608318681)
     default_params = params_to_dict(default_sp)
-    get_spiels(default_params)
+    y = params_to_dict(default_sp)
+    x = {'channel': '@newswire', 'load_more': 'top', 'original_scroll_height': 0, 'until': 1608318681, 'filter[terms]': 'APHA', 'filter[top]': 100}
+    assert y == x
