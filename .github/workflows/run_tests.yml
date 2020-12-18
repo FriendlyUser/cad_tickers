@@ -36,7 +36,7 @@ jobs:
           args: add dataclasses --dev --optional
 
       - name: Coverage Report
-        uses: abatilo/actions-poetry@v1.5.0
+        uses: abatilo/actions-poetry@v2.0.0
         with:
           poetry-version: ${{ matrix.poetry-version }}
           args: run python -m pytest --cov=./ --cov-report=xml
