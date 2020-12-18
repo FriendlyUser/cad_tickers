@@ -1,8 +1,9 @@
-from dataclasses import asdict
-from typing import Type
+from dataclasses import asdict, replace
+from typing import Type, Union
 from cad_tickers.news.ceo import SearchParams
+import re
 
-ceo_url = 'https://ceo.ca/api'
+ceo_url = "https://ceo.ca"
 
 def params_to_dict(sp: Type[SearchParams]) -> dict:
     """utility function to get query parameters"""
@@ -10,3 +11,16 @@ def params_to_dict(sp: Type[SearchParams]) -> dict:
     data["filters[terms]"] = data.pop("filter_terms")
     data["filters[top]"] = data.pop("filter_top")
     return data
+
+def update_params(sp: Type[SearchParams], new_dict: dict) -> dict:
+    new_sp = replace(sp, **new_dict)
+    return params_to_dict(new_sp)
+
+def news_link_from_spiel(spiel: dict)-> Union[str, None]:
+    spiel = spiel.get('spiel')
+    try:
+        found = re.search('@[a-zA-Z0-9/-]+', spiel)
+        return f"{ceo_url}/{found.group(0)}"
+    except AttributeError as e:
+        print(e)
+        return None
