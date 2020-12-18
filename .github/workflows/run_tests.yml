@@ -16,20 +16,20 @@ jobs:
       - name: Install
         uses: abatilo/actions-poetry@v1.5.0
         with:
-          python_version: 3.6.7
+          python_version: 3.6
           poetry_version: 1.0.9
           args: install
       
       - name: Stopgap method to install dataclasses for python3.6.9
         uses: abatilo/actions-poetry@v1.5.0
         with:
-          python_version: 3.6.7
+          python_version: 3.6
           poetry_version: 1.0.9
-          args: add  dataclasses --dev --optional 
+          args: add dataclasses --dev --optional 
       - name: Coverage Report
         uses: abatilo/actions-poetry@v1.5.0
         with:
-          python_version: 3.6.7
+          python_version: 3.6
           poetry_version: 1.0.9
           # working_directory: ./working_dir
           args: run python -m pytest --cov=./ --cov-report=xml
