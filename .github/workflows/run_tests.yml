@@ -17,6 +17,10 @@ jobs:
           os: [ubuntu-20.04, windows-latest]
     runs-on: ${{ matrix.os }}
     name: coverage
+    env:
+      PYTHON: ${{ matrix.python-version }}
+      OS: ${{ matrix.os }}
+      POETRY: ${{ matrix.poetry-version}}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -45,11 +49,12 @@ jobs:
 
       - name: Coverage Report
         run: poetry run python -m pytest --cov=./ --cov-report=xml
+        env_vars: PYTHON,OS,POETRY
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v1.0.15
         with:
           file: ./coverage.xml
-          flags: unittests
-          env_vars: OS,PYTHON
+          flags: ga_ci
+          env_vars: PYTHON,OS,POETRY
           fail_ci_if_error: true
