@@ -1,5 +1,5 @@
 from cad_tickers.news.ceo import SearchParams
-from cad_tickers.news.ceo.utils import news_link_from_spiel, params_to_dict, update_params
+from cad_tickers.news.ceo.utils import news_link_from_spiel, params_to_dict
 from dataclasses import replace
 def test_create_sp():
     default_sp = SearchParams(until=1608318681)
