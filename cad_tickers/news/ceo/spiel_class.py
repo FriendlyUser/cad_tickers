@@ -9,5 +9,5 @@ class SearchParams:
     filter_top: int = 100
     load_more: str = 'top'
     original_scroll_height: str = 0
-    until: int = int(time()) 
+    until: int = int(time() * 1000) 
 
