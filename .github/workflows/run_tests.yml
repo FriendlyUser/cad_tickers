@@ -49,7 +49,6 @@ jobs:
 
       - name: Coverage Report
         run: poetry run python -m pytest --cov=./ --cov-report=xml
-        env_vars: PYTHON,OS,POETRY
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.15
