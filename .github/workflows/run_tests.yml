@@ -12,9 +12,9 @@ jobs:
     strategy:
         fail-fast: false
         matrix:
-          python-version: [3.6, 3.7, 3.8]
-          poetry-version: [1.0, 1.1.2]
-          os: [ubuntu-20.04, macos-latest, windows-latest]
+          python-version: [3.6, 3.7, 3.8, 3.9]
+          poetry-version: [1.1.2]
+          os: [ubuntu-20.04, windows-latest]
     runs-on: ${{ matrix.os }}
     name: coverage
     steps:
@@ -26,20 +26,13 @@ jobs:
         uses: abatilo/actions-poetry@v2.0.0
         with:
           poetry-version: ${{ matrix.poetry-version }}
-          args: install
-      
-      - name: Stopgap method to install dataclasses for python3.6.9
+  
+      - name: Dataclasses for python 3.6
         if: ${{ matrix.poetry-version }} == 3.6
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
-          args: add dataclasses --dev --optional
+        run: poetry  add dataclasses --dev --optional
 
       - name: Coverage Report
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
-          args: run python -m pytest --cov=./ --cov-report=xml
+        run: poetry run python -m pytest --cov=./ --cov-report=xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
