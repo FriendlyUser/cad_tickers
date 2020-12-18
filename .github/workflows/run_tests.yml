@@ -26,10 +26,18 @@ jobs:
         uses: abatilo/actions-poetry@v2.0.0
         with:
           poetry-version: ${{ matrix.poetry-version }}
-  
+
+      - name: Install Dependencies
+        run: poetry install
+
       - name: Dataclasses for python 3.6
         if: ${{ matrix.python-version }} == "3.6.7" 
-        run: poetry run python -m pip install dataclasses
+        run: | 
+          ver=$(python -V 2>&1 | sed 's/.* \([0-9]\).\([0-9]\).*/\1\2/')
+          echo $ver
+          if [ "$ver" -eq "3.6" ]; then
+            poetry run python -m pip install dataclasses
+          fi
 
       - name: Coverage Report
         run: poetry run python -m pytest --cov=./ --cov-report=xml
