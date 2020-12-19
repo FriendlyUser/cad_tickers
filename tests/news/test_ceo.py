@@ -1,5 +1,5 @@
 from cad_tickers.news.ceo import SearchParams
-from cad_tickers.news.ceo.utils import news_link_from_spiel, params_to_dict
+from cad_tickers.news.ceo.utils import news_link_from_spiel, params_to_dict, earlier_timestamp
 from dataclasses import replace
 def test_create_sp():
     default_sp = SearchParams(until=1608318681)
@@ -19,6 +19,9 @@ def test_get_url():
     url = news_link_from_spiel(sample_spiel())
     assert url == 'https://ceo.ca/@newswire/aphria-inc-recognized-for-executive-gender-diversity'
 
+
+def earlier_timestamp():
+    assert earlier_timestamp(1601634635276, days=90) == 1609414235276
 # move to test when done
 def sample_spiel():
     return {

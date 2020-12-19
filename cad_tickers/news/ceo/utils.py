@@ -1,10 +1,11 @@
-from dataclasses import asdict, replace
+import re
+import datetime
+from dataclasses import asdict
 from typing import Type, Union
 from cad_tickers.news.ceo import SearchParams
-import re
 
 ceo_url = "https://ceo.ca"
-
+art_pixel_height = 96
 def params_to_dict(sp: Type[SearchParams]) -> dict:
     """utility function to get query parameters"""
     data = asdict(sp)
@@ -20,3 +21,10 @@ def news_link_from_spiel(spiel: dict)-> Union[str, None]:
     except AttributeError as e:
         print(e)
         return None
+
+def earlier_timestamp(timestamp: int, days: int=90)-> int:
+    """Update timestamp and return timestamp in millseconds"""
+    timestamp = float(timestamp * 0.001)
+    orig = datetime.datetime.fromtimestamp(timestamp)
+    new = orig - datetime.timedelta(days=days)
+    return int(new.timestamp() * 1000)
