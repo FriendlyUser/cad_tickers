@@ -62,7 +62,7 @@ Will definitely split into smaller files once the graphql api becomes the main a
 
 
 Stock News
-=======================
+=========================
 
 Extract news from stocks on yahoo
 
@@ -70,8 +70,24 @@ Extract news from stocks on yahoo
    :members:
    :undoc-members:
 
+CEO 
+-------------------------
+To use this functionality, we require dataclasses which is natively available in python 3.7, for python 3.6 please install dataclasses from pip.
+
+.. automodule:: cad_tickers.news.ceo.main
+   :members:
+   :undoc-members:
+
+.. automodule:: cad_tickers.news.ceo.spiel_class 
+   :members:
+   :undoc-members:
+
+.. automodule:: cad_tickers.news.ceo.utils 
+   :members:
+   :undoc-members:
+
 IIROC Halts
-=========================
+---------------------------
 
 Find out what latest stocks have been halted from iiroc (only canada)
 
