@@ -78,10 +78,4 @@ def get_new_items(ticker: str, max_iterations = 60, until = None):
 # Function that selectors any article class and then returns all the text, alternatively can use sumpy for a well
 # formed pages like ceo.ca
 if __name__ == "__main__":
-
-    # default_sp = SearchParams(until=1593091936374)
-    # default_params = params_to_dict(default_sp)
-    # data = get_spiels(default_params)
-    # extract_urls(data)
     data_urls = get_new_items('APHA', until=1609217267394)
-    pass

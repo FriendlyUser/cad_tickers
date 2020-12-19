@@ -3,7 +3,7 @@ from cad_tickers.sedar.tsx import get_ticker_filings
 
 def test_get_tsx_docs():
 
-    data = get_ticker_filings("ART")
+    data = get_ticker_filings("ART", "2018-03-03", "2020-12-03")
     assert len(data.get("filings")) > 0
 
 
