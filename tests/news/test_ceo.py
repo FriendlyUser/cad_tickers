@@ -24,7 +24,7 @@ def test_get_new_items():
     assert len(get_new_items('APHA', until=1609217267394)) == 109
 
 def test_earlier_timestamp():
-    assert earlier_timestamp(1601634635276, days=90) == 1609414235276
+    assert earlier_timestamp(1609414235276, days=90) == 1601634635276
 # move to test when done
 def sample_spiel():
     return {
