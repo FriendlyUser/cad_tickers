@@ -1,3 +1,7 @@
+## v1.4.5
+
+* fixing no script error
+
 ## Changes up to and including v1.4.0
 
 - [x] Integrated ceo.ca news feed fetching

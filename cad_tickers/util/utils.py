@@ -1,7 +1,5 @@
 import pandas as pd
 import bs4
-import requests
-import os
 from typing import List
 
 
@@ -142,6 +140,3 @@ def cse_ticker_to_webmoney(cse_ticker: str):
 
 
 # make request with query params
-
-
-# 

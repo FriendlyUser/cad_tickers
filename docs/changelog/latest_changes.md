@@ -1,3 +1,3 @@
-## v1.4.5
+## V1.4.8
 
-* fixing no script error
+* Adding logging module

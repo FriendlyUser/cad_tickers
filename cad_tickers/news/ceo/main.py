@@ -4,8 +4,7 @@ from cad_tickers.news.ceo import SearchParams, ceo_url, \
     news_link_from_spiel, \
     params_to_dict
 
-from cad_tickers.news.ceo.utils import art_pixel_height, earlier_timestamp
-
+from cad_tickers.news.ceo.utils import art_pixel_height, earlier_timestamp, module_logger
 from typing import Tuple, List
 from dataclasses import replace
 # get spiels from 
@@ -52,7 +51,7 @@ def get_new_items(ticker: str, channel='@newswire', max_iterations = 60, until =
                 'until': until, 
                 'original_scroll_height': scroll_height
             })
-            print(f'Update timestamp: {until}')
+            module_logger.warning(f'Update timestamp: {until}')
         params = params_to_dict(sp)
         data = get_spiels(params)
         # standard delay to not get blocked
