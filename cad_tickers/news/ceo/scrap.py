@@ -11,10 +11,12 @@ def extract_article(article_url: str)-> bs4.element.Tag:
     # print(soup.prettify())
     article = soup.find(attrs={'class': 'article-body article'})
     # remove image tags
-    images = [x.extract() for x in article.findAll('img')]
-    # remove spans with Click Image to View Full Size
-    image_text = article.findAll(lambda tag : tag.name == 'span' and 'Click Image To View Full Size' in tag.text)
-    [x.extract() for x in image_text]
+    try:
+        image_text = article.findAll(lambda tag : tag.name == 'span' and 'Click Image To View Full Size' in tag.text)
+        [x.extract() for x in image_text]
+        images = [x.extract() for x in soup.findAll('img')]
+    except AttributeError as e:
+        print(e)
     return article
 
 def save_bs4_tag(tag, file_name=''):
