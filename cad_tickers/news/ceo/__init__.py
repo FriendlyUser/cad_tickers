@@ -29,3 +29,4 @@ from cad_tickers.news.ceo.utils import params_to_dict, ceo_url, \
  news_link_from_spiel, art_pixel_height
 
 from cad_tickers.news.ceo.main import extract_urls, get_new_items
+from cad_tickers.news.ceo.scrap import extract_article, save_bs4_tag

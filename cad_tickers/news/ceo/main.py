@@ -4,8 +4,7 @@ from cad_tickers.news.ceo import SearchParams, ceo_url, \
     news_link_from_spiel, \
     params_to_dict
 
-from cad_tickers.news.ceo.utils import art_pixel_height, earlier_timestamp
-
+from cad_tickers.news.ceo.utils import art_pixel_height, earlier_timestamp, module_logger
 from typing import Tuple, List
 from dataclasses import replace
 # get spiels from 
@@ -33,25 +32,26 @@ def extract_urls(spiels: List[dict])-> Tuple[list, str]:
     # spiels_list = [i for i in spiels_list if i] 
     return spiels_list, spiels[0].get('timestamp')
 
-def get_new_items(ticker: str, max_iterations = 60, until = None):
+def get_new_items(ticker: str, channel='@newswire', max_iterations = 60, until = 0):
     """Gets news items from ceo using ticker
 
         Parameters:
             ticker - stock ticker, for example APHA
+            channel - can be @newswire, @thenewswire 
             max_iterations - max number of requests to ceo.ca
     """
-    sp = SearchParams(filter_terms=ticker)
+    sp = SearchParams(channel=channel, filter_terms=ticker)
     scroll_height = 0
     data_urls = []
     blank_fetchs = 0
     for i in range(max_iterations):
-        if until != None:
+        if until != 0:
             # update object with new timestamp
             sp = replace(sp, **{
                 'until': until, 
                 'original_scroll_height': scroll_height
             })
-            print(f'Update timestamp: {until}')
+            module_logger.warning(f'Update timestamp: {until}')
         params = params_to_dict(sp)
         data = get_spiels(params)
         # standard delay to not get blocked
