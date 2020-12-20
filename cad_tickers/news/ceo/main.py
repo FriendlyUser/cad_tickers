@@ -33,14 +33,14 @@ def extract_urls(spiels: List[dict])-> Tuple[list, str]:
     # spiels_list = [i for i in spiels_list if i] 
     return spiels_list, spiels[0].get('timestamp')
 
-def get_new_items(ticker: str, max_iterations = 60, until = None):
+def get_new_items(ticker: str, channel='@newswire', max_iterations = 60, until = None):
     """Gets news items from ceo using ticker
 
         Parameters:
             ticker - stock ticker, for example APHA
             max_iterations - max number of requests to ceo.ca
     """
-    sp = SearchParams(filter_terms=ticker)
+    sp = SearchParams(channel=channel, filter_terms=ticker)
     scroll_height = 0
     data_urls = []
     blank_fetchs = 0
