@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup
 def extract_article(article_url: str)-> bs4.element.Tag:
     """Extracts data from given ceo news url"""
     r = requests.get(article_url)
+    if r == None:
+        print('No data returned from the url')
+        print('need more delay???')
     data = r.text
     soup = BeautifulSoup(data, features="html.parser")
     try:
