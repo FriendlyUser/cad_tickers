@@ -19,7 +19,7 @@ def extract_article(article_url: str)-> bs4.element.Tag:
         print(e)
     return article
 
-def save_bs4_tag(tag: bs4.element.tag, file_name: str=''):
+def save_bs4_tag(tag: bs4.element.Tag, file_name: str=''):
     """Save bs4 tag to file"""
     with open(file_name, "w", encoding='utf-8') as f:
         f.write(tag.text)
