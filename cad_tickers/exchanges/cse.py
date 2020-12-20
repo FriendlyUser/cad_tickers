@@ -1,3 +1,4 @@
+# todo split into smaller files
 import requests
 import re
 import pandas as pd
@@ -211,6 +212,11 @@ def add_descriptions_to_df(df: pd.DataFrame, max_workers: int = 16) -> pd.DataFr
     with ThreadPoolExecutor(max_workers=max_workers) as tpe:
         iterables = tpe.map(get_description_for_url, urls)
         descriptions = list(iterables)
+
+    # use loop to set index values
+    # df['description] = ''
+    # for index, description in enumerate(descriptions):
+    #   df.loc[index, 'description'] = description
     df["description"] = descriptions
     return df
 
