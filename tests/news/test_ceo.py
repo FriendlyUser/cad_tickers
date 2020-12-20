@@ -1,6 +1,6 @@
-from cad_tickers.news.ceo import SearchParams, get_new_items, \ 
-    extract_article, save_bs4_tag
+from cad_tickers.news.ceo import SearchParams, get_new_items
 from cad_tickers.news.ceo.utils import news_link_from_spiel, params_to_dict, earlier_timestamp 
+from cad_tickers.news.ceo.scrap import extract_article, save_bs4_tag
 from dataclasses import replace
 from tests.news.sample_data import ref_text, sample_spiel
 
