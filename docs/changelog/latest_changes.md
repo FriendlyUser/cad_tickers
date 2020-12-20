@@ -1,3 +1,3 @@
-## v1.4.3
+## v1.4.5
 
-* adding channel parameter
+* fixing no script error

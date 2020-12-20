@@ -7,7 +7,10 @@ def extract_article(article_url: str)-> bs4.element.Tag:
     r = requests.get(article_url)
     data = r.text
     soup = BeautifulSoup(data, features="html.parser")
-    scripts = [x.extract() for x in soup.findAll('script')]
+    try:
+        scripts = [x.extract() for x in soup.findAll('script')]
+    except AttributeError as e:
+        print('No Scripts to Extract from article')
     # print(soup.prettify())
     article = soup.find(attrs={'class': 'article-body article'})
     # Use this as a example
