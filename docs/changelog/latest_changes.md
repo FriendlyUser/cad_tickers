@@ -1,4 +1,3 @@
-## v1.4.1
+## v1.4.3
 
-* adding bs4 scrapping and cleaning for articles
-* test coverage for new functions
+* adding channel parameter
