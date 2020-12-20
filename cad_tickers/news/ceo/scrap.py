@@ -20,6 +20,8 @@ def extract_article(article_url: str)-> bs4.element.Tag:
     # remove image tags
     if article == None:
         article = soup.find(id='article')
+    if article == None:
+        article = soup.find(id='article-container')
     try:
         image_text = article.findAll(lambda tag : tag.name == 'span' and 'Click Image To View Full Size' in tag.text)
         [x.extract() for x in image_text]
