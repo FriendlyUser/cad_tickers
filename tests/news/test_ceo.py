@@ -39,6 +39,6 @@ def test_article_scrap():
     assert ref_text == old_text
 
 def test_article_scrap_old():
-    sample_url = 'https://ceo.ca/@newsfile/peak-subsidiary-creates-supply-chain-financial-services'
+    sample_url = 'https://ceo.ca/@newsfile/peak-cloture-un-placement-prive-de-4m-et-confirme-son-partenariat-chinois'
     article = extract_article(sample_url)
     assert True

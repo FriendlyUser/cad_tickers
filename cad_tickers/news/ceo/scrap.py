@@ -11,16 +11,18 @@ def extract_article(article_url: str)-> bs4.element.Tag:
     # print(soup.prettify())
     article = soup.find(attrs={'class': 'article-body article'})
     # Use this as a example
-    # https://ceo.ca/@newsfile/peak-subsidiary-creates-supply-chain-financial-services
+    # remove image tags
     if article == None:
         article = soup.find(attrs={'class': 'article'})
-    # remove image tags
     try:
         image_text = article.findAll(lambda tag : tag.name == 'span' and 'Click Image To View Full Size' in tag.text)
         [x.extract() for x in image_text]
+    except AttributeError as e:
+        print('No Click Image to View Full Size text')
+    try:
         images = [x.extract() for x in soup.findAll('img')]
     except AttributeError as e:
-        print(e)
+        print('No Images in news report')
     return article
 
 def save_bs4_tag(tag: bs4.element.Tag, file_name: str=''):
