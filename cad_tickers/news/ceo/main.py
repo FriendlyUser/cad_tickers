@@ -33,11 +33,12 @@ def extract_urls(spiels: List[dict])-> Tuple[list, str]:
     # spiels_list = [i for i in spiels_list if i] 
     return spiels_list, spiels[0].get('timestamp')
 
-def get_new_items(ticker: str, channel='@newswire', max_iterations = 60, until = None):
+def get_new_items(ticker: str, channel='@newswire', max_iterations = 60, until = 0):
     """Gets news items from ceo using ticker
 
         Parameters:
             ticker - stock ticker, for example APHA
+            channel - can be @newswire, @thenewswire 
             max_iterations - max number of requests to ceo.ca
     """
     sp = SearchParams(channel=channel, filter_terms=ticker)
@@ -45,7 +46,7 @@ def get_new_items(ticker: str, channel='@newswire', max_iterations = 60, until =
     data_urls = []
     blank_fetchs = 0
     for i in range(max_iterations):
-        if until != None:
+        if until != 0:
             # update object with new timestamp
             sp = replace(sp, **{
                 'until': until, 

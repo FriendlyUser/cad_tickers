@@ -10,6 +10,10 @@ def extract_article(article_url: str)-> bs4.element.Tag:
     scripts = [x.extract() for x in soup.findAll('script')]
     # print(soup.prettify())
     article = soup.find(attrs={'class': 'article-body article'})
+    # Use this as a example
+    # https://ceo.ca/@newsfile/peak-subsidiary-creates-supply-chain-financial-services
+    if article == None:
+        article = soup.find(attrs={'class': 'article'})
     # remove image tags
     try:
         image_text = article.findAll(lambda tag : tag.name == 'span' and 'Click Image To View Full Size' in tag.text)

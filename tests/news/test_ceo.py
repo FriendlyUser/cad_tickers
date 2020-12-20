@@ -37,3 +37,8 @@ def test_article_scrap():
     old_text = article.text
 
     assert ref_text == old_text
+
+def test_article_scrap_old():
+    sample_url = 'https://ceo.ca/@newsfile/peak-subsidiary-creates-supply-chain-financial-services'
+    article = extract_article(sample_url)
+    assert True
