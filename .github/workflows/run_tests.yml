@@ -6,6 +6,7 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '30 13 * * 1-5'
+
 # Add cron job to ensure external webpages + apis have no changed
 jobs:
   run_tests:
