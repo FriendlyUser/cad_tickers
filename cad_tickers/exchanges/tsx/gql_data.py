@@ -200,6 +200,7 @@ class GQL:
             "symbol": "ART",
             "fromDate": "2020-09-01",
             "toDate": "2020-09-30",
+            "limit": 100,
         },
         "query": get_company_filings_query,
     }

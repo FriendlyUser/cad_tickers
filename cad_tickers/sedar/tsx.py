@@ -1,4 +1,5 @@
 import requests
+import json
 from datetime import datetime
 from cad_tickers.exchanges.tsx.gql_data import GQL
 from typing import Union
@@ -27,17 +28,23 @@ def get_ticker_filings(
     url = "https://app-money.tmx.com/graphql"
     r = requests.post(
         url,
-        json=payload,
+        data=json.dumps(payload),
         headers={
             "authority": "app-money.tmx.com",
             "referer": f"https://money.tmx.com/en/quote/{symbol.upper()}",
             "locale": "en",
+            "Content-Type": "application/json"
         },
     )
-    allData = r.json()
     try:
-        data = allData["data"]
-        return data
+        if r.status_code == 403:
+            print(r.text)
+            return {}
+        else:
+            allData = r.json()
+            print(allData)
+            data = allData["data"]
+            return data
     except KeyError as _e:
         print(_e, symbol)
         pass
@@ -66,26 +73,28 @@ def get_news_and_events(
     url = "https://app-money.tmx.com/graphql"
     r = requests.post(
         url,
-        json=payload,
+        data=json.dumps(payload),
         headers={
             "authority": "app-money.tmx.com",
             "referer": f"https://money.tmx.com/en/quote/{symbol.upper()}",
             "locale": "en",
+            "Content-Type": "application/json"
         },
     )
-    print(payload)
-    print(r)
     try:
-        allData = r.json()
-        print(allData)
-        data = allData["data"]
-        return data
+        # check headings
+        if r.status_code == 403:
+            print(r.text)
+            return {}
+        else:
+            allData = r.json()
+            data = allData["data"]
+            return data
     except KeyError as _e:
-        print(_e, symbol)
         return {}
 
 if __name__ == "__main__":
     art = get_news_and_events(
-        "ART", 1, 108
+        "PKK.CN", 1, 108
     )
     print(art)
