@@ -58,4 +58,3 @@ def test_get_releases_for_ip():
     ip_url = "https://www.thecse.com/en/listings/diversified-industries/1933-industries-inc"
     sample_urls = get_recent_docs_from_url(ip_url)
     print(sample_urls)
-    pass

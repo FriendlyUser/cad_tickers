@@ -42,9 +42,50 @@ def get_ticker_filings(
         print(_e, symbol)
         pass
 
+# TODO rename this later
+def get_news_and_events(
+    symbol: str,
+    page: int = 1,
+    limit: int = 100,
+    locale: str = "en",
+) -> Union[dict, None]:
+    """
+    Parameters:
+        symbol - ticker symbol from tsx, no prefix
+        page - start date to grab documents
+        limit - max number of documents to retrieve
+        locale - language
+    Returns:
+        dict - :ref:`Quote By Symbol <quote_by_symbol_query>`
+    """
+    payload = GQL.get_company_news_events_payload
+    payload["variables"]["symbol"] = symbol
+    payload["variables"]["page"] = page
+    payload["variables"]["limit"] = limit
+    payload["variables"]["locale"] = locale
+    url = "https://app-money.tmx.com/graphql"
+    r = requests.post(
+        url,
+        json=payload,
+        headers={
+            "authority": "app-money.tmx.com",
+            "referer": f"https://money.tmx.com/en/quote/{symbol.upper()}",
+            "locale": "en",
+        },
+    )
+    print(payload)
+    print(r)
+    try:
+        allData = r.json()
+        print(allData)
+        data = allData["data"]
+        return data
+    except KeyError as _e:
+        print(_e, symbol)
+        return {}
 
 if __name__ == "__main__":
-    art = get_ticker_filings(
-        "ART", start_date="2015-11-11", end_date="2020-11-11", limit=108
+    art = get_news_and_events(
+        "ART", 1, 108
     )
     print(art)

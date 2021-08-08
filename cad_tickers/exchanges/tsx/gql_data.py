@@ -131,6 +131,46 @@ class GQL:
         "query": quote_by_symbol_query,
     }
 
+    get_company_news_events_query = """query getNewsAndEvents(
+      $symbol: String!,
+      $page: Int!,
+      $limit: Int!,
+      $locale: String!
+    ) { 
+      news: getNewsForSymbol(
+        symbol: $symbol,
+        page: $page,
+        limit: $limit,
+        locale: $locale
+      ) {
+        headline
+        datetime
+        source
+        newsid
+        summary
+        __typename
+      }
+      events: getUpComingEventsForSymbol(symbol: $symbol, locale: $locale) {
+        title
+        date
+        status
+        type
+        __typename
+        }
+      }
+    """
+
+    get_company_news_events_payload = {
+        "operationName": "getNewsAndEvents",
+        "variables": {
+            "symbol": "ART",
+            "page": 1,
+            "limit": 100,
+            "locale": "en"
+        },
+        "query": get_company_news_events_query,
+    }
+
     get_company_filings_query = """query getCompanyFilings(
       $symbol: String!
       $fromDate: String
