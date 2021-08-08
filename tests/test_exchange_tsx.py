@@ -33,22 +33,22 @@ def test_get_tsx_tickers_diff_ex():
         assert True
 
 
-def test_get_ticker_data_art():
-    data = get_ticker_data("art")
-    assert data.get("symbol") == "ART"
+# def test_get_ticker_data_art():
+#     data = get_ticker_data("art")
+#     assert data.get("symbol") == "ART"
 
 
-def test_get_ticker_data_cmc():
-    data = get_ticker_data("CMC:CNX")
-    assert data.get("symbol") == "CMC:CNX"
-    print(data)
+# def test_get_ticker_data_cmc():
+#     data = get_ticker_data("IP:CNX")
+#     assert data.get("symbol") == "IP:CNX"
+#     print(data)
 
 
-def test_get_ticker_data_NA():
-    try:
-        data = get_ticker_data("NA")
-    except Exception as e:
-        assert True
+# def test_get_ticker_data_NA():
+#     try:
+#         data = get_ticker_data("NA")
+#     except Exception as e:
+#         assert True
 
 
 def test_get_all_tickers_data():

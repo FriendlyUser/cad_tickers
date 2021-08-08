@@ -6,6 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup
 from cad_tickers.util import (
     parse_description_tags,
+    extract_recent_news_links,
     make_cse_path,
     cse_ticker_to_webmoney,
 )
@@ -130,7 +131,7 @@ def get_cse_tickers_df() -> pd.DataFrame:
         urls        url to listing on cse website
         ==========  ====================================================================
     """
-    URL = f"https://www.thecse.com/export-listings/xlsx?f=" + r"{}"
+    URL = "https://www.thecse.com/export-listings/xlsx?f=" + r"{}"
     r = requests.get(URL)
     responseHeaders = r.headers
     if "text/html" in responseHeaders["Content-Type"]:
@@ -219,6 +220,22 @@ def add_descriptions_to_df(df: pd.DataFrame, max_workers: int = 16) -> pd.DataFr
     #   df.loc[index, 'description'] = description
     df["description"] = descriptions
     return df
+
+def get_recent_docs_from_url(url: str) -> list:
+    """
+    Parameters:
+      url - link to ticker can be empty string
+    Returns:
+      list - list of document urls with title
+    """
+    if url == "":
+        return ""
+    r = requests.get(url)
+    html_content = r.text
+    soup = BeautifulSoup(html_content, "lxml")
+    news_model = "group-cse-filings-content > view-listing-views item-link > a"
+    description_tags = soup.select(news_model)
+    return extract_recent_news_links(description_tags)
 
 
 if __name__ == "__main__":

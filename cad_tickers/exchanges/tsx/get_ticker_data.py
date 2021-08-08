@@ -4,6 +4,9 @@ from cad_tickers.exchanges.tsx.gql_data import GQL
 from typing import Union
 
 
+# TODO fix this later
+# unlikely need this data, I think yahoo finance is good enough
+# more consistent api
 def get_ticker_data(symbol=str) -> Union[dict, None]:
     """
     Parameters:

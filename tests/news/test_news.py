@@ -12,17 +12,6 @@ def test_get_halts_resumption():
     halts_df = get_halts_resumption()
     assert len(halts_df) > 20
 
-
-def test_stock_news_works():
-    news_data = scrap_news_for_ticker("IP.CN")
-    assert len(news_data) > 0
-
-
-def test_stock_news_works_2():
-    news_data = scrap_news_for_ticker("VSBY.CN")
-    assert len(news_data) > 0
-
-
 def test_stock_news_data_valid():
     news_items = scrap_news_for_ticker("IP.CN")
     for news_item in news_items:
@@ -54,3 +43,22 @@ def test_link_text():
     expected_text = "ImagineAR and The Pittsburgh Gateways Corporation Sign MOU To Integrate Augmented Reality Into the Energy Innovation Center"
     assert link_href == "/news/r-e-p-e-t-130000181.html"
     assert link_text == expected_text
+
+
+# TODO remove when I feel like it
+def test_stock_news_works():
+    """
+    depreciated test, see Conscrap project
+    """
+    pass 
+    # news_data = scrap_news_for_ticker("IP.CN")
+    # assert len(news_data) > 0
+
+
+def test_stock_news_works_2():
+    """
+    depreciated test, see Conscrap project
+    """
+    pass
+    # news_data = scrap_news_for_ticker("VSBY.CN")
+    # assert len(news_data) > 0

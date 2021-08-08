@@ -1,0 +1,24 @@
+name: Update CRON
+# Make update to public file to keep workflows running
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 0 2 * *'
+
+
+jobs:
+  update_cron:
+    name: Generate Report
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update Cron
+        run: |
+          echo "c\n" >> CRON.md
+      
+      - name: Update resources
+        uses: test-room-7/action-update-file@v1
+        with:
+            file-path: CRON.md
+            commit-msg: Update CRON.md
+            github-token: ${{ secrets.GITHUB_TOKEN }}
