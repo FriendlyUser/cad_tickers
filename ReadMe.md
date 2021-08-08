@@ -6,6 +6,8 @@ Function to extract exchange data from the cse and tsx websites and various othe
 
 The entire 0.2.x version of tsx functions are now depricated.
 
+Tsx has switched to graphql which I like.
+
 
 ### How to run tests
 
