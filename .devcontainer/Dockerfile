@@ -57,5 +57,5 @@ RUN apt-get update && apt-get -y dist-upgrade \
 ENV DEBIAN_FRONTEND=dialog
 
 USER vscode
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - --version=0.12.17
+RUN curl -sSL curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ENV PATH "/home/vscode/.poetry/bin:$PATH"

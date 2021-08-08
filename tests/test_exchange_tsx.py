@@ -39,8 +39,8 @@ def test_get_ticker_data_art():
 
 
 def test_get_ticker_data_cmc():
-    data = get_ticker_data("CMC:CNX")
-    assert data.get("symbol") == "CMC:CNX"
+    data = get_ticker_data("IP:CNX")
+    assert data.get("symbol") == "IP:CNX"
     print(data)
 
 

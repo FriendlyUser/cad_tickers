@@ -33,6 +33,17 @@ def parse_description_tags(description_tags: List[bs4.element.Tag]) -> str:
         return ""
 
 
+def extract_recent_news_links(modal_tags: List[bs4.element.Tag]) -> List[str]:
+  """extracts new release modal from cse
+  """
+  urls = []
+  for tag in modal_tags:
+    attrs = tag.attrs
+    data = attrs["href"]
+    urls.append(data)
+  return urls
+
+
 def make_cse_path(raw_ticker: str, raw_industry: str) -> str:
     """makes slug for ticker for the cse
 
