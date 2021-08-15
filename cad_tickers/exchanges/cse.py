@@ -233,9 +233,12 @@ def get_recent_docs_from_url(url: str) -> list:
     r = requests.get(url)
     html_content = r.text
     soup = BeautifulSoup(html_content, "lxml")
-    news_model = "group-cse-filings-content > view-listing-views item-link > a"
-    description_tags = soup.select(news_model)
-    return extract_recent_news_links(description_tags)
+    # news_model = "group-cse-filings-content"
+    news_model = "NewsReleasesModal"
+    modal_elements = soup.find("div", {"id": news_model})
+    # get all links
+    file_links = modal_elements.find_all("a")
+    return extract_recent_news_links(file_links)
 
 
 if __name__ == "__main__":

@@ -24,3 +24,6 @@ python:
   version: 3.9
   install:
     - requirements: requirements.txt
+
+build:
+  image: testing

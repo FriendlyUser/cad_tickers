@@ -54,7 +54,8 @@ def test_get_description_for_ip():
     ref_description_2020 = "<strong>ImagineAR Inc.</strong>"
     assert str(description) == str(ref_description_2020)
 
+
 def test_get_releases_for_ip():
     ip_url = "https://www.thecse.com/en/listings/diversified-industries/1933-industries-inc"
     sample_urls = get_recent_docs_from_url(ip_url)
-    print(sample_urls)
+    assert len(sample_urls) > 0
