@@ -1,0 +1,11 @@
+files:
+  - source: '*'
+    ignore:
+      - '*.lock'
+      - .github/*
+      - .devcontainer/*
+      - .vscode/*
+      - '*.csv'
+      - '*.json'
+      - '*.yml'
+    translation: /l1on/%two_letters_code%/%original_file_name%
