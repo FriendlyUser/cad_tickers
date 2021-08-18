@@ -1,0 +1,10 @@
+[run]
+omit =
+    /github/home/.cache/pypoetry/virtualenvs/*
+    pythonenv3.8/lib/**
+    *tests*
+
+[report]
+
+exclude_lines =
+    if __name__ == "__main__":
