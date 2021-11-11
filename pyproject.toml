@@ -31,7 +31,7 @@ openpyxl = "^3.0.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.1"
-sphinx = "^3.2.1"
+sphinx = "^4.3.0"
 pytest-cov = "^2.10.1"
 sphinx_rtd_theme = "^0.5.0"
 
