@@ -21,6 +21,6 @@ def test_get_tsx_docs_params():
 #     assert error == None
 
 def test_get_news_and_events():
-    data = get_news_and_events("PKK.CN")
+    data = get_news_and_events("BETS.CN")
     assert len(data["news"]) >= 0
     assert len(data["events"]) >= 0
