@@ -11,6 +11,7 @@ class CSETicker(object):
         depth_by_order: List[dict],
         depth_by_price: List[dict],
         ticker: dict,
+        legal: dict,
         trades: List[dict],
     ):
         self.updated_at = updated_at
@@ -21,6 +22,7 @@ class CSETicker(object):
         self.ticker = ticker
         self.trades = trades
         self.metadata = metadata
+        self.legal = legal
 
 
 class CSESedarFilings(object):
