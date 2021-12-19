@@ -1,6 +1,7 @@
 import pandas as pd
 import bs4
 from typing import List
+from random_user_agent.user_agent import UserAgent
 
 
 def transform_name_to_slug(raw_ticker: str) -> str:
@@ -151,3 +152,8 @@ def cse_ticker_to_webmoney(cse_ticker: str):
 
 
 # make request with query params
+
+def get_random_agent() -> str:
+    user_agent_rotator = UserAgent(limit=100)
+    user_agent = user_agent_rotator.get_random_user_agent()
+    return user_agent

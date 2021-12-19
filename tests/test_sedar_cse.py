@@ -4,6 +4,10 @@ from cad_tickers.exchanges.classes import CSETicker, CSESedarFilings
 from cad_tickers.sedar.cse import get_cse_sedar_docs, get_cse_ticker_data
 
 
+import time
+def teardown_function(function):   # the function parameter is optional
+    time.sleep(3)
+
 def test_get_sedar_docs_json():
     bets_path = os.path.join("tests", "sample_data", "BETS.json")
     bets_json = {}

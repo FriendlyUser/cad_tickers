@@ -1,5 +1,9 @@
 from cad_tickers.sedar.tsx import get_ticker_filings, get_news_and_events
 
+import time
+def teardown_function(function):   # the function parameter is optional
+    time.sleep(3)
+
 
 def test_get_tsx_docs():
 

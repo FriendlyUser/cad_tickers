@@ -9,6 +9,10 @@ import os
 import pandas as pd
 from io import StringIO
 
+import time
+def teardown_function(function):   # the function parameter is optional
+    time.sleep(3)
+
 
 def test_get_tsx_tickers_tsx():
     tsx_tickers = get_tsx_tickers("tsx")
@@ -54,7 +58,7 @@ def test_get_tsx_tickers_diff_ex():
 def test_get_all_tickers_data():
     data = get_all_tickers_data()
     assert isinstance(data, pd.DataFrame)
-    assert len(data) > 2000
+    assert len(data) > 1000
     found = data[data["symbol"].str.contains("BB")]
     assert len(found) >= 1
 

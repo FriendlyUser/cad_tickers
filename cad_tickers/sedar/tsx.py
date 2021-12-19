@@ -1,5 +1,6 @@
 import requests
 import json
+from cad_tickers.util.utils import get_random_agent
 from datetime import datetime
 from cad_tickers.exchanges.tsx.gql_data import GQL
 from typing import Union
@@ -33,7 +34,9 @@ def get_ticker_filings(
             "authority": "app-money.tmx.com",
             "referer": f"https://money.tmx.com/en/quote/{symbol.upper()}",
             "locale": "en",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "User-Agent": get_random_agent(),
+            "Accept": "*/*"
         },
     )
     try:
@@ -75,10 +78,9 @@ def get_news_and_events(
         url,
         data=json.dumps(payload),
         headers={
-            "authority": "app-money.tmx.com",
-            "referer": f"https://money.tmx.com/en/quote/{symbol.upper()}",
-            "locale": "en",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "User-Agent": get_random_agent(),
+            "Accept": "*/*"
         },
     )
     try:
