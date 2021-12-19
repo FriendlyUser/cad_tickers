@@ -20,7 +20,7 @@ def test_get_sedar_docs_json():
 
 
 def test_get_sedar_docs_json_class():
-    cmc_path = os.path.join("tests", "sample_data", "CMC.json")
+    cmc_path = os.path.join("tests", "sample_data", "BETS.json")
     cmc_json = {}
     try:
         with open(cmc_path) as f:
@@ -36,13 +36,13 @@ def test_get_sedar_docs_json_class():
 
 
 def test_get_cse_ticker():
-    cmc_dict = get_cse_ticker_data("CMC")
+    cmc_dict = get_cse_ticker_data("BETS")
     assert isinstance(cmc_dict, dict)
     metatdata = cmc_dict.get("metatdata")
     assert isinstance(metatdata, dict)
 
 
 def test_get_cse_ticker_class():
-    cmc_obj = get_cse_ticker_data("CMC", False)
+    cmc_obj = get_cse_ticker_data("BETS", False)
     assert isinstance(cmc_obj, CSETicker)
     assert isinstance(cmc_obj.metatdata, dict)
