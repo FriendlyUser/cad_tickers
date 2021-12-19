@@ -1,1 +1,511 @@
-{"updated_at":{"date":"2021-12-17","time":"17:15:41"},"metadata":{"listing_market":"CSE","symbol":"BETS","listing_date":"2020-07-02","trading_date":"2020-07-02","status":"Active","security_name":"I3 Interactive Inc.","security_type":"Equity","sector":"Technology","sector_tags":[],"currency":"CAD","outstanding_shares":222753428,"reserved_shares":89785069,"total_equity_shares_as_if_converted":null,"market_maker":{"dealer name":"W.D. Latimer Co. Limited","type":"odd lot only"},"index":"No","recent_change":{"effective_on":"2021-05-21","text":"formerly was BETS/Interactive Games Technologies Inc until 2021-05-20","until":"2021-05-20","name_was":"Interactive Games Technologies Inc","type":"name and CUSIP"},"sedar_filings":"https://webapi.thecse.com/trading/listed/sedar_filings/00029437.json"},"metatdata":{"deprecated":"Please use 'metadata' instead","removal_date":"2022-07-01","listing_market":"CSE","symbol":"BETS","listing_date":"2020-07-02","trading_date":"2020-07-02","status":"Active","security_name":"I3 Interactive Inc.","security_type":"Equity","sector":"Technology","sector_tags":[],"currency":"CAD","outstanding_shares":222753428,"reserved_shares":89785069,"total_equity_shares_as_if_converted":null,"market_maker":{"dealer name":"W.D. Latimer Co. Limited","type":"odd lot only"},"index":"No","recent_change":{"effective_on":"2021-05-21","text":"formerly was BETS/Interactive Games Technologies Inc until 2021-05-20","until":"2021-05-20","name_was":"Interactive Games Technologies Inc","type":"name and CUSIP"},"sedar_filings":"https://webapi.thecse.com/trading/listed/sedar_filings/00029437.json"},"quote":{"Time":"15:59:33.000","Bid Size":18500,"Bid Price":0.19,"Ask Price":0.2,"Ask Size":94000},"depth_by_order":{"date":"2021-12-17","time":"15:59:33.000","levels":[{"Bid Dealer":"National Bank Financial Inc.","Bid Size":9500,"Bid Price":0.19,"Ask Price":0.2,"Ask Size":15000,"Ask Dealer":"CIBC World Markets Inc."},{"Bid Dealer":"TD Securities Inc.","Bid Size":9000,"Bid Price":0.19,"Ask Price":0.2,"Ask Size":1000,"Ask Dealer":"Scotia Capital Inc."},{"Bid Dealer":"TD Securities Inc.","Bid Size":10000,"Bid Price":0.185,"Ask Price":0.2,"Ask Size":3000,"Ask Dealer":"TD Securities Inc."},{"Bid Dealer":"CIBC World Markets Inc.","Bid Size":4500,"Bid Price":0.185,"Ask Price":0.2,"Ask Size":50000,"Ask Dealer":"Anonymous"},{"Bid Dealer":"Anonymous","Bid Size":100000,"Bid Price":0.185,"Ask Price":0.2,"Ask Size":500,"Ask Dealer":"RBC Capital Markets"},{"Bid Dealer":"Anonymous","Bid Size":105000,"Bid Price":0.18,"Ask Price":0.2,"Ask Size":10000,"Ask Dealer":"Anonymous"},{"Bid Dealer":"RBC Capital Markets","Bid Size":1000,"Bid Price":0.18,"Ask Price":0.2,"Ask Size":5000,"Ask Dealer":"RBC Capital Markets"},{"Bid Dealer":"TD Securities Inc.","Bid Size":1000,"Bid Price":0.175,"Ask Price":0.2,"Ask Size":1000,"Ask Dealer":"National Bank Financial Inc."},{"Bid Dealer":"Anonymous","Bid Size":3000,"Bid Price":0.175,"Ask Price":0.2,"Ask Size":1000,"Ask Dealer":"RBC Capital Markets"},{"Bid Dealer":"RBC Capital Markets","Bid Size":5000,"Bid Price":0.175,"Ask Price":0.2,"Ask Size":7500,"Ask Dealer":"RBC Capital Markets"}]},"depth_by_price":{"date":"2021-12-17","time":"15:59:33.000","levels":[{"Bid Count":2,"Bid Size":18500,"Bid Price":0.19,"Ask Price":0.2,"Ask Size":94000,"Ask Count":10},{"Bid Count":3,"Bid Size":114500,"Bid Price":0.185,"Ask Price":0.205,"Ask Size":6000,"Ask Count":2},{"Bid Count":2,"Bid Size":106000,"Bid Price":0.18,"Ask Price":0.21,"Ask Size":30000,"Ask Count":5},{"Bid Count":3,"Bid Size":9000,"Bid Price":0.175,"Ask Price":0.22,"Ask Size":15500,"Ask Count":1},{"Bid Count":1,"Bid Size":125000,"Bid Price":0.17,"Ask Price":0.225,"Ask Size":5000,"Ask Count":1}]},"ticker":{"Time":"15:59:22.000","Previous Closing Price":0.395,"Trade Count":1067,"Trading Volume":3731499,"Trading Value":617240,"Trading Value (CAD)":617240,"Opening Price":0.075,"Last Price":0.19,"Net Change":-0.205,"Net Change Percentage":-51.9,"Last Tick":null,"Days Low Price":0.07,"Days High Price":0.2,"Days VWAP":0.165,"52 Week High":0.91,"52 Week Low":0.07,"Composite Index Contribution":{},"CSE25 Index Contribution":{}},"trades":[{"date":"2021-12-17","time":"15:59:22.000","timestamp":1639774762,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"National Bank Financial Inc.","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:59:02.000","timestamp":1639774742,"price":0.19,"tick":-0.005,"change":-0.205,"volume":500,"buy_dealer":"National Bank Financial Inc.","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:58:36.000","timestamp":1639774716,"price":0.195,"tick":null,"change":-0.2,"volume":1000,"buy_dealer":"RBC Capital Markets","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:58:36.000","timestamp":1639774716,"price":0.195,"tick":0.005,"change":-0.2,"volume":1000,"buy_dealer":"RBC Capital Markets","sell_dealer":"National Bank Financial Inc."},{"date":"2021-12-17","time":"15:57:40.000","timestamp":1639774660,"price":0.19,"tick":null,"change":-0.205,"volume":1000,"buy_dealer":"National Bank Financial Inc.","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:57:40.000","timestamp":1639774660,"price":0.19,"tick":null,"change":-0.205,"volume":1000,"buy_dealer":"National Bank Financial Inc.","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:57:40.000","timestamp":1639774660,"price":0.19,"tick":null,"change":-0.205,"volume":1000,"buy_dealer":"National Bank Financial Inc.","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:57:40.000","timestamp":1639774660,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"National Bank Financial Inc.","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:56:10.000","timestamp":1639774570,"price":0.19,"tick":null,"change":-0.205,"volume":4500,"buy_dealer":"RBC Capital Markets","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:56:03.000","timestamp":1639774563,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"RBC Capital Markets","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:56:03.000","timestamp":1639774563,"price":0.19,"tick":null,"change":-0.205,"volume":2500,"buy_dealer":"RBC Capital Markets","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:56:03.000","timestamp":1639774563,"price":0.19,"tick":null,"change":-0.205,"volume":1000,"buy_dealer":"Desjardins Securities Inc.","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:56:03.000","timestamp":1639774563,"price":0.19,"tick":null,"change":-0.205,"volume":1000,"buy_dealer":"National Bank Financial Inc.","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:56:01.000","timestamp":1639774561,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"National Bank Financial Inc.","sell_dealer":"Questrade Inc."},{"date":"2021-12-17","time":"15:56:01.000","timestamp":1639774561,"price":0.19,"tick":null,"change":-0.205,"volume":10000,"buy_dealer":"Anonymous","sell_dealer":"Questrade Inc."},{"date":"2021-12-17","time":"15:55:57.000","timestamp":1639774557,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:55:46.000","timestamp":1639774546,"price":0.19,"tick":null,"change":-0.205,"volume":7000,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:55:33.000","timestamp":1639774533,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:55:04.000","timestamp":1639774504,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:54:39.000","timestamp":1639774479,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:54:15.000","timestamp":1639774455,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:53:51.000","timestamp":1639774431,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:53:21.000","timestamp":1639774401,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:52:57.000","timestamp":1639774377,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"},{"date":"2021-12-17","time":"15:52:33.000","timestamp":1639774353,"price":0.19,"tick":null,"change":-0.205,"volume":500,"buy_dealer":"Anonymous","sell_dealer":"Anonymous"}],"legal":{"disclaimer":"CNSX Markets Inc. does not warrant, guarantee or make any representations regarding the quality, accuracy, adequacy, timeliness, completeness or fitness for a particular purpose of any information in the products, and as such assumes no liability for any loss resulting from its use."}}
+{
+    "updated_at":{
+       "date":"2021-12-17",
+       "time":"17:15:41"
+    },
+    "metadata":{
+       "listing_market":"CSE",
+       "symbol":"BETS",
+       "listing_date":"2020-07-02",
+       "trading_date":"2020-07-02",
+       "status":"Active",
+       "security_name":"I3 Interactive Inc.",
+       "security_type":"Equity",
+       "sector":"Technology",
+       "sector_tags":[
+          
+       ],
+       "currency":"CAD",
+       "outstanding_shares":222753428,
+       "reserved_shares":89785069,
+       "total_equity_shares_as_if_converted":null,
+       "market_maker":{
+          "dealer name":"W.D. Latimer Co. Limited",
+          "type":"odd lot only"
+       },
+       "index":"No",
+       "recent_change":{
+          "effective_on":"2021-05-21",
+          "text":"formerly was BETS/Interactive Games Technologies Inc until 2021-05-20",
+          "until":"2021-05-20",
+          "name_was":"Interactive Games Technologies Inc",
+          "type":"name and CUSIP"
+       },
+       "sedar_filings":"https://webapi.thecse.com/trading/listed/sedar_filings/00029437.json"
+    },
+    "metatdata":{
+       "deprecated":"Please use 'metadata' instead",
+       "removal_date":"2022-07-01",
+       "listing_market":"CSE",
+       "symbol":"BETS",
+       "listing_date":"2020-07-02",
+       "trading_date":"2020-07-02",
+       "status":"Active",
+       "security_name":"I3 Interactive Inc.",
+       "security_type":"Equity",
+       "sector":"Technology",
+       "sector_tags":[
+          
+       ],
+       "currency":"CAD",
+       "outstanding_shares":222753428,
+       "reserved_shares":89785069,
+       "total_equity_shares_as_if_converted":null,
+       "market_maker":{
+          "dealer name":"W.D. Latimer Co. Limited",
+          "type":"odd lot only"
+       },
+       "index":"No",
+       "recent_change":{
+          "effective_on":"2021-05-21",
+          "text":"formerly was BETS/Interactive Games Technologies Inc until 2021-05-20",
+          "until":"2021-05-20",
+          "name_was":"Interactive Games Technologies Inc",
+          "type":"name and CUSIP"
+       },
+       "sedar_filings":"https://webapi.thecse.com/trading/listed/sedar_filings/00029437.json"
+    },
+    "quote":{
+       "Time":"15:59:33.000",
+       "Bid Size":18500,
+       "Bid Price":0.19,
+       "Ask Price":0.2,
+       "Ask Size":94000
+    },
+    "depth_by_order":{
+       "date":"2021-12-17",
+       "time":"15:59:33.000",
+       "levels":[
+          {
+             "Bid Dealer":"National Bank Financial Inc.",
+             "Bid Size":9500,
+             "Bid Price":0.19,
+             "Ask Price":0.2,
+             "Ask Size":15000,
+             "Ask Dealer":"CIBC World Markets Inc."
+          },
+          {
+             "Bid Dealer":"TD Securities Inc.",
+             "Bid Size":9000,
+             "Bid Price":0.19,
+             "Ask Price":0.2,
+             "Ask Size":1000,
+             "Ask Dealer":"Scotia Capital Inc."
+          },
+          {
+             "Bid Dealer":"TD Securities Inc.",
+             "Bid Size":10000,
+             "Bid Price":0.185,
+             "Ask Price":0.2,
+             "Ask Size":3000,
+             "Ask Dealer":"TD Securities Inc."
+          },
+          {
+             "Bid Dealer":"CIBC World Markets Inc.",
+             "Bid Size":4500,
+             "Bid Price":0.185,
+             "Ask Price":0.2,
+             "Ask Size":50000,
+             "Ask Dealer":"Anonymous"
+          },
+          {
+             "Bid Dealer":"Anonymous",
+             "Bid Size":100000,
+             "Bid Price":0.185,
+             "Ask Price":0.2,
+             "Ask Size":500,
+             "Ask Dealer":"RBC Capital Markets"
+          },
+          {
+             "Bid Dealer":"Anonymous",
+             "Bid Size":105000,
+             "Bid Price":0.18,
+             "Ask Price":0.2,
+             "Ask Size":10000,
+             "Ask Dealer":"Anonymous"
+          },
+          {
+             "Bid Dealer":"RBC Capital Markets",
+             "Bid Size":1000,
+             "Bid Price":0.18,
+             "Ask Price":0.2,
+             "Ask Size":5000,
+             "Ask Dealer":"RBC Capital Markets"
+          },
+          {
+             "Bid Dealer":"TD Securities Inc.",
+             "Bid Size":1000,
+             "Bid Price":0.175,
+             "Ask Price":0.2,
+             "Ask Size":1000,
+             "Ask Dealer":"National Bank Financial Inc."
+          },
+          {
+             "Bid Dealer":"Anonymous",
+             "Bid Size":3000,
+             "Bid Price":0.175,
+             "Ask Price":0.2,
+             "Ask Size":1000,
+             "Ask Dealer":"RBC Capital Markets"
+          },
+          {
+             "Bid Dealer":"RBC Capital Markets",
+             "Bid Size":5000,
+             "Bid Price":0.175,
+             "Ask Price":0.2,
+             "Ask Size":7500,
+             "Ask Dealer":"RBC Capital Markets"
+          }
+       ]
+    },
+    "depth_by_price":{
+       "date":"2021-12-17",
+       "time":"15:59:33.000",
+       "levels":[
+          {
+             "Bid Count":2,
+             "Bid Size":18500,
+             "Bid Price":0.19,
+             "Ask Price":0.2,
+             "Ask Size":94000,
+             "Ask Count":10
+          },
+          {
+             "Bid Count":3,
+             "Bid Size":114500,
+             "Bid Price":0.185,
+             "Ask Price":0.205,
+             "Ask Size":6000,
+             "Ask Count":2
+          },
+          {
+             "Bid Count":2,
+             "Bid Size":106000,
+             "Bid Price":0.18,
+             "Ask Price":0.21,
+             "Ask Size":30000,
+             "Ask Count":5
+          },
+          {
+             "Bid Count":3,
+             "Bid Size":9000,
+             "Bid Price":0.175,
+             "Ask Price":0.22,
+             "Ask Size":15500,
+             "Ask Count":1
+          },
+          {
+             "Bid Count":1,
+             "Bid Size":125000,
+             "Bid Price":0.17,
+             "Ask Price":0.225,
+             "Ask Size":5000,
+             "Ask Count":1
+          }
+       ]
+    },
+    "ticker":{
+       "Time":"15:59:22.000",
+       "Previous Closing Price":0.395,
+       "Trade Count":1067,
+       "Trading Volume":3731499,
+       "Trading Value":617240,
+       "Trading Value (CAD)":617240,
+       "Opening Price":0.075,
+       "Last Price":0.19,
+       "Net Change":-0.205,
+       "Net Change Percentage":-51.9,
+       "Last Tick":null,
+       "Days Low Price":0.07,
+       "Days High Price":0.2,
+       "Days VWAP":0.165,
+       "52 Week High":0.91,
+       "52 Week Low":0.07,
+       "Composite Index Contribution":{
+          
+       },
+       "CSE25 Index Contribution":{
+          
+       }
+    },
+    "trades":[
+       {
+          "date":"2021-12-17",
+          "time":"15:59:22.000",
+          "timestamp":1639774762,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"National Bank Financial Inc.",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:59:02.000",
+          "timestamp":1639774742,
+          "price":0.19,
+          "tick":-0.005,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"National Bank Financial Inc.",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:58:36.000",
+          "timestamp":1639774716,
+          "price":0.195,
+          "tick":null,
+          "change":-0.2,
+          "volume":1000,
+          "buy_dealer":"RBC Capital Markets",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:58:36.000",
+          "timestamp":1639774716,
+          "price":0.195,
+          "tick":0.005,
+          "change":-0.2,
+          "volume":1000,
+          "buy_dealer":"RBC Capital Markets",
+          "sell_dealer":"National Bank Financial Inc."
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:57:40.000",
+          "timestamp":1639774660,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":1000,
+          "buy_dealer":"National Bank Financial Inc.",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:57:40.000",
+          "timestamp":1639774660,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":1000,
+          "buy_dealer":"National Bank Financial Inc.",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:57:40.000",
+          "timestamp":1639774660,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":1000,
+          "buy_dealer":"National Bank Financial Inc.",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:57:40.000",
+          "timestamp":1639774660,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"National Bank Financial Inc.",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:56:10.000",
+          "timestamp":1639774570,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":4500,
+          "buy_dealer":"RBC Capital Markets",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:56:03.000",
+          "timestamp":1639774563,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"RBC Capital Markets",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:56:03.000",
+          "timestamp":1639774563,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":2500,
+          "buy_dealer":"RBC Capital Markets",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:56:03.000",
+          "timestamp":1639774563,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":1000,
+          "buy_dealer":"Desjardins Securities Inc.",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:56:03.000",
+          "timestamp":1639774563,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":1000,
+          "buy_dealer":"National Bank Financial Inc.",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:56:01.000",
+          "timestamp":1639774561,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"National Bank Financial Inc.",
+          "sell_dealer":"Questrade Inc."
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:56:01.000",
+          "timestamp":1639774561,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":10000,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Questrade Inc."
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:55:57.000",
+          "timestamp":1639774557,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:55:46.000",
+          "timestamp":1639774546,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":7000,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:55:33.000",
+          "timestamp":1639774533,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:55:04.000",
+          "timestamp":1639774504,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:54:39.000",
+          "timestamp":1639774479,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:54:15.000",
+          "timestamp":1639774455,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:53:51.000",
+          "timestamp":1639774431,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:53:21.000",
+          "timestamp":1639774401,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:52:57.000",
+          "timestamp":1639774377,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       },
+       {
+          "date":"2021-12-17",
+          "time":"15:52:33.000",
+          "timestamp":1639774353,
+          "price":0.19,
+          "tick":null,
+          "change":-0.205,
+          "volume":500,
+          "buy_dealer":"Anonymous",
+          "sell_dealer":"Anonymous"
+       }
+    ],
+    "legal":{
+       "disclaimer":"CNSX Markets Inc. does not warrant, guarantee or make any representations regarding the quality, accuracy, adequacy, timeliness, completeness or fitness for a particular purpose of any information in the products, and as such assumes no liability for any loss resulting from its use."
+    }
+ }

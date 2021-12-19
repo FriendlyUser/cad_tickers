@@ -5,15 +5,15 @@ from cad_tickers.sedar.cse import get_cse_sedar_docs, get_cse_ticker_data
 
 
 def test_get_sedar_docs_json():
-    cmc_path = os.path.join("tests", "sample_data", "CMC.json")
-    cmc_json = {}
+    bets_path = os.path.join("tests", "sample_data", "BETS.json")
+    bets_json = {}
     try:
-        with open(cmc_path) as f:
-            cmc_json = json.load(f)
+        with open(bets_path) as f:
+            bets_json = json.load(f)
     except Exception as e:
         print(e)
     # ensure that it can be imported into the filings object
-    filings = get_cse_sedar_docs(cmc_json)
+    filings = get_cse_sedar_docs(bets_json)
     cse_filings = CSESedarFilings(filings.get("categories"), filings.get("list"))
     assert isinstance(cse_filings, CSESedarFilings)
     assert len(cse_filings.list_items) > 0

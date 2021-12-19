@@ -6,6 +6,7 @@ class CSETicker(object):
         self,
         updated_at: dict,
         metatdata: dict,
+        metadata: dict,
         quote: dict,
         depth_by_order: List[dict],
         depth_by_price: List[dict],
@@ -19,6 +20,7 @@ class CSETicker(object):
         self.depth_by_price = depth_by_price
         self.ticker = ticker
         self.trades = trades
+        self.metadata = metadata
 
 
 class CSESedarFilings(object):
