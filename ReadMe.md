@@ -20,10 +20,6 @@ pytest
 poetry export -f requirements.txt > requirements.txt.
 ```
 
-Or checkout some of my books 
-
-[![Python Programming](https://m.media-amazon.com/images/I/41Mj384vgeL._SY346_.jpg)](https://www.amazon.com/dp/B0BXFLYRBD)
-
 
 #### Donate
 
