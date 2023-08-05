@@ -40,8 +40,10 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
+        if: always()
         with:
           file: ./coverage.xml
           flags: ga_ci
           env_vars: PYTHON,OS,POETRY
           fail_ci_if_error: true
+        
