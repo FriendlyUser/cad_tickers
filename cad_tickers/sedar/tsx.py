@@ -95,8 +95,10 @@ def get_news_and_events(
     except KeyError as _e:
         return {}
 
+## consider pulling financial information or just downloading it with selenium.
+## could also use yahoo finance instead.
 if __name__ == "__main__":
     art = get_news_and_events(
-        "PKK.CN", 1, 108
+        "T", 1, 108
     )
     print(art)

@@ -4,15 +4,13 @@
 Function to extract exchange data from the cse and tsx websites and various other data sources. This package is primarily focussed on scrapping data for the canadian stock market.
 
 
-The entire 0.2.x version of tsx functions are now depricated.
-
 Tsx has switched to graphql which I like.
 
 
 ### How to run tests
 
 ```
-pytest
+ poetry run python -m pytest
 ```
 
 ```
